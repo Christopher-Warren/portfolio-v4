@@ -16,7 +16,6 @@ export const DarkModeProvider: React.FC<Props> = ({ children }) => {
       document.documentElement.classList.remove("dark");
     }
   }
-  if (!Array.isArray(children)) return <>{children}</>;
 
-  return <>{[...children]}</>;
+  return <>{children}</>;
 };

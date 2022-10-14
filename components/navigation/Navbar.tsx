@@ -28,32 +28,33 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(navHeight);
-
   return (
-    <>
-      <nav
-        ref={heightRef}
-        className={`w-full text-slate-900 fixed transition-transform
-        ${visible ? "translate-y-0" : `-translate-y-full`}`}
+    <div className="flex justify-center ">
+      <div
+        className={`flex w-full z-50 pt-7 px-20 max-w-7xl items-center justify-between fixed transition-transform
+    ${visible ? "translate-y-0" : `-translate-y-full`}`}
       >
-        <ul
-          className={`flex w-max mx-auto font-light bg-neutral-900  items-middle neumorphism-shadow tracking-wide dark:text-neutral-200 mt-7 px-5 rounded-2xl text-sm leading-6`}
-        >
-          <li className="px-3 py-2 hover:text-green-500 transition-colors">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="px-3 py-2 hover:text-green-500 transition-colors">
-            <Link href="/about">About</Link>
-          </li>
-          <li className="px-3 py-2 hover:text-green-500 transition-colors">
-            <Link href="/projects">Projects</Link>
-          </li>
-          <li className="px-3 py-2 hover:text-green-500 transition-colors">
-            <Link href="/articles">Articles</Link>
-          </li>
-        </ul>
-      </nav>
-    </>
+        <div></div>
+        <nav ref={heightRef}>
+          <ul
+            className={`flex  bg-neutral-900  items-middle neumorphism-shadow tracking-wide dark:text-neutral-200 px-5 rounded-2xl text-sm leading-6`}
+          >
+            <li className="px-3 py-2 hover:text-green-500 transition-colors">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="px-3 py-2 hover:text-green-500 transition-colors">
+              <Link href="/about">About</Link>
+            </li>
+            <li className="px-3 py-2 hover:text-green-500 transition-colors">
+              <Link href="/projects">Projects</Link>
+            </li>
+            <li className="px-3 py-2 hover:text-green-500 transition-colors">
+              <Link href="/articles">Articles</Link>
+            </li>
+          </ul>
+        </nav>
+        <div></div>
+      </div>
+    </div>
   );
 };
