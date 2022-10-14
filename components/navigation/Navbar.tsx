@@ -67,7 +67,7 @@ export const Navbar = () => {
   return (
     <div className="flex justify-center">
       <div
-        className={`flex w-full z-50 pt-7 px-20 max-w-7xl justify-between fixed transition-transform
+        className={`flex w-full z-50 pt-12 -mt-5  px-20 max-w-7xl justify-between fixed transition-transform
     ${visible ? "translate-y-0" : `-translate-y-full`}`}
       >
         <div></div>
