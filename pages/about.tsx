@@ -13,10 +13,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
-const Home: NextPage = () => {
-  const imgWidth = 290;
-  const imgHeight = 320;
-
+const about = () => {
   return (
     <MainContainer>
       <div className="pt-44 max-w-2xl ">
@@ -59,67 +56,10 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-600 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
-          Download CV
-        </button> */}
+              Download CV
+            </button> */}
       {/* image break */}
-      <div className="-mx-20 overflow-x-clip mt-20">
-        <div className="-mx-36">
-          <div className="flex justify-between [&>*]:shadow-lg   [&>*]:rounded-2xl [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2 ">
-            <Image
-              alt="hey"
-              width={imgWidth}
-              layout={"fixed"}
-              height={imgHeight}
-              className=""
-              src={
-                "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
-              }
-            />
-            <div className="flex overflow-clip hover:bg-neutral-900 transition-colors">
-              <Image
-                alt="hey"
-                width={imgWidth}
-                height={imgHeight}
-                className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
-                src={
-                  "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
-                }
-              />
-            </div>
 
-            <div className="flex  overflow-clip hover:bg-neutral-900 transition-colors">
-              <Image
-                alt="hey"
-                width={imgWidth}
-                height={imgHeight}
-                className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
-                src={
-                  "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
-                }
-              />
-            </div>
-            <div className="flex  overflow-clip hover:bg-neutral-900 transition-colors">
-              <Image
-                alt="hey"
-                width={imgWidth}
-                height={imgHeight}
-                className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
-                src={
-                  "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
-                }
-              />
-            </div>
-            <Image
-              alt="hey"
-              width={imgWidth}
-              height={imgHeight}
-              src={
-                "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
-              }
-            />
-          </div>
-        </div>
-      </div>
       <div className="mt-32">hello</div>
       <div className="h-screen  border-b-2 border-white"></div>
       <div className="h-screen  border-b-2 border-white"></div>
@@ -128,5 +68,4 @@ const Home: NextPage = () => {
     </MainContainer>
   );
 };
-
-export default Home;
+export default about;

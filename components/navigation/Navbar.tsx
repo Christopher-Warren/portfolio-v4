@@ -2,6 +2,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faSun as sun } from "@fortawesome/free-regular-svg-icons";
+import { faMoon as moon } from "@fortawesome/free-regular-svg-icons";
+import useDarkMode from "../../hooks/useDarkMode";
+
 interface NavPath {
   href: string;
   pathname: string;
@@ -13,6 +19,8 @@ export const Navbar = () => {
   const scrollYRef = useRef<number>(0);
   const heightRef = useRef<HTMLDivElement>(null);
   const navHeight = heightRef.current?.clientHeight;
+
+  const [darkModeActive, setDarkModeActive] = useDarkMode();
 
   const router = useRouter();
 
@@ -56,16 +64,18 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  console.log(darkModeActive);
+
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <div
-        className={`flex w-full z-50 pt-7 px-20 max-w-7xl items-center justify-between fixed transition-transform
+        className={`flex w-full z-50 pt-7 px-20 max-w-7xl justify-between fixed transition-transform
     ${visible ? "translate-y-0" : `-translate-y-full`}`}
       >
         <div></div>
         <nav ref={heightRef}>
           <ul
-            className={`flex neumorphism-shadow bg-neutral-800/80 shadow-md items-middle 00  backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
+            className={`flex neumorphism-shadow bg-neutral-800/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
           >
             {navPaths.map((route: NavPath) => {
               return (
@@ -85,7 +95,16 @@ export const Navbar = () => {
             })}
           </ul>
         </nav>
-        <div></div>
+        <div
+          onClick={() => setDarkModeActive(!darkModeActive)}
+          className="neumorphism-shadow cursor-pointer transition-all duration-300 hover:bg-neutral-800 hover:shadow-none bg-neutral-800/80 p-2.5 shadow-md items-middle backdrop-blur  dark:text-neutral-200 rounded-full text-sm"
+        >
+          <FontAwesomeIcon
+            className="dark:text-yellow-200 "
+            size="lg"
+            icon={darkModeActive ? sun : moon}
+          />
+        </div>
       </div>
     </div>
   );
