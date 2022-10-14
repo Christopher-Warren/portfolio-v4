@@ -73,7 +73,7 @@ export const Navbar = () => {
         <div></div>
         <nav ref={heightRef}>
           <ul
-            className={`flex dark:neumorphism-shadow bg-neutral-800/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
+            className={`flex border border-neutral-200 dark:border-none dark:neumorphism-shadow neumorphism-shadow dark:bg-neutral-800/80 bg-neutral-50/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
           >
             {navPaths.map((route: NavPath) => {
               return (
@@ -93,15 +93,16 @@ export const Navbar = () => {
             })}
           </ul>
         </nav>
-        <div
-          onClick={() => setDarkModeActive(!darkModeActive)}
-          className="neumorphism-shadow cursor-pointer transition-all duration-300 hover:bg-neutral-800 hover:shadow-none bg-neutral-800/80 p-2.5 shadow-md items-middle backdrop-blur  dark:text-neutral-200 rounded-full text-sm"
-        >
-          <FontAwesomeIcon
-            className="dark:text-yellow-200 "
-            size="lg"
-            icon={darkModeActive ? sun : moon}
-          />
+        <div>
+          <button
+            onClick={() => setDarkModeActive(!darkModeActive)}
+            className="h-full aspect-square flex items-center justify-center rounded-full border border-neutral-200 dark:neumorphism-shadow neumorphism-shadow cursor-pointer transition-all duration-300 dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80 p-2.5 -pt-px  dark:border-none shadow-md items-middle backdrop-blur  dark:text-neutral-200 text-sm"
+          >
+            <FontAwesomeIcon
+              className="dark:text-yellow-200 text-indigo-400"
+              icon={darkModeActive ? sun : moon}
+            />
+          </button>
         </div>
       </div>
     </div>
