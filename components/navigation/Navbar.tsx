@@ -64,8 +64,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(darkModeActive);
-
   return (
     <div className="flex justify-center">
       <div
@@ -75,7 +73,7 @@ export const Navbar = () => {
         <div></div>
         <nav ref={heightRef}>
           <ul
-            className={`flex neumorphism-shadow bg-neutral-800/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
+            className={`flex dark:neumorphism-shadow bg-neutral-800/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
           >
             {navPaths.map((route: NavPath) => {
               return (
