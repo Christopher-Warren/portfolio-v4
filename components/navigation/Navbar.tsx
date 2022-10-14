@@ -1,5 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+
+interface NavPath {
+  href: string;
+  pathname: string;
+}
 
 export const Navbar = () => {
   const [visible, setVisible] = useState(true);
@@ -7,6 +13,28 @@ export const Navbar = () => {
   const scrollYRef = useRef<number>(0);
   const heightRef = useRef<HTMLDivElement>(null);
   const navHeight = heightRef.current?.clientHeight;
+
+  const router = useRouter();
+
+  const navPaths = [
+    {
+      href: "/",
+      pathname: "Home",
+    },
+    {
+      href: "/about",
+      pathname: "About",
+    },
+    {
+      href: "/projects",
+      pathname: "Projects",
+    },
+    {
+      href: "/articles",
+      pathname: "Articles",
+    },
+  ];
+
   const handleScroll = (e: any) => {
     const currentScroll = window.scrollY;
     const previousScroll = scrollYRef.current;
@@ -37,20 +65,24 @@ export const Navbar = () => {
         <div></div>
         <nav ref={heightRef}>
           <ul
-            className={`flex  bg-neutral-900  items-middle neumorphism-shadow tracking-wide dark:text-neutral-200 px-5 rounded-2xl text-sm leading-6`}
+            className={`flex neumorphism-shadow bg-neutral-800/80 shadow-md items-middle 00  backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
           >
-            <li className="px-3 py-2 hover:text-green-500 transition-colors">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="px-3 py-2 hover:text-green-500 transition-colors">
-              <Link href="/about">About</Link>
-            </li>
-            <li className="px-3 py-2 hover:text-green-500 transition-colors">
-              <Link href="/projects">Projects</Link>
-            </li>
-            <li className="px-3 py-2 hover:text-green-500 transition-colors">
-              <Link href="/articles">Articles</Link>
-            </li>
+            {navPaths.map((route: NavPath) => {
+              return (
+                <li
+                  key={route.pathname}
+                  className="relative px-3 py-2  hover:text-green-400 transition-colors"
+                >
+                  <Link className="" href={route.href}>
+                    {route.pathname}
+                  </Link>
+                  <span
+                    className={`bg-gradient-to-r from-transparent  via-green-500/70 to-transparent shadow  w-full h-px absolute bottom-0 left-0 -mb-px
+                    ${router.pathname !== route.href && "hidden"}`}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div></div>

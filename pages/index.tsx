@@ -22,9 +22,20 @@ const Home: NextPage = () => {
     <DarkModeProvider>
       <MainContainer>
         <Navbar />
-
         <div className="pt-44 max-w-2xl ">
-          <h1 className="text-5xl font-bold tracking-tighter text-neutral-100">
+          <Image
+            alt="me"
+            className="rounded-full"
+            objectFit="cover"
+            objectPosition="top"
+            width={100}
+            height={100}
+            layout="fixed"
+            src={
+              "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/106610319_3420818937930887_4070409338961351227_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=bFq1EX1qPBcAX92c1Fi&tn=if_MeQGpU084xV1a&_nc_ht=scontent-atl3-1.xx&oh=00_AT_TzGIRof7tya5RKqzm35IzgIqc0x7LfSm7gL_5UCUdXg&oe=636EB997"
+            }
+          />
+          <h1 className="text-5xl mt-6 font-bold tracking-tighter text-neutral-100">
             Unapologetically self-taught full stack developer.
           </h1>
           <p className="mt-6 text-base font-light text-neutral-300 leading-7">
@@ -33,6 +44,8 @@ const Home: NextPage = () => {
             technologies that empower regular people to explore space on their
             own terms.
           </p>
+
+          {/* connect icons */}
           <div className="text-xl text-neutral-300 flex gap-6 mt-6 hover:[&>*]:text-white hover:[&>*]:cursor-pointer [&>*]:transition-colors">
             <Link href="">
               <FontAwesomeIcon icon={faLinkedin} />
@@ -48,16 +61,19 @@ const Home: NextPage = () => {
             </Link>
           </div>
         </div>
-
-        <div className="-mx-20 overflow-x-clip mt-32">
+        {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-600 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
+          Download CV
+        </button> */}
+        {/* image break */}
+        <div className="-mx-20 overflow-x-clip mt-20">
           <div className="-mx-36">
-            <div className="flex justify-between [&>*]:shadow-lg  [&>*]:rounded-2xl [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2 ">
+            <div className="flex justify-between [&>*]:shadow-lg   [&>*]:rounded-2xl [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2 ">
               <Image
                 alt="hey"
                 width={imgWidth}
                 layout={"fixed"}
                 height={imgHeight}
-                className="shadow- shadow-white"
+                className=""
                 src={
                   "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
                 }
@@ -67,7 +83,7 @@ const Home: NextPage = () => {
                   alt="hey"
                   width={imgWidth}
                   height={imgHeight}
-                  className="hover:opacity-70 transition-opacity"
+                  className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
                   src={
                     "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
                   }
@@ -79,7 +95,7 @@ const Home: NextPage = () => {
                   alt="hey"
                   width={imgWidth}
                   height={imgHeight}
-                  className="hover:opacity-70 transition-opacity"
+                  className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
                   src={
                     "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
                   }
@@ -90,7 +106,7 @@ const Home: NextPage = () => {
                   alt="hey"
                   width={imgWidth}
                   height={imgHeight}
-                  className="hover:opacity-70 transition-opacity"
+                  className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
                   src={
                     "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
                   }
