@@ -8,22 +8,19 @@ import {
   faStackOverflow,
   faCodepen,
 } from "@fortawesome/free-brands-svg-icons";
-
+// overflow-hidden w-[150px] h-[150px] rounded-3xl bg-green-200 ring ring-offset-neutral-800 ring-neutral-700 ring-offset-2
 export const Hero = () => {
   return (
     <div className="max-w-2xl ">
-      <Image
-        alt="me"
-        className="rounded-full"
-        objectFit="cover"
-        objectPosition="top"
-        width={100}
-        height={100}
-        layout="fixed"
-        src={
-          "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/106610319_3420818937930887_4070409338961351227_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=bFq1EX1qPBcAX92c1Fi&tn=if_MeQGpU084xV1a&_nc_ht=scontent-atl3-1.xx&oh=00_AT_TzGIRof7tya5RKqzm35IzgIqc0x7LfSm7gL_5UCUdXg&oe=636EB997"
-        }
-      />
+      <div className="overflow-hidden w-[150px] h-[150px] rounded-full  bg-gradient-to-br from-neutral-300  to-neutral-100  dark:from-neutral-700  dark:to-neutral-300/10 dark:neumorphism-shadow">
+        <Image
+          alt="me"
+          width={150}
+          height={150}
+          src={"/images/headshot2.png"}
+        />
+      </div>
+
       <h1 className="text-5xl mt-6 font-bold tracking-tighter ">
         Unapologetically self-taught full stack developer.
       </h1>

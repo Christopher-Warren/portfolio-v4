@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <title>Christopher Warren - Full stack developer</title>
       </Head>
 
-      <MainContainer>
+      <MainContainer className="">
         <Hero />
         <ImagesBreak />
 
