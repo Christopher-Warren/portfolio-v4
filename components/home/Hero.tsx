@@ -8,7 +8,7 @@ import {
   faStackOverflow,
   faCodepen,
 } from "@fortawesome/free-brands-svg-icons";
-// overflow-hidden w-[150px] h-[150px] rounded-3xl bg-green-200 ring ring-offset-neutral-800 ring-neutral-700 ring-offset-2
+
 export const Hero = () => {
   return (
     <div className="max-w-2xl ">
@@ -22,7 +22,11 @@ export const Hero = () => {
       </div>
 
       <h1 className="text-5xl mt-6 font-bold tracking-tighter ">
-        Unapologetically self-taught full stack developer.
+        Unapologetically self-taught{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-br dark:from-emerald-400 dark:to-green-400 from-emerald-500 to-green-500">
+          full stack
+        </span>{" "}
+        developer.
       </h1>
       <p className="mt-6 text-base font-light dark:text-neutral-300 text-neutral-600 leading-7 ">
         I’m Chris, a software designer and entrepreneur based in New York City.
