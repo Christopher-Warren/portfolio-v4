@@ -16,7 +16,7 @@ import Link from "next/link";
 const about = () => {
   return (
     <MainContainer>
-      <div className="pt-44 max-w-2xl ">
+      <div className="max-w-2xl ">
         <Image
           alt="me"
           className="rounded-full"

@@ -11,7 +11,7 @@ import {
 
 export const Hero = () => {
   return (
-    <div className="pt-32 max-w-2xl ">
+    <div className="max-w-2xl ">
       <Image
         alt="me"
         className="rounded-full"
