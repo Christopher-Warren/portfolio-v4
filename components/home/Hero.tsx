@@ -48,9 +48,9 @@ export const Hero = () => {
           <FontAwesomeIcon icon={faStackOverflow} />
         </Link>
       </div>
-      <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
+      {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
         Download CV
-      </button>
+      </button> */}
     </div>
   );
 };
