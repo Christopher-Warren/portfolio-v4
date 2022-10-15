@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 const useDarkMode = (): [boolean | null, (arg0: boolean | null) => void] => {
   const [darkModeActive, setDarkModeActive] = useState<boolean | null>(null);
 
-  console.log(darkModeActive);
-
   useEffect(() => {
     if (darkModeActive === null) {
       if (
