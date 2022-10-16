@@ -9,19 +9,21 @@ import {
   faCodepen,
 } from "@fortawesome/free-brands-svg-icons";
 import { MainContainer } from "../components/containers/MainContainer";
-
+// I’ve worked on tons of little projects over the years but these are the ones
+//  that I’m most proud of. Many of them are open-source, so if you see something
+//  that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
 const projects = () => {
   return (
     <MainContainer className="pt-56">
       <div className="max-w-2xl ">
         <h1 className="text-5xl mt-6 font-bold tracking-tighter ">
-          Unapologetically self-taught full stack developer.
+          Things I've made to show the world my web dev chops.
         </h1>
         <p className="mt-6 text-base font-light dark:text-neutral-300 text-neutral-600 leading-7 ">
-          I’m Chris, a software designer and entrepreneur based in New York
-          City. I’m the founder and CEO of Planetaria, where we develop
-          technologies that empower regular people to explore space on their own
-          terms.
+          I've worked on many projects throughout the past few years but these
+          are the ones that I'm most proud of. Most of them are actively
+          deployed and accompanied by public repos, so feel free to check them
+          out.
         </p>
 
         {/* connect icons */}

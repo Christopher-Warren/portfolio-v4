@@ -10,6 +10,7 @@ import {
   faEnvelope,
   faFileCode as projectIcon,
 } from "@fortawesome/free-regular-svg-icons";
+import TextInput from "../inputs/TextInput";
 
 const arr = ["", "", "", ""];
 
@@ -30,11 +31,7 @@ export const Info = () => {
           time.
         </p>
         <div className="flex justify-between">
-          <input
-            type="text"
-            placeholder="Email address"
-            className="flex-1 px-2 py-2 dark:bg-neutral-800 text-sm shadow border dark:border-neutral-700 focus:border-green-500 rounded outline-none focus:ring ring-green-500/10 ring-offset-1 ring-offset-neutral-900"
-          ></input>
+          <TextInput placeholder="E mail address" />
           <button className="px-4 py-2 ml-4 bg-neutral-700 rounded text-sm text-white">
             Join
           </button>
