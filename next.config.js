@@ -3,7 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["spotlight.tailwindui.com", "scontent-atl3-1.xx.fbcdn.net"],
+    domains: [
+      "spotlight.tailwindui.com",
+      "scontent-atl3-1.xx.fbcdn.net",
+      "www.chriswarren.tech",
+    ],
   },
 };
 
