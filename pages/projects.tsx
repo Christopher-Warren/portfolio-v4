@@ -34,6 +34,28 @@ const projects2 = [
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
   },
+  {
+    name: "Easy Dash",
+    link: "link",
+    description:
+      "A Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also",
+    tech: [],
+    images: [
+      "https://www.chriswarren.tech/images/GeoChat/5.png",
+      "https://www.chriswarren.tech/images/easydash/login.png",
+    ],
+  },
+  {
+    name: "Easy Dash",
+    link: "link",
+    description:
+      "A Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also",
+    tech: [],
+    images: [
+      "https://www.chriswarren.tech/images/GeoChat/5.png",
+      "https://www.chriswarren.tech/images/easydash/login.png",
+    ],
+  },
 ];
 
 const Projects = () => {
