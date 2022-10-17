@@ -90,7 +90,7 @@ const Projects = () => {
               <h2 className="text-2xl font-bold tracking-tighter mb-6">
                 EasyDash
               </h2>
-              <div className="dark:border-neutral-800 border-2 rounded-lg p-6 shadow mb-4">
+              <div className="dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4">
                 <p className="text-base  dark:text-neutral-300 text-neutral-600">
                   A Fullstack, GraphQL powered inventory management system. It
                   features a dashboard in which a store owner can create,
