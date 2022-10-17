@@ -27,6 +27,16 @@ a {
 .dark .dark\:neumorphism-pressed {
   box-shadow: inset 2px 2px 4px #0f0f0f, inset -2px -2px 4px #1f1f1f;
 }
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+}
 /* .neumorphism-shadow {
   box-shadow: 6px 6px 17px #7e7e7e, -6px -6px 17px #f0f0f0;
 }
