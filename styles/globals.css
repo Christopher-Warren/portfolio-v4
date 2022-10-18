@@ -28,6 +28,12 @@ a {
   box-shadow: inset 2px 2px 4px #0f0f0f, inset -2px -2px 4px #1f1f1f;
 }
 
+.signature {
+  font-family: Lemonada, Noto Sans, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
 /* .neumorphism-shadow {
   box-shadow: 6px 6px 17px #7e7e7e, -6px -6px 17px #f0f0f0;
 }
