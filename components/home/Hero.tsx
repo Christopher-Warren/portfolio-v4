@@ -21,7 +21,7 @@ export const Hero = () => {
         />
       </div>
 
-      <h1 className="text-5xl mt-6 font-bold tracking-tighter ">
+      <h1 className="lg:text-5xl mt-6 font-bold tracking-tighter ">
         Unapologetically self-taught{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-br dark:from-emerald-400 dark:to-green-400 from-emerald-500 to-green-500">
           full stack

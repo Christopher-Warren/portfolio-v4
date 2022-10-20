@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import { Hero } from "../components/home";
 
-const about = () => {
+const About = () => {
   return (
     <MainContainer>
       <Hero />
@@ -23,12 +23,19 @@ const about = () => {
             </button> */}
       {/* image break */}
 
-      <div className="mt-32">hello</div>
-      <div className="h-screen  border-b-2 border-white"></div>
+      <div className="">hello</div>
+      <div className="h-96 flex  border-white justify-between">
+        <div className="bg-red-600 w-32 h-32 text-center">BASE</div>
+        <div className="sm:bg-red-600 w-32 h-32 text-center">SM</div>
+        <div className="md:bg-red-600 w-32 h-32 text-center">MD</div>
+        <div className="lg:bg-red-600 w-32 h-32 text-center">LG</div>
+        <div className="xl:bg-red-600 w-32 h-32 text-center">XL</div>
+        <div className="2xl:bg-red-600 w-32 h-32 text-center">2XL</div>
+      </div>
       <div className="h-screen  border-b-2 border-white"></div>
       <div className="h-screen  border-b-2 border-white"></div>
       <div className="h-screen  border-b-2 border-white"></div>
     </MainContainer>
   );
 };
-export default about;
+export default About;

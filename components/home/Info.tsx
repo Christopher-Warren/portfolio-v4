@@ -16,7 +16,7 @@ const arr = ["", "", "", ""];
 
 export const Info = () => {
   return (
-    <div className="w-full pl-32">
+    <div className="w-full lg:pl-32">
       <div className="w-full rounded-lg p-5 border dark:border-neutral-700 border-neutral-200 mb-10">
         <div className="flex items-center mb-2">
           <FontAwesomeIcon

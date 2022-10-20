@@ -24,11 +24,39 @@ export const RecentArticles = () => {
       {/* Articles section */}
       {articles.map(({ date, title, body, read }, index) => {
         return (
+          <article key={index} className="relative mb-16 group cursor-pointer">
+            <div className="absolute  lg:-inset-x-6 -inset-x-4 -inset-y-6 scale-95 group-hover:scale-100 dark:bg-neutral-800 bg-neutral-100 opacity-0 group-hover:opacity-100 transition-all  lg:rounded-lg duration-200" />
+
+            <div className="absolute bg-red-500"></div>
+            <div className="relative  text-neutral-600 dark:text-neutral-500 mb-3 border-l-4 border-green-400 px-4 leading-4">
+              {date}
+            </div>
+
+            <h2 className="relative dark:text-white text-lg font-semibold mb-3">
+              {title}
+            </h2>
+            <p className="relative text-neutral-600 dark:text-neutral-400 mb-3 text-sm leading-6">
+              {body}
+            </p>
+            <div className="relative text-green-500 dark:text-green-400 text-sm">
+              Read article
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+
+  return (
+    <div className="w-full">
+      {/* Articles section */}
+      {articles.map(({ date, title, body, read }, index) => {
+        return (
           <article
             key={index}
-            className="relative even:my-16 group cursor-pointer"
+            className="relative even:my-16 group cursor-pointer p-4"
           >
-            <div className="absolute w-full h-full dark:bg-neutral-800 bg-neutral-100 opacity-0 group-hover:opacity-100 scale-x-105 scale-y-125 transition-opacity rounded-lg duration-200"></div>
+            <div className="absolute w-full h-full dark:bg-neutral-800 bg-neutral-100 opacity-0 group-hover:opacity-100 lg:scale-x-105 scale-y-125 transition-opacity lg:rounded-lg duration-200" />
             <div className="relative  text-neutral-600 dark:text-neutral-500 mb-3 border-l-4 border-green-400 px-4 leading-4">
               {date}
             </div>

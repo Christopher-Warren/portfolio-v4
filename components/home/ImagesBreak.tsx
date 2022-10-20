@@ -5,7 +5,10 @@ export const ImagesBreak = () => {
   const imgHeight = 300;
 
   return (
-    <div className="-mx-20 overflow-x-clip mt-20">
+    <div
+      className="mt-20 overflow-x-clip 
+    -mx-4 lg:-mx-20"
+    >
       <div className="-mx-36">
         <div className="flex justify-between [&>*]:shadow-lg [&>*]:rounded-2xl [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2">
           <Image

@@ -12,7 +12,7 @@ export default function Document() {
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap"
           rel="stylesheet"
@@ -21,6 +21,7 @@ export default function Document() {
       <body className="dark:bg-black dark:text-neutral-100 bg-neutral-1000 text-neutral-800">
         <Main />
         <NextScript />
+        asd
       </body>
     </Html>
   );
