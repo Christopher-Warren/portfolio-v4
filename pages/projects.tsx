@@ -86,12 +86,11 @@ const Projects = () => {
         </div>
 
         {projects2.map((link, index) => {
+          const isEven = index % 2 === 1;
+
           return (
-            <div
-              key={index}
-              className="flex my-32 justify-between odd:flex-row-reverse group"
-            >
-              <div className="w-1/2 rounded">
+            <div key={index} className="my-20 justify-between group">
+              {/* <div className="rounded">
                 <span className="text-green-400 mt-6">Featured</span>
                 <h2 className="text-2xl font-bold tracking-tighter mb-6">
                   EasyDash
@@ -133,25 +132,73 @@ const Projects = () => {
                     <FontAwesomeIcon icon={faExternalLink}></FontAwesomeIcon>
                   </Link>
                 </div>
-              </div>
-
-              <ImageCarousel images={link.images}></ImageCarousel>
-
-              {/* <div className="relative border">
-                <div className="static">
-                  <Image
-                    alt="proj"
-                    width={500}
-                    height={281}
-                    objectFit="cover"
-                    className="rounded-xl transition-transform"
-                    src={link.images[0]}
-                  />
-                </div>
-                <div className="">
-                 
-                </div>
               </div> */}
+              {/* <ImageCarousel images={link.images}></ImageCarousel> */}
+
+              <div className="xl:grid grid-cols-12">
+                <div
+                  className={`col-span-5 xl:col-span-6 ${isEven && "order-2"}`}
+                >
+                  <div className="rounded">
+                    <span className="text-green-400 mt-6">Featured</span>
+                    <h2 className="text-2xl font-bold tracking-tighter mb-6">
+                      EasyDash
+                    </h2>
+
+                    <div className="xl:hidden col-span-7 xl:col-span-6 self-center mx-auto flex justify-center mb-8">
+                      <ImageCarousel images={link.images}></ImageCarousel>
+                    </div>
+                    <div className="dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4">
+                      <p className="text-base  dark:text-neutral-300 text-neutral-600">
+                        A Fullstack, GraphQL powered inventory management
+                        system. It features a dashboard in which a store owner
+                        can create, modify, and delete products. The store owner
+                        can also Easydash is a Fullstack, GraphQL powered
+                        inventory management system. It features a dashboard in
+                        which a store owner can create, modify, and delete
+                        products. The store owner can also Easydash is a
+                        Fullstack, GraphQL powered inventory management system.
+                        It features a dashboard in which a store owner can
+                        create, modify, and delete products. The store owner can
+                        also{" "}
+                      </p>
+                    </div>
+                    <div className="mb-4">
+                      <span className="bg-neutral-700 rounded px-2 py-0.5 text-sm">
+                        React
+                      </span>
+                      <span className="bg-neutral-900 border border-green-400 rounded px-2 py-0.5 mx-2 text-sm">
+                        React
+                      </span>
+                      <span className="bg-neutral-900 border border-green-400 rounded px-2 py-0.5 mx-2 text-sm">
+                        React
+                      </span>
+                    </div>
+
+                    <div className="text-xl">
+                      <Link href="">
+                        <FontAwesomeIcon
+                          className="mr-4"
+                          icon={faGithub}
+                        ></FontAwesomeIcon>
+                      </Link>
+                      <Link href="">
+                        <FontAwesomeIcon
+                          icon={faExternalLink}
+                        ></FontAwesomeIcon>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className={`hidden lg:block col-span-7 xl:col-span-6 self-center ${
+                    !isEven && "justify-self-end self-center"
+                  }`}
+                >
+                  <ImageCarousel images={link.images}></ImageCarousel>
+                </div>
+              </div>
             </div>
           );
         })}
