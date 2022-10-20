@@ -106,11 +106,11 @@ export const Navbar = () => {
       </nav>
 
       {/* Mobile Nav */}
-      <div className="flex ">
-        <div className="md:hidden relative">
+      <div className="flex  ">
+        <div className="md:hidden relative ">
           <button
             onClick={() => setShowMobileNav(!showMobileNav)}
-            className="flex justify-center rounded-full z-20 border border-neutral-200 dark:neumorphism-shadow neumorphism-shadow dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200"
+            className="flex justify-center rounded-full z-20  border-neutral-200 dark:neumorphism-shadow neumorphism-shadow dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200"
           >
             <FontAwesomeIcon
               className="dark:text-neutral-300  p-3 text-xl"
@@ -118,7 +118,7 @@ export const Navbar = () => {
             />
           </button>
           <nav
-            className={`absolute transition-transform origin-right rounded-l-xl bg-neutral-800 mt-5 ${
+            className={`absolute  transition-transform origin-right mx-4 rounded-l-xl bg-neutral-100 dark:bg-neutral-800 mt-5 ${
               showMobileNav ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
             }`}
           >
