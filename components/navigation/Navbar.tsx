@@ -74,9 +74,9 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`flex fixed z-10 pt-12 -mt-5 w-full max-w-7xl mx-auto right-0 left-0 justify-between transition-transform duration-300 ${
-        visible ? "translate-y-0" : `-translate-y-full`
-      }`}
+      className={`flex fixed z-10 pt-12  -mt-5 w-full max-w-7xl mx-auto right-0 left-0 justify-between transition-transform duration-300 
+      px-4 sm:px-10 lg:px-36 xl:px-20
+      ${visible ? "translate-y-0" : `-translate-y-full`}`}
     >
       <Link href="/">
         <button className="signature text-xl dark:text-neutral-300">CW</button>

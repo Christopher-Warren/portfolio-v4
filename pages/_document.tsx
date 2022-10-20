@@ -21,7 +21,6 @@ export default function Document() {
       <body className="dark:bg-black dark:text-neutral-100 bg-neutral-1000 text-neutral-800">
         <Main />
         <NextScript />
-        asd
       </body>
     </Html>
   );

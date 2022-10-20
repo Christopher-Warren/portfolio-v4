@@ -7,7 +7,7 @@ export const ImagesBreak = () => {
   return (
     <div
       className="mt-20 overflow-x-clip 
-    -mx-4 lg:-mx-20"
+    -mx-4 lg:-mx-10 xl:-mx-20"
     >
       <div className="-mx-36">
         <div className="flex justify-between [&>*]:shadow-lg [&>*]:rounded-2xl [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2">
