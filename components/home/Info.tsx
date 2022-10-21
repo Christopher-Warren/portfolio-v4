@@ -6,10 +6,10 @@ import {
   faCodepen,
 } from "@fortawesome/free-brands-svg-icons";
 
-import {
-  faEnvelope,
-  faFileCode as projectIcon,
-} from "@fortawesome/free-regular-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+
+import { faLaptopCode as projectIcon } from "@fortawesome/free-solid-svg-icons";
+
 import TextInput from "../inputs/TextInput";
 
 const arr = ["", "", "", ""];
