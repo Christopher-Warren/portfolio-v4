@@ -12,52 +12,8 @@ import {
 import { MainContainer } from "../components/containers/MainContainer";
 import ImageCarousel from "../components/ImageCarousel";
 import Head from "next/head";
-// I’ve worked on tons of little projects over the years but these are the ones
-//  that I’m most proud of. Many of them are open-source, so if you see something
-//  that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
 
-const projects = [
-  "https://www.chriswarren.tech/images/GeoChat/5.png",
-  "https://www.chriswarren.tech/images/easydash/login.png",
-  "https://www.chriswarren.tech/images/fenrir-preview.png",
-  "https://www.chriswarren.tech/images/dev-apparel.png",
-];
-
-const projects2 = [
-  {
-    name: "Easy Dash",
-    link: "link",
-    description:
-      "A Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also",
-    tech: [],
-    images: [
-      "https://www.chriswarren.tech/images/GeoChat/5.png",
-      "https://www.chriswarren.tech/images/easydash/login.png",
-    ],
-  },
-  {
-    name: "Easy Dash",
-    link: "link",
-    description:
-      "A Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also",
-    tech: [],
-    images: [
-      "https://www.chriswarren.tech/images/GeoChat/5.png",
-      "https://www.chriswarren.tech/images/easydash/login.png",
-    ],
-  },
-  {
-    name: "Easy Dash",
-    link: "link",
-    description:
-      "A Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also Easydash is a Fullstack, GraphQL powered inventory management system. It features a dashboard in which a store owner can create, modify, and delete products. The store owner can also",
-    tech: [],
-    images: [
-      "https://www.chriswarren.tech/images/GeoChat/5.png",
-      "https://www.chriswarren.tech/images/easydash/login.png",
-    ],
-  },
-];
+import { projects } from "../assets/projects";
 
 const Projects = () => {
   return (
@@ -85,108 +41,58 @@ const Projects = () => {
           </button> */}
         </div>
 
-        {projects2.map((link, index) => {
+        {projects.map((project, index) => {
           const isEven = index % 2 === 1;
 
           return (
             <div key={index} className="my-20 justify-between group">
-              {/* <div className="rounded">
-                <span className="text-green-400 mt-6">Featured</span>
-                <h2 className="text-2xl font-bold tracking-tighter mb-6">
-                  EasyDash
-                </h2>
-                <div className="dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4">
-                  <p className="text-base  dark:text-neutral-300 text-neutral-600">
-                    A Fullstack, GraphQL powered inventory management system. It
-                    features a dashboard in which a store owner can create,
-                    modify, and delete products. The store owner can also
-                    Easydash is a Fullstack, GraphQL powered inventory
-                    management system. It features a dashboard in which a store
-                    owner can create, modify, and delete products. The store
-                    owner can also Easydash is a Fullstack, GraphQL powered
-                    inventory management system. It features a dashboard in
-                    which a store owner can create, modify, and delete products.
-                    The store owner can also{" "}
-                  </p>
-                </div>
-                <div className="mb-4">
-                  <span className="bg-neutral-700 rounded px-2 py-0.5 text-sm">
-                    React
-                  </span>
-                  <span className="bg-neutral-900 border border-green-400 rounded px-2 py-0.5 mx-2 text-sm">
-                    React
-                  </span>
-                  <span className="bg-neutral-900 border border-green-400 rounded px-2 py-0.5 mx-2 text-sm">
-                    React
-                  </span>
-                </div>
-
-                <div className="text-xl">
-                  <Link href="">
-                    <FontAwesomeIcon
-                      className="mr-4"
-                      icon={faGithub}
-                    ></FontAwesomeIcon>
-                  </Link>
-                  <Link href="">
-                    <FontAwesomeIcon icon={faExternalLink}></FontAwesomeIcon>
-                  </Link>
-                </div>
-              </div> */}
-              {/* <ImageCarousel images={link.images}></ImageCarousel> */}
-
               <div className="xl:grid grid-cols-12">
                 <div
                   className={`col-span-5 xl:col-span-6 ${isEven && "order-2"}`}
                 >
                   <div className="rounded">
-                    <span className="text-green-400 mt-6">Featured</span>
-                    <h2 className="text-2xl font-bold tracking-tighter mb-6">
-                      EasyDash
-                    </h2>
+                    <span className="dark:text-green-400 text-green-700 mt-6">
+                      Featured
+                    </span>
+                    <div className="flex justify-between">
+                      <h2 className="text-2xl font-bold tracking-tighter mb-6">
+                        {project.name}
+                      </h2>
+                      <div className="text-2xl text-neutral-600 dark:text-neutral-400">
+                        <Link href="">
+                          <FontAwesomeIcon
+                            className="mr-4 cursor-pointer hover:text-neutral-800 dark:hover:text-neutral-100"
+                            icon={faGithub}
+                          ></FontAwesomeIcon>
+                        </Link>
+                        <Link href="">
+                          <FontAwesomeIcon
+                            className="cursor-pointer hover:text-neutral-800 dark:hover:text-neutral-100"
+                            icon={faExternalLink}
+                          ></FontAwesomeIcon>
+                        </Link>
+                      </div>
+                    </div>
 
                     <div className="xl:hidden col-span-7 xl:col-span-6 self-center mx-auto flex justify-center mb-8">
-                      <ImageCarousel images={link.images}></ImageCarousel>
+                      <ImageCarousel images={project.images}></ImageCarousel>
                     </div>
                     <div className="dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4">
                       <p className="text-base  dark:text-neutral-300 text-neutral-600">
-                        A Fullstack, GraphQL powered inventory management
-                        system. It features a dashboard in which a store owner
-                        can create, modify, and delete products. The store owner
-                        can also Easydash is a Fullstack, GraphQL powered
-                        inventory management system. It features a dashboard in
-                        which a store owner can create, modify, and delete
-                        products. The store owner can also Easydash is a
-                        Fullstack, GraphQL powered inventory management system.
-                        It features a dashboard in which a store owner can
-                        create, modify, and delete products. The store owner can
-                        also{" "}
+                        {project.description}
                       </p>
                     </div>
-                    <div className="mb-4">
-                      <span className="bg-neutral-700 rounded px-2 py-0.5 text-sm">
-                        React
-                      </span>
-                      <span className="bg-neutral-900 border border-green-400 rounded px-2 py-0.5 mx-2 text-sm">
-                        React
-                      </span>
-                      <span className="bg-neutral-900 border border-green-400 rounded px-2 py-0.5 mx-2 text-sm">
-                        React
-                      </span>
-                    </div>
-
-                    <div className="text-xl">
-                      <Link href="">
-                        <FontAwesomeIcon
-                          className="mr-4"
-                          icon={faGithub}
-                        ></FontAwesomeIcon>
-                      </Link>
-                      <Link href="">
-                        <FontAwesomeIcon
-                          icon={faExternalLink}
-                        ></FontAwesomeIcon>
-                      </Link>
+                    <div className="mb-4 flex flex-wrap gap-3">
+                      {project.tech.map((tech, techIndex) => {
+                        return (
+                          <span
+                            key={tech + index + techIndex}
+                            className="dark:bg-neutral-800 bg-neutral-200 border dark:border-neutral-700 dark:text-neutral-400 text-neutral-600 rounded px-2 py-0.5  text-xs"
+                          >
+                            {tech}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -196,7 +102,7 @@ const Projects = () => {
                     !isEven && "justify-self-end self-center"
                   }`}
                 >
-                  <ImageCarousel images={link.images}></ImageCarousel>
+                  <ImageCarousel images={project.images}></ImageCarousel>
                 </div>
               </div>
             </div>
