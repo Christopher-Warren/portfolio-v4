@@ -82,7 +82,7 @@ export const Navbar = () => {
         <Link href="/">
           <a
             onClick={() => setShowMobileNav(!showMobileNav)}
-            className="signature align-middle  p-2.5 rounded-full z-20 border border-neutral-300 dark:border-neutral-800 bg-neutral-100/80  dark:hover:bg-neutral-800 dark:bg-neutral-900/30 hover:shadow-none    shadow-md  backdrop-blur text-neutral-600 dark:text-neutral-300"
+            className="signature align-middle rounded-full p-2  z-20 border border-neutral-300 dark:border-neutral-800 bg-neutral-100/80  dark:hover:bg-neutral-800 dark:bg-neutral-900/30 hover:shadow-none    shadow-md  backdrop-blur text-neutral-600 dark:text-neutral-300"
           >
             CW
           </a>
