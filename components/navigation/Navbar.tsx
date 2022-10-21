@@ -37,16 +37,16 @@ export const Navbar = () => {
       pathname: "Home",
     },
     {
-      href: "/about",
-      pathname: "About",
-    },
-    {
       href: "/projects",
       pathname: "Projects",
     },
     {
       href: "/articles",
       pathname: "Articles",
+    },
+    {
+      href: "/about",
+      pathname: "About",
     },
   ];
 
@@ -78,22 +78,29 @@ export const Navbar = () => {
       px-4 sm:px-10 lg:px-36 xl:px-20
       ${visible ? "translate-y-0" : `-translate-y-full`}`}
     >
-      <Link href="/">
-        <button className="signature text-xl dark:text-neutral-300">CW</button>
-      </Link>
+      <div className="flex items-center">
+        <Link href="/">
+          <a
+            onClick={() => setShowMobileNav(!showMobileNav)}
+            className="signature align-middle  p-2.5 rounded-full z-20 border border-neutral-300 dark:border-neutral-800 bg-neutral-100/80  dark:hover:bg-neutral-800 dark:bg-neutral-900/30 hover:shadow-none    shadow-md  backdrop-blur text-neutral-600 dark:text-neutral-300"
+          >
+            CW
+          </a>
+        </Link>
+      </div>
+
       {/* PC Nav */}
       <nav
-        className={`hidden md:flex border border-neutral-200 dark:border-none dark:neumorphism-shadow neumorphism-shadow dark:bg-neutral-800/80 bg-neutral-50/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
+        className={`hidden md:flex border border-neutral-200 dark:border-none dark:neumorphism-shadow neumorphism-shadow dark:bg-neutral-800/80 bg-neutral-100/80 shadow-md items-middle backdrop-blur tracking-wide dark:text-neutral-200 px-5 rounded-full text-sm leading-6`}
       >
         <ul className="flex">
           {navPaths.map((route: NavPath) => {
             return (
-              <li
-                key={route.pathname}
-                className="relative px-3 py-2  hover:text-green-400 transition-colors"
-              >
-                <Link className="" href={route.href}>
-                  {route.pathname}
+              <li key={route.pathname} className="relative flex items-center ">
+                <Link href={route.href}>
+                  <a className="relative  px-3 py-2 hover:text-green-400 transition-colors">
+                    {route.pathname}
+                  </a>
                 </Link>
                 <span
                   className={`bg-gradient-to-r from-transparent  via-green-500/70 to-transparent shadow  w-full h-px absolute bottom-0 left-0 -mb-px
@@ -107,18 +114,29 @@ export const Navbar = () => {
 
       {/* Mobile Nav */}
       <div className="flex  ">
-        <div className="md:hidden relative ">
-          <button
-            onClick={() => setShowMobileNav(!showMobileNav)}
-            className="flex justify-center rounded-full z-20  border-neutral-200 dark:neumorphism-shadow neumorphism-shadow dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200"
-          >
-            <FontAwesomeIcon
-              className="dark:text-neutral-300  p-3 text-xl"
-              icon={mobileIcon}
-            />
-          </button>
+        <button
+          className="flex mr-4 justify-center rounded-full z-20 border border-neutral-200 bg-neutral-100/80 dark:neumorphism-shadow neumorphism-shadow dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200"
+          onClick={() => setDarkModeActive(!darkModeActive)}
+        >
+          <FontAwesomeIcon
+            className="dark:text-yellow-200 text-indigo-400 p-3.5 rounded-full"
+            icon={darkModeActive ? sun : moon}
+          />
+        </button>
+        <button
+          onClick={() => setShowMobileNav(!showMobileNav)}
+          className="md:hidden flex justify-center rounded-full z-20 border border-neutral-200 bg-neutral-100/80 dark:neumorphism-shadow neumorphism-shadow dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200"
+        >
+          <FontAwesomeIcon
+            className="dark:text-neutral-300 text-neutral-500 p-3 text-xl"
+            icon={mobileIcon}
+          />
+        </button>
+        <div className="md:hidden relative">
           <nav
-            className={`absolute  transition-transform origin-right mx-4 rounded-l-xl bg-neutral-100 dark:bg-neutral-800 mt-5 ${
+            className={`absolute -mx-4 sm:-mx-10 transition-transform right-0 top-14 origin-right rounded-l-xl bg-neutral-100/80 dark:bg-neutral-800 mt-5
+            border-neutral-200  dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/90   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200
+            ${
               showMobileNav ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
             }`}
           >
@@ -127,10 +145,12 @@ export const Navbar = () => {
                 return (
                   <li
                     key={route.pathname}
-                    className="relative px-3 py-2  hover:text-green-400 transition-colors"
+                    className="relative  hover:text-green-400 transition-colors"
                   >
-                    <Link className="" href={route.href}>
-                      {route.pathname}
+                    <Link href={route.href}>
+                      <a className="relative inline-block px-10 py-3 hover:text-green-400 transition-colors ">
+                        {route.pathname}
+                      </a>
                     </Link>
                     <span
                       className={`bg-gradient-to-r from-transparent  via-green-500/70 to-transparent shadow  w-full h-px absolute bottom-0 left-0 -mb-px
@@ -142,15 +162,6 @@ export const Navbar = () => {
             </ul>
           </nav>
         </div>
-        <button
-          className="flex justify-center rounded-full z-20 border border-neutral-200 dark:neumorphism-shadow neumorphism-shadow dark:hover:bg-neutral-800 hover:shadow-none dark:bg-neutral-800/80   dark:border-none shadow-md  backdrop-blur  dark:text-neutral-200"
-          onClick={() => setDarkModeActive(!darkModeActive)}
-        >
-          <FontAwesomeIcon
-            className="dark:text-yellow-200 text-indigo-400  p-3.5 rounded-full"
-            icon={darkModeActive ? sun : moon}
-          />
-        </button>
       </div>
     </div>
   );
