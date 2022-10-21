@@ -7,7 +7,7 @@ export const MainContainer = ({ children, className }: Props) => {
   return (
     <div
       className="relative max-w-7xl border-x shadow-inner 
-    bg-neutral-50 dark:border-neutral-800 border-neutral-100 dark:bg-neutral-900
+    bg-neutral-50 dark:border-neutral-800 border-neutral-200 dark:bg-neutral-900
      sm:mx-6 lg:mx-16 xl:mx-auto "
     >
       <div

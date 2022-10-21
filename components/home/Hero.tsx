@@ -12,23 +12,18 @@ import {
 export const Hero = () => {
   return (
     <div className="max-w-2xl ">
-      <div className="overflow-hidden w-[150px] h-[150px] rounded-full  bg-gradient-to-br from-neutral-300  to-neutral-100  dark:from-neutral-700  dark:to-neutral-300/10 dark:neumorphism-shadow">
-        <Image
-          alt="me"
-          width={150}
-          height={150}
-          src={"/images/headshot2.png"}
-        />
+      <div className="overflow-hidden w-[75px] h-[75px] rounded-full  bg-gradient-to-br from-neutral-300  to-neutral-100  dark:from-neutral-700  dark:to-neutral-300/10 dark:neumorphism-shadow">
+        <Image alt="me" width={75} height={75} src={"/images/headshot2.png"} />
       </div>
 
-      <h1 className="md:text-5xl text-4xl mt-6 font-bold tracking-tighter">
+      <h1 className="md:text-5xl text-4xl mt-6 font-bold tracking-tight md:leading-snug">
         Unapologetically self-taught{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-br dark:from-emerald-400 dark:to-green-400 from-emerald-500 to-green-500">
+        <span className="text-transparent bg-clip-text bg-gradient-to-br dark:from-emerald-400 dark:to-green-400 from-teal-500 to-green-500">
           full stack
         </span>{" "}
         developer.
       </h1>
-      <p className="mt-6 text-base  dark:text-neutral-400 text-neutral-500 leading-7 ">
+      <p className="mt-6 text-base  dark:text-neutral-400 text-neutral-500 leading-7">
         I’m Chris, a software designer and entrepreneur based in New York City.
         I’m the founder and CEO of Planetaria, where we develop technologies
         that empower regular people to explore space on their own terms.
