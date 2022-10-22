@@ -68,9 +68,9 @@ const Projects = () => {
                           {project.name}
                         </h2>
                       </div>
-                      <div className=" text-2xl text-neutral-600 dark:text-neutral-400">
+                      <div className="text-2xl text-neutral-600 dark:text-neutral-400">
                         <Link href="">
-                          <a className="  hover:text-neutral-800 dark:hover:text-neutral-100">
+                          <a className="hover:text-neutral-800 dark:hover:text-neutral-100">
                             <Icon icon={faGithub} />
                           </a>
                         </Link>
@@ -84,8 +84,7 @@ const Projects = () => {
 
                     <div
                       className="relative dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4
-                    dark:bg-neutral-900/80 z-10 backdrop-blur
-                    "
+                    dark:bg-neutral-900/80 z-10 backdrop-blur"
                     >
                       <p className="text-base  dark:text-neutral-300 text-neutral-600">
                         {project.description}
