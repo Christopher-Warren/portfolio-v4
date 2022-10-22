@@ -22,7 +22,7 @@ const Projects = () => {
         <title>Christopher Warren - Projects</title>
       </Head>
 
-      <MainContainer className="pt-56">
+      <MainContainer className="pt-52">
         <div className="max-w-2xl ">
           <h1 className="text-5xl mt-6 font-bold tracking-tighter ">
             Things I've built to show the world my web dev chops.
@@ -45,16 +45,16 @@ const Projects = () => {
           const isEven = index % 2 === 1;
 
           return (
-            <div key={index} className="my-20 justify-between group">
-              <div className="xl:grid grid-cols-12">
+            <div key={index} className="my-20 group">
+              <div className="lg:grid grid-cols-12">
                 <div
                   className={`col-span-5 xl:col-span-6 ${isEven && "order-2"}`}
                 >
-                  <div className="rounded">
-                    <span className="dark:text-green-400 text-green-700 mt-6">
+                  <div className="rounded  max-w-lg mx-auto">
+                    <span className="dark:text-green-400 text-green-700">
                       Featured
                     </span>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between  max-w-lg mx-auto">
                       <h2 className="text-2xl font-bold tracking-tighter mb-6">
                         {project.name}
                       </h2>
@@ -74,15 +74,18 @@ const Projects = () => {
                       </div>
                     </div>
 
-                    <div className="xl:hidden col-span-7 xl:col-span-6 self-center mx-auto flex justify-center mb-8">
-                      <ImageCarousel images={project.images}></ImageCarousel>
+                    <div className="lg:hidden  xl:col-span-6 self-center mx-auto flex justify-center mb-8">
+                      <ImageCarousel
+                        aspectRatio={project.imageAspectRatio}
+                        images={project.images}
+                      ></ImageCarousel>
                     </div>
-                    <div className="dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4">
+                    <div className="dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4 max-w-lg mx-auto">
                       <p className="text-base  dark:text-neutral-300 text-neutral-600">
                         {project.description}
                       </p>
                     </div>
-                    <div className="mb-4 flex flex-wrap gap-3">
+                    <div className="mb-4 flex flex-wrap gap-3  max-w-lg mx-auto">
                       {project.tech.map((tech, techIndex) => {
                         return (
                           <span
@@ -98,11 +101,14 @@ const Projects = () => {
                 </div>
 
                 <div
-                  className={`hidden lg:block col-span-7 xl:col-span-6 self-center ${
-                    !isEven && "justify-self-end self-center"
+                  className={`hidden  lg:block col-span-7 xl:col-span-6 self-center ${
+                    !isEven && "justify-self-center self-center"
                   }`}
                 >
-                  <ImageCarousel images={project.images}></ImageCarousel>
+                  <ImageCarousel
+                    aspectRatio={project.imageAspectRatio}
+                    images={project.images}
+                  ></ImageCarousel>
                 </div>
               </div>
             </div>

@@ -1,4 +1,15 @@
-export const projects = [
+interface ProjectTypes {
+  id: number;
+  name: string;
+  description: string;
+  tech: string[];
+  images: string[];
+  imageAspectRatio: "wide" | "vertical";
+  demoURL: string;
+  sourceURL: string;
+}
+
+export const projects: ProjectTypes[] = [
   {
     id: 5,
     name: "GeoChat",
@@ -20,7 +31,7 @@ export const projects = [
       "https://www.chriswarren.tech/images/GeoChat/5.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
-
+    imageAspectRatio: "vertical",
     demoURL: "",
     sourceURL: "",
   },
@@ -50,6 +61,7 @@ export const projects = [
       "https://www.chriswarren.tech/images/GeoChat/5.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
+    imageAspectRatio: "wide",
     demoURL: "https://easydash-deploy-test.herokuapp.com/",
     sourceURL: "https://github.com/Christopher-Warren/easydash",
   },
@@ -63,6 +75,7 @@ export const projects = [
       "https://www.chriswarren.tech/images/GeoChat/5.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
+    imageAspectRatio: "wide",
     demoURL: "https://beta-fenrir.vercel.app/",
     sourceURL: "https://github.com/Christopher-Warren/beta-fenrir",
   },
@@ -76,6 +89,7 @@ export const projects = [
       "https://www.chriswarren.tech/images/GeoChat/5.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
+    imageAspectRatio: "wide",
     demoURL: "https://dev-apparel.vercel.app/",
     sourceURL: "https://github.com/Christopher-Warren/dev-apparel",
   },
@@ -89,6 +103,7 @@ export const projects = [
       "https://www.chriswarren.tech/images/GeoChat/5.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
+    imageAspectRatio: "wide",
     demoURL: "https://refurn.herokuapp.com/",
     sourceURL: "https://github.com/Christopher-Warren/Refurn",
   },
@@ -102,6 +117,7 @@ export const projects = [
       "https://www.chriswarren.tech/images/GeoChat/5.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
+    imageAspectRatio: "wide",
     demoURL: "https://iptracker-phi.vercel.app/",
     sourceURL: "https://github.com/Christopher-Warren/iptracker",
   },

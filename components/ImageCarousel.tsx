@@ -12,11 +12,12 @@ import {
 
 interface Props {
   images: string[];
+  aspectRatio: "wide" | "vertical";
   children?: React.ReactNode;
 }
 import useEmblaCarousel from "embla-carousel-react";
 
-const ImageCarousel: React.FC<Props> = ({ images }) => {
+const ImageCarousel: React.FC<Props> = ({ images, aspectRatio }) => {
   const [emblaRef, embla] = useEmblaCarousel();
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -50,7 +51,11 @@ const ImageCarousel: React.FC<Props> = ({ images }) => {
   }, [embla, setScrollSnaps, onSelect]);
 
   return (
-    <div className="relative h-[281px] w-[500px] overflow-hidden rounded-xl">
+    <div
+      className={`relative w-[500px] h-[${
+        aspectRatio === "vertical" ? "400" : "281"
+      }px] overflow-hidden rounded-lg border border-neutral-800`}
+    >
       <div
         className={`rounded-xl ${
           isGrabbing ? "cursor-grabbing" : "cursor-grab"
@@ -64,12 +69,13 @@ const ImageCarousel: React.FC<Props> = ({ images }) => {
             <Image
               alt="proj"
               width={500}
-              height={281}
-              objectFit="cover"
+              height={aspectRatio === "vertical" ? 400 : 281}
+              objectFit="contain"
+              objectPosition="top"
               src={images[0]}
             />
           </div>
-          <div className="flex-grow-0 flex-shrink-0">
+          {/* <div className="flex-grow-0 flex-shrink-0">
             <Image
               alt="proj"
               width={500}
@@ -77,7 +83,7 @@ const ImageCarousel: React.FC<Props> = ({ images }) => {
               objectFit="cover"
               src={images[1]}
             />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="absolute w-full top-0 h-full text-4xl flex items-center justify-between pointer-events-none">
