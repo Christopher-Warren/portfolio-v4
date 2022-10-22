@@ -28,7 +28,7 @@ export const projects: ProjectTypes[] = [
       "TailwindCSS",
     ],
     images: [
-      "https://www.chriswarren.tech/images/GeoChat/5.png",
+      "/images/projects/geochat/geochat_169.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
     imageAspectRatio: "vertical",
@@ -58,7 +58,7 @@ export const projects: ProjectTypes[] = [
       "TailwindCSS",
     ],
     images: [
-      "https://www.chriswarren.tech/images/GeoChat/5.png",
+      "/images/projects/geochat/geochat_169.png",
       "https://www.chriswarren.tech/images/easydash/login.png",
     ],
     imageAspectRatio: "wide",
