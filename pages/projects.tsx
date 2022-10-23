@@ -26,10 +26,10 @@ const Projects = () => {
 
       <MainContainer className="pt-52">
         <div className="max-w-2xl ">
-          <h1 className="text-5xl mt-6 font-bold tracking-tighter ">
+          <h1 className="mt-6 text-5xl font-bold tracking-tighter ">
             Things I've built to show the world my web dev chops.
           </h1>
-          <p className="mt-6 text-base font-light dark:text-neutral-300 text-neutral-600 leading-7 ">
+          <p className="mt-6 text-base font-light leading-7 text-neutral-600 dark:text-neutral-300 ">
             I've worked on many projects throughout the past few years but these
             are the ones that I'm most proud of. Most of them are actively
             deployed and accompanied by public repos, so feel free to check them
@@ -47,21 +47,21 @@ const Projects = () => {
           const isEven = index % 2 === 1;
 
           return (
-            <div key={index} className="my-20 group">
-              <div className="flex  ">
+            <div key={index} className="group my-20">
+              <div className="md:flex">
                 <div
-                  className={`max-w-lg relative   ${
-                    isEven ? "order-2 -inset-x-9" : "inset-x-9"
+                  className={`relative md:max-w-md xl:max-w-lg ${
+                    isEven ? "order-2 md:-inset-x-9" : "md:inset-x-9"
                   }`}
                 >
                   <div className="rounded ">
                     <div
-                      className={`flex justify-between mb-6 items-end ${
-                        isEven ? "ml-24" : "mr-24"
+                      className={`mb-6 flex items-end justify-between ${
+                        isEven ? "md:ml-24" : "md:mr-24"
                       }`}
                     >
-                      <div className=" inline-block">
-                        <span className="dark:text-green-400 text-green-700">
+                      <div className="inline-block">
+                        <span className="text-green-700 dark:text-green-400">
                           Featured
                         </span>
                         <h2 className="text-2xl font-bold tracking-tighter">
@@ -83,10 +83,10 @@ const Projects = () => {
                     </div>
 
                     <div
-                      className="relative dark:border-neutral-800 border-neutral-100 bg-b border-2 bg-white bg-transparent rounded p-6 shadow-lg mb-4
-                    dark:bg-neutral-900/80 z-10 backdrop-blur"
+                      className="bg-b relative z-10 mb-4 rounded border-2 border-neutral-100 bg-white bg-transparent p-6 shadow-lg
+                    backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80"
                     >
-                      <p className="text-base  dark:text-neutral-300 text-neutral-600">
+                      <p className="text-base  text-neutral-600 dark:text-neutral-300">
                         {project.description}
                       </p>
                     </div>
@@ -95,7 +95,7 @@ const Projects = () => {
                         return (
                           <span
                             key={tech + index + techIndex}
-                            className="dark:bg-neutral-800/70 backdrop-blur bg-neutral-200 border dark:border-neutral-700 dark:text-neutral-400 text-neutral-600 rounded px-2 py-0.5  text-xs"
+                            className="rounded border bg-neutral-200 px-2 py-0.5 text-xs text-neutral-600 backdrop-blur dark:border-neutral-700 dark:bg-neutral-800/70  dark:text-neutral-400"
                           >
                             {tech}
                           </span>
@@ -106,12 +106,12 @@ const Projects = () => {
                 </div>
 
                 <div
-                  className={` self-center relative  ${
-                    isEven ? "inset-x-9" : "-inset-x-9"
+                  className={`relative flex justify-center self-center ${
+                    isEven ? "md:inset-x-9" : "md:-inset-x-9"
                   }`}
                 >
                   <button
-                    className={`flex w-10 h-10 rounded-full justify-center items-center absolute z-20 bg-neutral-800/70 backdrop-blur right-0 m-3   text-neutral-600 dark:text-neutral-100 ${
+                    className={`absolute right-0 z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/70 text-neutral-600   backdrop-blur dark:text-neutral-100 ${
                       isEven ? "left-0" : "right-0"
                     }`}
                   >
@@ -124,7 +124,7 @@ const Projects = () => {
                       width={600}
                       height={300}
                       objectFit="cover"
-                      src={project.images[0]}
+                      src={project.primaryImage}
                     />
                   </div>
                 </div>

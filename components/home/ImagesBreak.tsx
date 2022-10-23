@@ -6,11 +6,11 @@ export const ImagesBreak = () => {
 
   return (
     <div
-      className="mt-20 overflow-x-clip 
-    -mx-4 lg:-mx-10 xl:-mx-20"
+      className="-mx-4 mt-20 
+    overflow-x-clip lg:-mx-10 xl:-mx-20"
     >
       <div className="-mx-36">
-        <div className="flex justify-between [&>*]:shadow-lg [&>*]:rounded-2xl [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2">
+        <div className="flex justify-between [&>*]:rounded-2xl [&>*]:shadow-lg [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2">
           <Image
             alt="hey"
             width={imgWidth}
@@ -26,7 +26,7 @@ export const ImagesBreak = () => {
               alt="hey"
               width={imgWidth}
               height={imgHeight}
-              className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
+              className="transition-all duration-500 hover:scale-105 hover:opacity-50 hover:blur-[1px]"
               src={
                 "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
               }
@@ -38,7 +38,7 @@ export const ImagesBreak = () => {
               alt="hey"
               width={imgWidth}
               height={imgHeight}
-              className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
+              className="transition-all duration-500 hover:scale-105 hover:opacity-50 hover:blur-[1px]"
               src={
                 "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
               }
@@ -49,7 +49,7 @@ export const ImagesBreak = () => {
               alt="hey"
               width={imgWidth}
               height={imgHeight}
-              className="hover:opacity-50 hover:blur-[1px] hover:scale-105 transition-all duration-500"
+              className="transition-all duration-500 hover:scale-105 hover:opacity-50 hover:blur-[1px]"
               src={
                 "https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage-4.5c6d0ed6.jpg&w=384&q=75"
               }

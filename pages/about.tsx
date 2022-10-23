@@ -24,13 +24,13 @@ const About = () => {
       {/* image break */}
 
       <div className="">hello</div>
-      <div className="h-96 flex  border-white justify-between">
-        <div className="bg-red-600 w-32 h-32 text-center">BASE</div>
-        <div className="sm:bg-red-600 w-32 h-32 text-center">SM</div>
-        <div className="md:bg-red-600 w-32 h-32 text-center">MD</div>
-        <div className="lg:bg-red-600 w-32 h-32 text-center">LG</div>
-        <div className="xl:bg-red-600 w-32 h-32 text-center">XL</div>
-        <div className="2xl:bg-red-600 w-32 h-32 text-center">2XL</div>
+      <div className="flex h-96  justify-between border-white">
+        <div className="h-32 w-32 bg-red-600 text-center">BASE</div>
+        <div className="h-32 w-32 text-center sm:bg-red-600">SM</div>
+        <div className="h-32 w-32 text-center md:bg-red-600">MD</div>
+        <div className="h-32 w-32 text-center lg:bg-red-600">LG</div>
+        <div className="h-32 w-32 text-center xl:bg-red-600">XL</div>
+        <div className="h-32 w-32 text-center 2xl:bg-red-600">2XL</div>
       </div>
       <div className="h-screen  border-b-2 border-white"></div>
       <div className="h-screen  border-b-2 border-white"></div>

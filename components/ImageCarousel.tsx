@@ -65,7 +65,7 @@ const ImageCarousel: React.FC<Props> = ({ images, aspectRatio }) => {
         ref={emblaRef}
       >
         <div className="flex">
-          <div className="flex-grow-0 flex-shrink-0 ">
+          <div className="flex-shrink-0 flex-grow-0 ">
             <Image
               alt="proj"
               width={500}
@@ -86,31 +86,31 @@ const ImageCarousel: React.FC<Props> = ({ images, aspectRatio }) => {
           </div> */}
         </div>
       </div>
-      <div className="absolute w-full top-0 h-full text-4xl flex items-center justify-between pointer-events-none">
-        <button className="text-neutral-500/50 hover:text-white cursor-pointer transition-colors pointer-events-auto p-3">
+      <div className="pointer-events-none absolute top-0 flex h-full w-full items-center justify-between text-4xl">
+        <button className="pointer-events-auto cursor-pointer p-3 text-neutral-500/50 transition-colors hover:text-white">
           <FontAwesomeIcon
             onClick={scrollPrev}
             icon={faChevronLeft}
           ></FontAwesomeIcon>
         </button>
-        <button className="text-neutral-500/50 hover:text-white cursor-pointer transition-colors pointer-events-auto p-3">
+        <button className="pointer-events-auto cursor-pointer p-3 text-neutral-500/50 transition-colors hover:text-white">
           <FontAwesomeIcon
             onClick={scrollNext}
             icon={faChevronRight}
           ></FontAwesomeIcon>
         </button>
 
-        <div className="flex justify-center absolute bottom-0 right-0 left-0">
+        <div className="absolute bottom-0 right-0 left-0 flex justify-center">
           {scrollSnaps.map((_, index) => {
             return (
               <button
-                className="p-3 pointer-events-auto"
+                className="pointer-events-auto p-3"
                 key={index}
                 onClick={() => scrollTo(index)}
                 type="button"
               >
                 <div
-                  className={` rounded-full w-3 h-3 backdrop-blur ${
+                  className={` h-3 w-3 rounded-full backdrop-blur ${
                     selectedIndex === index
                       ? "bg-neutral-500/60"
                       : "bg-neutral-500/20"
