@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <Hero />
         <ImagesBreak />
 
-        <div className="mt-32 gap-6 pb-32 lg:flex ">
+        <div className="mt-20 gap-6 pb-32 lg:flex xl:mt-32 ">
           <RecentArticles />
           <Info />
         </div>
