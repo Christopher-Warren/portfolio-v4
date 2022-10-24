@@ -5,6 +5,7 @@ interface ProjectTypes {
   tech: string[];
   primaryImage: string;
   images: string[];
+  imagesOrientation?: "portrait" | "landscape";
   demoURL: string;
   sourceURL: string;
 }
