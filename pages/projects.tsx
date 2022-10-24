@@ -76,12 +76,12 @@ const Projects = () => {
                       </div>
                       <div className="text-2xl text-neutral-600 dark:text-neutral-400">
                         <Link href="">
-                          <a className="hover:text-neutral-800 dark:hover:text-neutral-100">
+                          <a className="transition-colors hover:text-neutral-800 dark:hover:text-neutral-100">
                             <Icon icon={faGithub} />
                           </a>
                         </Link>
                         <Link href="">
-                          <a className="ml-4 hover:text-neutral-800 dark:hover:text-neutral-100">
+                          <a className="ml-4 transition-colors hover:text-neutral-800 dark:hover:text-neutral-100">
                             <Icon icon={faExternalLink} />
                           </a>
                         </Link>
@@ -89,7 +89,7 @@ const Projects = () => {
                     </div>
 
                     <div
-                      className="bg-b relative z-10 mb-4 rounded border-2 border-neutral-100 bg-white bg-transparent p-6 shadow-lg
+                      className=" relative z-10 mb-4 rounded border-2 border-neutral-100 bg-white/80  p-6 shadow-lg
                     backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80"
                     >
                       <p className="text-base  text-neutral-600 dark:text-neutral-300">
@@ -118,7 +118,7 @@ const Projects = () => {
                 >
                   <button
                     onClick={(e) => setImages(project.images)}
-                    className={`absolute z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/70 text-neutral-600 backdrop-blur dark:text-neutral-100 ${
+                    className={`absolute z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-neutral-600 backdrop-blur transition-colors hover:text-neutral-900 dark:bg-neutral-800/70 dark:text-neutral-300 dark:hover:text-white ${
                       isEven ? "left-0" : "right-0"
                     }`}
                   >

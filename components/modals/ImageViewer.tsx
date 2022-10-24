@@ -7,6 +7,14 @@ interface Props {
   setImages: any;
 }
 
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
+import {
+  faExternalLink,
+  faX,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { faImages } from "@fortawesome/free-regular-svg-icons";
+
 const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
   useEffect(() => {
     images && (document.body.style.overflow = "hidden");
@@ -18,7 +26,7 @@ const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
   return (
     <div
       onClick={(e: any) => {
-        if (e.target.localName !== "img") {
+        if (e.target.localName === "div") {
           setImages(null);
         }
       }}
@@ -29,9 +37,10 @@ const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
       <div className="relative mx-auto h-full w-full max-w-7xl ">
         <button
           onClick={() => setImages(null)}
-          className="absolute top-0 right-0 z-10 "
+          className="absolute top-0 right-0 z-10 m-5 p-2 text-xl text-neutral-200 transition-colors duration-300 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white
+          "
         >
-          close
+          <Icon icon={faX} />
         </button>
         {/* <Image objectFit="cover" layout="fill" src={images[0]}></Image> */}
         <ImageCarousel images={images} />
