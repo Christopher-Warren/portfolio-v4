@@ -89,6 +89,7 @@ const Projects = ({ projects }: Props) => {
                           {project.name}
                         </h2>
                       </div>
+
                       <div className="text-2xl text-neutral-600 dark:text-neutral-400">
                         <Link href="">
                           <a className="transition-colors hover:text-neutral-800 dark:hover:text-neutral-100">
@@ -102,10 +103,30 @@ const Projects = ({ projects }: Props) => {
                         </Link>
                       </div>
                     </div>
-
+                    {/* mobile images */}
                     <div
-                      className=" relative z-10 mb-4 rounded border-2 border-neutral-100 bg-white/80  p-6 shadow-lg
-                    backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80"
+                      className={`relative mb-6 flex justify-center self-center md:hidden`}
+                    >
+                      <button
+                        onClick={(e) => setSelectedProject(project)}
+                        className={`absolute left-0 z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-neutral-600 backdrop-blur transition-colors hover:text-neutral-900 dark:bg-neutral-800/70 dark:text-neutral-300 dark:hover:text-white`}
+                      >
+                        <Icon icon={faImages} />
+                      </button>
+                      <div className="">
+                        <Image
+                          alt="proj"
+                          className="rounded"
+                          width={600}
+                          height={300}
+                          objectFit="cover"
+                          src={project.primaryImage}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className=" relative z-10 mb-4 rounded border-2 border-neutral-100 bg-white/80  p-4 shadow-lg backdrop-blur
+                    dark:border-neutral-800 dark:bg-neutral-900/80 md:p-6"
                     >
                       <p className="text-base  text-neutral-600 dark:text-neutral-300">
                         {project.description}
@@ -127,7 +148,7 @@ const Projects = ({ projects }: Props) => {
                 </div>
 
                 <div
-                  className={`relative flex justify-center self-center ${
+                  className={`relative hidden justify-center self-center md:flex ${
                     isEven ? "md:inset-x-9" : "md:-inset-x-9"
                   }`}
                 >
