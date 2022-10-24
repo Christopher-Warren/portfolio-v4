@@ -12,12 +12,12 @@ import {
 
 interface Props {
   images: string[];
-  aspectRatio: "wide" | "vertical";
+
   children?: React.ReactNode;
 }
 import useEmblaCarousel from "embla-carousel-react";
 
-const ImageCarousel: React.FC<Props> = ({ images, aspectRatio }) => {
+const ImageCarousel: React.FC<Props> = ({ images }) => {
   const [emblaRef, embla] = useEmblaCarousel();
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -27,8 +27,6 @@ const ImageCarousel: React.FC<Props> = ({ images, aspectRatio }) => {
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
-
-  const [isGrabbing, setIsGrabbing] = useState(false);
 
   const scrollTo = useCallback(
     (index: number) => embla && embla.scrollTo(index),
@@ -52,38 +50,33 @@ const ImageCarousel: React.FC<Props> = ({ images, aspectRatio }) => {
 
   return (
     <div
-      className={`relative w-[500px] h-[${
-        aspectRatio === "vertical" ? "400" : "281"
-      }px] overflow-hidden rounded-lg border border-neutral-800`}
+      className="relative top-1/2 mx-auto max-w-5xl -translate-y-1/2"
+      // onClick={(e) => {
+      //   console.log(e);
+      // }}
     >
-      <div
-        className={`rounded-xl ${
-          isGrabbing ? "cursor-grabbing" : "cursor-grab"
-        }`}
-        onPointerDown={() => setIsGrabbing(true)}
-        onPointerUp={() => setIsGrabbing(false)}
-        ref={emblaRef}
-      >
+      <div className=" relative w-full overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="flex-shrink-0 flex-grow-0 ">
+          <div className="relative h-[90vh] flex-shrink-0 flex-grow-0 basis-full">
             <Image
+              className="h-full "
               alt="proj"
-              width={500}
-              height={aspectRatio === "vertical" ? 400 : 281}
-              objectFit="contain"
+              layout="fill"
+              objectFit="scale-down"
               objectPosition="top"
               src={images[0]}
             />
           </div>
-          {/* <div className="flex-grow-0 flex-shrink-0">
+          <div className="relative h-[90vh] flex-shrink-0 flex-grow-0 basis-full">
             <Image
-              alt="proj"
-              width={500}
-              height={281}
-              objectFit="cover"
+              className="h-full"
+              alt="proj2"
+              layout="fill"
+              objectFit="contain"
+              objectPosition="top"
               src={images[1]}
             />
-          </div> */}
+          </div>
         </div>
       </div>
       <div className="pointer-events-none absolute top-0 flex h-full w-full items-center justify-between text-4xl">

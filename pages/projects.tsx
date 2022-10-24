@@ -16,13 +16,19 @@ import ImageCarousel from "../components/ImageCarousel";
 import Head from "next/head";
 
 import { projects } from "../assets/projects";
+import ImageViewer from "../components/modals/ImageViewer";
+import { useState } from "react";
 
 const Projects = () => {
+  const [images, setImages] = useState<string[] | null>(null);
+
   return (
     <>
       <Head>
         <title>Christopher Warren - Projects</title>
       </Head>
+
+      {images && <ImageViewer images={images} setImages={setImages} />}
 
       <MainContainer className="pt-52">
         <div className="max-w-2xl ">
@@ -111,7 +117,8 @@ const Projects = () => {
                   }`}
                 >
                   <button
-                    className={`absolute right-0 z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/70 text-neutral-600   backdrop-blur dark:text-neutral-100 ${
+                    onClick={(e) => setImages(project.images)}
+                    className={`absolute z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800/70 text-neutral-600 backdrop-blur dark:text-neutral-100 ${
                       isEven ? "left-0" : "right-0"
                     }`}
                   >

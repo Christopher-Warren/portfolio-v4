@@ -74,7 +74,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`fixed right-0 left-0 z-10  mx-auto -mt-5 flex w-full max-w-7xl justify-between px-4 pt-12 transition-transform 
+      className={`fixed right-0 left-0 z-40  mx-auto -mt-5 flex w-full max-w-7xl justify-between px-4 pt-12 transition-transform 
       duration-300 sm:px-10 lg:px-36 xl:px-20
       ${visible ? "translate-y-0" : `-translate-y-full`}`}
     >

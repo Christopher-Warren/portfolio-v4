@@ -30,7 +30,7 @@ export const projects: ProjectTypes[] = [
     primaryImage: "/images/projects/geochat/geochat_169.png",
     images: [
       "/images/projects/geochat/geochat_169.png",
-      "https://www.chriswarren.tech/images/easydash/login.png",
+      "https://www.chriswarren.tech/images/GeoChat/5.png",
     ],
 
     demoURL: "",
