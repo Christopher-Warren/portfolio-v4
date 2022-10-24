@@ -1,30 +1,28 @@
-import Image from "next/image";
-import { ElementType, ReactElement, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import ImageCarousel from "../ImageCarousel";
 
 interface Props {
-  images: string[];
-  setImages: any;
+  selectedProject: ProjectType;
+  setSelectedProject: any;
 }
 
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import {
-  faExternalLink,
-  faX,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import { faImages } from "@fortawesome/free-regular-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { ProjectType } from "../../@types/Projects";
 
-const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
+const ImageViewer: React.FC<Props> = ({
+  selectedProject,
+  setSelectedProject,
+}) => {
   const isClosing = useRef(false);
 
   useEffect(() => {
-    images && (document.body.style.overflow = "hidden");
+    selectedProject.images && (document.body.style.overflow = "hidden");
 
     return () => {
       document.body.style.overflow = "visible";
     };
-  }, [images]);
+  }, [selectedProject.images]);
   return (
     <div
       onMouseDown={(e: any) => {
@@ -36,23 +34,23 @@ const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
       }}
       onClick={(e: any) => {
         if (e.target.localName === "div" && isClosing.current) {
-          setImages(null);
+          setSelectedProject(null);
         }
       }}
       className={`${
-        images ? "block" : "hidden"
+        selectedProject.images ? "block" : "hidden"
       } fixed z-50 h-screen w-screen overflow-hidden bg-neutral-900/50 backdrop-blur`}
     >
       <div className="relative mx-auto h-full w-full max-w-7xl ">
         <button
-          onClick={() => setImages(null)}
+          onClick={() => setSelectedProject(null)}
           className="absolute top-0 right-0 z-10 m-5 p-2 text-xl text-neutral-200 transition-colors duration-300 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white
           "
         >
           <Icon icon={faX} />
         </button>
-        {/* <Image objectFit="cover" layout="fill" src={images[0]}></Image> */}
-        <ImageCarousel images={images} />
+
+        <ImageCarousel project={selectedProject} />
       </div>
     </div>
   );

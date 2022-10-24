@@ -4,22 +4,18 @@ import Link from "next/link";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-import {
-  faExternalLink,
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 
 import { faImages } from "@fortawesome/free-regular-svg-icons";
 import { MainContainer } from "../components/containers/MainContainer";
-import ImageCarousel from "../components/ImageCarousel";
+
 import Head from "next/head";
 
-import { ProjectTypes } from "../assets/projects";
 import ImageViewer from "../components/modals/ImageViewer";
 import { useState } from "react";
 
 import { getProjects } from "../assets/getProjectsData";
+import { ProjectType } from "../@types/Projects";
 
 export async function getStaticProps() {
   const projects = await getProjects();
@@ -28,11 +24,13 @@ export async function getStaticProps() {
 }
 
 interface Props {
-  projects: ProjectTypes[];
+  projects: ProjectType[];
 }
 
 const Projects = ({ projects }: Props) => {
-  const [images, setImages] = useState<string[] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
+    null
+  );
 
   return (
     <>
@@ -40,7 +38,12 @@ const Projects = ({ projects }: Props) => {
         <title>Christopher Warren - Projects</title>
       </Head>
 
-      {images && <ImageViewer images={images} setImages={setImages} />}
+      {selectedProject && (
+        <ImageViewer
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject}
+        />
+      )}
 
       <MainContainer className="pt-52">
         <div className="max-w-2xl ">
@@ -129,7 +132,7 @@ const Projects = ({ projects }: Props) => {
                   }`}
                 >
                   <button
-                    onClick={(e) => setImages(project.images)}
+                    onClick={(e) => setSelectedProject(project)}
                     className={`absolute z-20 m-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-neutral-600 backdrop-blur transition-colors hover:text-neutral-900 dark:bg-neutral-800/70 dark:text-neutral-300 dark:hover:text-white ${
                       isEven ? "left-0" : "right-0"
                     }`}

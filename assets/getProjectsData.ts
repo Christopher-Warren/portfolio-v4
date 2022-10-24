@@ -1,18 +1,8 @@
 import fs from "fs";
-interface ProjectTypes {
-  id: number;
-  name: string;
-  description: string;
-  tech: string[];
-  primaryImage: string;
-  images: string[];
-  imagesOrientation?: "portrait" | "landscape";
-  demoURL: string;
-  sourceURL: string;
-  folderName: string;
-}
+import { ProjectType } from "../@types/Projects";
+
 export const getProjects = async () => {
-  const projects: ProjectTypes[] = [
+  const projects: ProjectType[] = [
     {
       id: 5,
       name: "GeoChat",
@@ -134,10 +124,6 @@ export const getProjects = async () => {
       sourceURL: "https://github.com/Christopher-Warren/iptracker",
     },
   ];
-
-  //   console.log(
-  //     fs.readdirSync("./public/images/projects/" + projects[0].name.toLowerCase())
-  //   );
 
   const projectsWithImgs = projects.map((project) => {
     const name = project.folderName;

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
-import Link from "next/link";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -11,13 +9,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
-  images: string[];
+  project: ProjectType;
 
   children?: React.ReactNode;
 }
 import useEmblaCarousel from "embla-carousel-react";
+import { ProjectType } from "../@types/Projects";
 
-const ImageCarousel: React.FC<Props> = ({ images }) => {
+const ImageCarousel: React.FC<Props> = ({ project }) => {
   const [emblaRef, embla] = useEmblaCarousel();
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -52,7 +51,7 @@ const ImageCarousel: React.FC<Props> = ({ images }) => {
     <div className="relative top-1/2 mx-auto max-w-5xl -translate-y-1/2">
       <div className=" relative w-full overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {images.map((imageSrc: string) => {
+          {project.images.map((imageSrc: string) => {
             return (
               <div
                 key={imageSrc}
@@ -62,10 +61,12 @@ const ImageCarousel: React.FC<Props> = ({ images }) => {
                   className="relative h-full"
                   alt="proj"
                   layout="fill"
-                  objectFit="cover"
+                  objectFit={
+                    project.folderName === "geochat" ? "contain" : "cover"
+                  }
                   objectPosition="top"
                   src={imageSrc}
-                />{" "}
+                />
               </div>
             );
           })}
