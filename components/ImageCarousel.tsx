@@ -52,26 +52,23 @@ const ImageCarousel: React.FC<Props> = ({ images }) => {
     <div className="relative top-1/2 mx-auto max-w-5xl -translate-y-1/2">
       <div className=" relative w-full overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="relative h-[80vh] flex-shrink-0 flex-grow-0 basis-full">
-            <Image
-              className="relative h-full"
-              alt="proj"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="top"
-              src={images[0]}
-            />
-          </div>
-          <div className="relative h-[80vh] flex-shrink-0 flex-grow-0 basis-full">
-            <Image
-              className="h-full"
-              alt="proj2"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="top"
-              src={images[1]}
-            />
-          </div>
+          {images.map((imageSrc: string) => {
+            return (
+              <div
+                key={imageSrc}
+                className="relative h-[80vh] flex-shrink-0 flex-grow-0 basis-full"
+              >
+                <Image
+                  className="relative h-full"
+                  alt="proj"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="top"
+                  src={imageSrc}
+                />{" "}
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="pointer-events-none absolute top-0 flex h-full w-full items-center justify-between text-4xl">

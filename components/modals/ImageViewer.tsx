@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ElementType, ReactElement, useEffect, useState } from "react";
+import { ElementType, ReactElement, useEffect, useRef, useState } from "react";
 import ImageCarousel from "../ImageCarousel";
 
 interface Props {
@@ -16,6 +16,8 @@ import {
 import { faImages } from "@fortawesome/free-regular-svg-icons";
 
 const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
+  const isClosing = useRef(false);
+
   useEffect(() => {
     images && (document.body.style.overflow = "hidden");
 
@@ -25,8 +27,15 @@ const ImageViewer: React.FC<Props> = ({ images, setImages }) => {
   }, [images]);
   return (
     <div
-      onClick={(e: any) => {
+      onMouseDown={(e: any) => {
         if (e.target.localName === "div") {
+          isClosing.current = true;
+        } else {
+          isClosing.current = false;
+        }
+      }}
+      onClick={(e: any) => {
+        if (e.target.localName === "div" && isClosing.current) {
           setImages(null);
         }
       }}

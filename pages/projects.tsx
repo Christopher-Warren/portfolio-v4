@@ -15,11 +15,23 @@ import { MainContainer } from "../components/containers/MainContainer";
 import ImageCarousel from "../components/ImageCarousel";
 import Head from "next/head";
 
-import { projects } from "../assets/projects";
+import { ProjectTypes } from "../assets/projects";
 import ImageViewer from "../components/modals/ImageViewer";
 import { useState } from "react";
 
-const Projects = () => {
+import { getProjects } from "../assets/getProjectsData";
+
+export async function getStaticProps() {
+  const projects = await getProjects();
+
+  return { props: { projects: projects } };
+}
+
+interface Props {
+  projects: ProjectTypes[];
+}
+
+const Projects = ({ projects }: Props) => {
   const [images, setImages] = useState<string[] | null>(null);
 
   return (
