@@ -45,16 +45,16 @@ const Projects = ({ projects }: Props) => {
         />
       )}
 
-      <MainContainer className="pt-52">
+      <MainContainer className="pt-40">
         <div className="max-w-2xl ">
-          <h1 className="mt-6 text-5xl font-bold tracking-tighter ">
-            Things I've built to show the world my web dev chops.
+          <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug ">
+            {`Things I've built to show the world my web dev chops.`}
           </h1>
           <p className="mt-6 text-base font-light leading-7 text-neutral-600 dark:text-neutral-300 ">
-            I've worked on many projects throughout the past few years but these
+            {`I've worked on many projects throughout the past few years but these
             are the ones that I'm most proud of. Most of them are actively
             deployed and accompanied by public repos, so feel free to check them
-            out.
+            out.`}
           </p>
 
           {/* connect icons */}

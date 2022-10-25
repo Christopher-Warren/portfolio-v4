@@ -12,7 +12,7 @@ export const ImagesBreak = () => {
      lg:-mx-10 xl:-mx-20"
     >
       <div className="-mx-96 md:-mx-36">
-        <div className="flex justify-between [&>*]:mx-2  [&>*]:h-56 [&>*]:w-full [&>*]:rounded-2xl [&>*]:shadow-lg md:[&>*]:h-60 xl:[&>*]:mx-4 xl:[&>*]:h-80   [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2">
+        <div className="flex justify-between [&>*]:mx-2  [&>*]:h-56 [&>*]:w-full [&>*]:rounded-2xl [&>*]:shadow-lg md:[&>*]:h-60 xl:[&>*]:mx-4 xl:[&>*]:h-72   [&>*:nth-child(even)]:rotate-2 [&>*:nth-child(odd)]:-rotate-2">
           <div className="relative z-20 overflow-hidden">
             <Image
               alt="hey"
