@@ -7,6 +7,7 @@ import {
   faGithub,
   faStackOverflow,
   faCodepen,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
 export const Hero = () => {
@@ -24,9 +25,13 @@ export const Hero = () => {
         developer.
       </h1>
       <p className="mt-6 text-base  leading-7 text-neutral-500 dark:text-neutral-400">
-        I’m Chris, a software designer and entrepreneur based in New York City.
-        I’m the founder and CEO of Planetaria, where we develop technologies
-        that empower regular people to explore space on their own terms.
+        {`I'm Chris, a full stack web developer that specializes in the front end. I'm currently building a blog to add to my `}
+        <span className="text-green-400">
+          <Link href={"/projects"}>
+            <a>{`list of projects `}</a>
+          </Link>
+        </span>
+        {`so I can share some of the things I've learned in my journey of becoming a web developer.`}
       </p>
 
       {/* connect icons */}
@@ -38,13 +43,13 @@ export const Hero = () => {
           <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
         </Link>
         <Link href="">
-          <FontAwesomeIcon icon={faCodepen}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
         </Link>
         <Link href="">
           <FontAwesomeIcon icon={faStackOverflow} />
         </Link>
       </div>
-      {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
+      {/* <button className="mt-6 rounded-md bg-gradient-to-tr from-emerald-500 via-teal-500 to-green-500 px-4 py-2 text-white  shadow-lg shadow-teal-700 duration-200 hover:shadow-none">
         Download CV
       </button> */}
     </div>
