@@ -17,7 +17,8 @@ const arr = ["", "", "", ""];
 export const Info = () => {
   return (
     <div className="w-full lg:pl-32">
-      <div className="mb-10 w-full rounded-lg border border-neutral-200 p-5 dark:border-neutral-700">
+      {/* Subscribtion  */}
+      <div className="mb-10 w-full rounded-lg border border-neutral-200 bg-red-600 p-5 dark:border-neutral-700">
         <div className="mb-4 flex items-center">
           <FontAwesomeIcon
             className="mr-4 text-xl  text-neutral-400 "
@@ -40,6 +41,7 @@ export const Info = () => {
         </div>
       </div>
 
+      {/* Projects/work */}
       <div className="w-full rounded-lg border border-neutral-200 p-5 dark:border-neutral-700">
         <div className="mb-7 flex items-center">
           <FontAwesomeIcon

@@ -10,14 +10,33 @@ import {
   faStackOverflow,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+
+import { faIdCard as skillsIcon } from "@fortawesome/free-regular-svg-icons";
+
 import Link from "next/link";
 import { Hero } from "../components/home";
 import InlineLink from "../components/links/InlineLink";
+import TextInput from "../components/inputs/TextInput";
 
 const About = () => {
+  const skills = [
+    "React",
+    "React Native",
+    "React Router",
+    "Redux",
+    "Next.js",
+    "Apollo GraphQL",
+    "REST",
+    "TailwindCSS",
+    "SASS",
+    "Bootstrap",
+    "HTML/CSS",
+  ];
+
   return (
     <MainContainer className="pt-44">
       <div className="justify-between gap-6 md:flex">
+        {/* Left */}
         <div className="max-w-lg">
           <div className="relative flex justify-center border md:hidden">
             <Image
@@ -67,7 +86,8 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="x-10">
+        {/* Right */}
+        <div className="">
           <div className="relative hidden rotate-3 md:block">
             <Image
               className="rounded-xl"
@@ -79,53 +99,83 @@ const About = () => {
               src="/images/horsepens.jpg"
             ></Image>
           </div>
-          <div className="">
-            <ul className="mt-14 text-sm text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
-              <li className="my-5 max-w-fit">
-                <Link href="">
-                  <a className="flex items-center">
-                    <FontAwesomeIcon
-                      className="mr-3 h-6 w-6 text-2xl "
-                      icon={faLinkedin}
-                    />
-                    <span className="align-top">Follow on LinkedIn</span>
-                  </a>
-                </Link>
-              </li>
-              <li className="my-5 max-w-fit">
-                <Link href="">
-                  <a className="flex items-center">
-                    <FontAwesomeIcon
-                      className="mr-3 h-6 w-6 text-2xl"
-                      icon={faGithub}
-                    />
-                    <span className="align-top">Follow on Github</span>
-                  </a>
-                </Link>
-              </li>
-              <li className="my-5 max-w-fit">
-                <Link href="">
-                  <a className="flex items-center">
-                    <FontAwesomeIcon
-                      className="mr-3 h-6 w-6 text-2xl "
-                      icon={faTwitter}
-                    />
-                    <span className="align-top">Follow on Twitter</span>
-                  </a>
-                </Link>
-              </li>
-              <li className="my-5 max-w-fit">
-                <Link href="">
-                  <a className="flex items-center">
-                    <FontAwesomeIcon
-                      className="mr-3 h-6 w-6 text-2xl "
-                      icon={faStackOverflow}
-                    />
-                    <span className="align-top">Follow on LinkedIn</span>
-                  </a>
-                </Link>
-              </li>
-            </ul>
+
+          {/* right bottom */}
+          <div className="mt-10 flex justify-between gap-6 pb-32">
+            {/* skills */}
+            <div className="w-full rounded-lg border border-neutral-200 p-5 shadow-xl  dark:border-neutral-700">
+              <div className="mb-5 flex">
+                <FontAwesomeIcon
+                  className="mr-4 self-center  text-xl text-neutral-400 "
+                  icon={skillsIcon}
+                  mask={["far", "circle"]}
+                />
+                <span className="text-lg text-neutral-600 dark:text-neutral-100">
+                  Skills
+                </span>
+              </div>
+              <div className="text-neutral-400">
+                <ul className="space-y-2 ">
+                  {skills.map((skill) => {
+                    return (
+                      <li className="" key={skill}>
+                        {skill}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+
+            {/* socials */}
+            <div className="mt-[22px] whitespace-nowrap">
+              <ul className="text-sm text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
+                <li className="max-w-fit">
+                  <Link href="">
+                    <a className="flex items-center">
+                      <FontAwesomeIcon
+                        className="mr-3 h-6 w-6 text-2xl "
+                        icon={faLinkedin}
+                      />
+                      <span className="align-top">Follow on LinkedIn</span>
+                    </a>
+                  </Link>
+                </li>
+                <li className="my-5 max-w-fit">
+                  <Link href="">
+                    <a className="flex items-center">
+                      <FontAwesomeIcon
+                        className="mr-3 h-6 w-6 text-2xl"
+                        icon={faGithub}
+                      />
+                      <span className="align-top">Follow on Github</span>
+                    </a>
+                  </Link>
+                </li>
+                <li className="my-5 max-w-fit">
+                  <Link href="">
+                    <a className="flex items-center">
+                      <FontAwesomeIcon
+                        className="mr-3 h-6 w-6 text-2xl "
+                        icon={faTwitter}
+                      />
+                      <span className="align-top">Follow on Twitter</span>
+                    </a>
+                  </Link>
+                </li>
+                <li className="my-5 max-w-fit">
+                  <Link href="">
+                    <a className="flex items-center">
+                      <FontAwesomeIcon
+                        className="mr-3 h-6 w-6 text-2xl "
+                        icon={faStackOverflow}
+                      />
+                      <span className="align-top">Follow on LinkedIn</span>
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         {/* connect icons */}
