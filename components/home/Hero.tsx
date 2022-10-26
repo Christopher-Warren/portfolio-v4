@@ -9,6 +9,7 @@ import {
   faCodepen,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import InlineLink from "../links/InlineLink";
 
 export const Hero = () => {
   return (
@@ -26,12 +27,8 @@ export const Hero = () => {
       </h1>
       <p className="mt-6 text-base  leading-7 text-neutral-500 dark:text-neutral-400">
         {`I'm Chris, a full stack web developer that specializes in the front end. I'm currently building a blog to add to my `}
-        <span className="text-green-400">
-          <Link href={"/projects"}>
-            <a>{`list of projects `}</a>
-          </Link>
-        </span>
-        {`so I can share some of the things I've learned in my journey of becoming a web developer.`}
+        <InlineLink href="/projects">{`list of projects `}</InlineLink>
+        {`so I can share, and perhaps teach, some of the things I've learned in my journey of becoming a software developer.`}
       </p>
 
       {/* connect icons */}
