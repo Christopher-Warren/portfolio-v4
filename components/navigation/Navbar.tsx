@@ -146,7 +146,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-      <div className="relative flex justify-center">
+      <div className="relative flex justify-center md:hidden">
         <div
           className={` fixed top-0 left-0 z-40 h-screen w-screen bg-neutral-900/40 backdrop-blur ${
             showMobileNav ? "opacity-100" : "pointer-events-none opacity-0"
