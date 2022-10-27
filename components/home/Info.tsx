@@ -11,8 +11,24 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLaptopCode as projectIcon } from "@fortawesome/free-solid-svg-icons";
 
 import TextInput from "../inputs/TextInput";
+import Image from "next/image";
 
-const arr = ["", "", "", ""];
+const arr = [
+  {
+    company: "Parkridge Valley",
+    title: "Mental Health Technician II",
+    date: "2017 - Current",
+    status: "Part time",
+    logo: "/images/logos/parkridge_valley_logo.png",
+  },
+  {
+    company: "Tennessee Wolfpack",
+    title: "Web Content Designer",
+    date: "2021 - 2022",
+    status: "Contract",
+    logo: "/images/logos/tn_wolfpack_logo.png",
+  },
+];
 
 export const Info = () => {
   return (
@@ -48,21 +64,34 @@ export const Info = () => {
             className="mr-4 text-xl  text-neutral-400 "
             icon={projectIcon}
           />
-          <span className="dark:text-neutral-100">Projects</span>
+          <span className="dark:text-neutral-100">Work</span>
         </div>
         {/* project item */}
-        {arr.map((_, index) => {
+        {arr.map(({ company, title, date, status, logo }, index) => {
           return (
             <div
               key={index}
               className="my-4 flex items-center justify-between text-sm"
             >
-              <div className="mr-4 h-10 w-10 rounded-full bg-neutral-700"></div>
-              <div className="flex-1">
-                <p className="text-base">Easydash</p>
-                <span className="text-neutral-400">Fullstack</span>
+              <div className="border-1 relative mr-4 h-10 w-10 overflow-hidden rounded-full border border-neutral-700">
+                <Image
+                  layout="fill"
+                  className={` ${index === 2 && "scale-[2]"}`}
+                  objectFit="cover"
+                  // width={500}
+                  // height={500}
+                  src={logo}
+                  alt={logo}
+                />
               </div>
-              <p className="self-end text-neutral-500">react, node</p>
+              <div className="flex-1">
+                <p className="text-base">{company}</p>
+                <span className="text-neutral-400">{title}</span>
+              </div>
+              <div className="self-end text-right ">
+                <p className="leading-6">{status}</p>
+                <span className="text-neutral-400">{date}</span>
+              </div>
             </div>
           );
         })}
