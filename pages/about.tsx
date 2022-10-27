@@ -68,9 +68,9 @@ const About = () => {
                 A few months after studying Javascript, I spent another couple
                 months learning React, then NodeJS. This was when I was ready to
                 build my first project,
-                <InlineLink href="/projects"> Refurn</InlineLink>. A simple CRUD
-                app for an imaginary shop that restores furniture, with way too
-                many forms😅.
+                <InlineLink href="/projects#refurn"> Refurn</InlineLink>. A
+                simple CRUD app for an imaginary shop that restores furniture,
+                with way too many forms😅.
               </p>
 
               <p>

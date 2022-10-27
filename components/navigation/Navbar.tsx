@@ -13,6 +13,7 @@ import {
 import { faBars as mobileIcon, faX } from "@fortawesome/free-solid-svg-icons";
 
 import useDarkMode from "../../hooks/useDarkMode";
+import { navLinks } from "../../assets/navLinks";
 
 interface NavPath {
   href: string;
@@ -31,25 +32,6 @@ export const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const router = useRouter();
-
-  const navPaths = [
-    {
-      href: "/",
-      pathname: "Home",
-    },
-    {
-      href: "/projects",
-      pathname: "Projects",
-    },
-    {
-      href: "/articles",
-      pathname: "Articles",
-    },
-    {
-      href: "/about",
-      pathname: "About",
-    },
-  ];
 
   const handleScroll = (e: any) => {
     const currentScroll = window.scrollY;
@@ -96,7 +78,7 @@ export const Navbar = () => {
           className={`dark:neumorphism-shadow neumorphism-shadow items-middle hidden rounded-full border border-neutral-200 bg-neutral-100/80 px-5 text-sm leading-6 tracking-wide shadow-md backdrop-blur dark:border-none dark:bg-neutral-800/80 dark:text-neutral-200 md:flex`}
         >
           <ul className="flex">
-            {navPaths.map((route: NavPath) => {
+            {navLinks.map((route: NavPath) => {
               const isCurrentPage = router.pathname === route.href;
 
               return (
@@ -166,7 +148,7 @@ export const Navbar = () => {
           </button>
           <nav>
             <ul className="bg-10 ml-10 mt-10 mb-10 flex flex-col">
-              {navPaths.map((route: NavPath) => {
+              {navLinks.map((route: NavPath) => {
                 const isCurrentPage = router.pathname === route.href;
                 return (
                   <li key={route.pathname} className="relative w-10/12 py-1">

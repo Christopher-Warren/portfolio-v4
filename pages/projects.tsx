@@ -68,7 +68,11 @@ const Projects = ({ projects }: Props) => {
           const isEven = index % 2 === 1;
 
           return (
-            <div key={index} className="group my-20">
+            <div
+              id={`${project.folderName}`}
+              key={index}
+              className="group my-20"
+            >
               <div className="md:flex">
                 <div
                   className={`relative md:max-w-md xl:max-w-lg ${

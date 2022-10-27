@@ -6,7 +6,6 @@ import {
   faLinkedin,
   faGithub,
   faStackOverflow,
-  faCodepen,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import InlineLink from "../links/InlineLink";
