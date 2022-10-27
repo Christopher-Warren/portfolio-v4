@@ -70,7 +70,7 @@ const Projects = ({ projects }: Props) => {
             <div
               id={`${project.folderName}`}
               key={index}
-              className="group pb-20"
+              className="group py-24"
             >
               <div className="md:flex">
                 <div

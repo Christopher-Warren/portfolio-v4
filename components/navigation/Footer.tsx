@@ -12,7 +12,7 @@ export const Footer = () => {
         <ul className="flex justify-evenly space-x-5  md:justify-start">
           {navLinks.map((navRoute) => {
             return (
-              <li key={navRoute.pathname}>
+              <li className="hover:text-green-400" key={navRoute.pathname}>
                 <Link href={navRoute.href}>
                   <a> {navRoute.pathname}</a>
                 </Link>
@@ -20,8 +20,12 @@ export const Footer = () => {
             );
           })}
         </ul>
-        <div className="mx-auto mt-7 w-fit md:mt-4 md:w-auto">
-          <span className="block text-xs">Design heavily inspired by</span>
+
+        <p className="mt-4 text-center text-neutral-400 dark:text-neutral-600 md:mt-0  md:text-left">
+          © 2022 Chris Warren. All rights reserved.
+        </p>
+        <div className="mx-auto mt-4 w-fit md:mx-0 md:w-auto">
+          <span className="block text-xs">Design inspired by</span>
           <span className="block text-neutral-700 dark:text-neutral-300">
             <Link href="https://tailwindui.com/templates/spotlight">
               <a className="inline-block w-full py-1 text-center">
@@ -38,9 +42,6 @@ export const Footer = () => {
             </Link>
           </span>
         </div>
-        <p className="mt-4 text-center text-neutral-400 dark:text-neutral-600 md:mt-0  md:text-left">
-          © 2022 Chris Warren. All rights reserved.
-        </p>
       </div>
     </MainContainer>
   );

@@ -87,7 +87,7 @@ const About = () => {
           </div>
           {/* Right */}
           <div className="">
-            <div className="relative hidden rotate-3 md:block">
+            <div className="relative hidden rotate-3  md:block">
               <Image
                 className="rounded-xl"
                 alt="Me at horsepens 40"
