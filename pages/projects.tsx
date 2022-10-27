@@ -63,7 +63,6 @@ const Projects = ({ projects }: Props) => {
             Download CV
           </button> */}
         </div>
-
         {projects.map((project, index) => {
           const isEven = index % 2 === 1;
 
@@ -71,7 +70,7 @@ const Projects = ({ projects }: Props) => {
             <div
               id={`${project.folderName}`}
               key={index}
-              className="group my-20"
+              className="group pb-20"
             >
               <div className="md:flex">
                 <div
