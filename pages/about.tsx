@@ -74,8 +74,8 @@ const About = () => {
             <div className="space-y-6 text-base  leading-7 text-neutral-600 dark:text-neutral-300 ">
               <p>
                 In 2018 I decided to give coding a try. About one month into
-                what would be my first of many Udemy courses, I haven't been
-                able to curb <i>my hunger</i> to learn more. I can say with
+                what would be my first of many Udemy courses, I haven&apos;t
+                been able to curb <i>my hunger</i> to learn more. I can say with
                 confidence that coding has become a passion of mine.
               </p>
               <p>
@@ -93,9 +93,9 @@ const About = () => {
                 <InlineLink href="/projects"> Projects</InlineLink>; Full Stack
                 Projects that are much more complex than ones made during my
                 first year of coding. The most recent of which being this blog,
-                where I can share what I've learned along this challenging, and
-                sometimes unforgiving path of becoming a self-taught software
-                developer.
+                where I can share what I&apos;ve learned along this challenging,
+                and sometimes unforgiving path of becoming a self-taught
+                software developer.
               </p>
             </div>
           </div>
