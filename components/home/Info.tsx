@@ -47,11 +47,14 @@ export const Info = () => {
         </div>
         <p className="mb-6 text-sm text-neutral-500 dark:text-neutral-400 ">
           Get notified when I publish something new, and unsubscribe at any
-          time.
+          time. <span className="text-xs">🚧 Coming soon</span>
         </p>
         <div className="flex justify-between">
-          <TextInput placeholder="E mail address" />
-          <button className="ml-4 rounded bg-neutral-700 px-4 py-2 text-sm text-white">
+          <TextInput disabled placeholder="E mail address" />
+          <button
+            disabled
+            className="ml-4 rounded bg-neutral-700 px-4 py-2 text-sm text-white"
+          >
             Join
           </button>
         </div>

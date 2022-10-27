@@ -21,17 +21,31 @@ import { socialLinks } from "../assets/socialLinks";
 
 const About = () => {
   const skills = [
-    "React",
-    "React Native",
-    "React Router",
-    "Redux",
-    "Next.js",
-    "Apollo GraphQL",
-    "REST",
-    "TailwindCSS",
-    "SASS",
-    "Bootstrap",
-    "HTML/CSS",
+    { name: "Typescript", icon: "/images/logos/tech/icons8-typescript.svg" },
+    { name: "React", icon: "/images/logos/tech/icons8-react-native.svg" },
+    {
+      name: "React Native",
+      icon: "/images/logos/tech/icons8-react-native.svg",
+    },
+    { name: "Next.js", icon: "/images/logos/tech/icons8-next.js.svg" },
+    {
+      name: "NodeJS/Express",
+      icon: "/images/logos/tech/icons8-node-js-48.png",
+    },
+    { name: "MongoDB", icon: "/images/logos/tech/icons8-mongodb.svg" },
+    { name: "MySQL", icon: "/images/logos/tech/icons8-my-sql-48.png" },
+    { name: "AWS S3", icon: "/images/logos/tech/icons8-amazon-s3-50.png" },
+    {
+      name: "Cloud Firestore",
+      icon: "/images/logos/tech/icons8-cloud-firestore.svg",
+    },
+    { name: "Redux", icon: "/images/logos/tech/icons8-redux.svg" },
+    { name: "GraphQL", icon: "/images/logos/tech/icons8-graphql.svg" },
+    { name: "TailwindCSS", icon: "/images/logos/tech/tailwind-css.svg" },
+    { name: "SASS", icon: "/images/logos/tech/icons8-sass-avatar.svg" },
+    { name: "Bootstrap", icon: "/images/logos/tech/icons8-bootstrap.svg" },
+    { name: "HTML", icon: "/images/logos/tech/icons8-html-5.svg" },
+    { name: "CSS", icon: "/images/logos/tech/icons8-css3.svg" },
   ];
 
   return (
@@ -117,8 +131,17 @@ const About = () => {
                   <ul className="space-y-2 ">
                     {skills.map((skill) => {
                       return (
-                        <li className="" key={skill}>
-                          {skill}
+                        <li className="flex items-center" key={skill.name}>
+                          <div className="relative mr-2 inline-block h-4 w-4">
+                            {skill.icon && (
+                              <Image
+                                layout="fill"
+                                alt={skill.name}
+                                src={skill.icon}
+                              />
+                            )}
+                          </div>
+                          {skill.name}
                         </li>
                       );
                     })}
