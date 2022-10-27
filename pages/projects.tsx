@@ -50,7 +50,7 @@ const Projects = ({ projects }: Props) => {
           <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug ">
             {`Things I've built to show the world my web dev chops.`}
           </h1>
-          <p className="mt-6 text-base font-light leading-7 text-neutral-600 dark:text-neutral-300 ">
+          <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
             {`I've worked on many projects throughout the past few years but these
             are the ones that I'm most proud of. Most of them are actively
             deployed and accompanied by public repos, so feel free to check them
@@ -94,13 +94,17 @@ const Projects = ({ projects }: Props) => {
                       </div>
 
                       <div className="text-2xl text-neutral-600 dark:text-neutral-400">
-                        <Link href="">
+                        <Link href={project.sourceURL}>
                           <a className="transition-colors hover:text-neutral-800 dark:hover:text-neutral-100">
                             <Icon icon={faGithub} />
                           </a>
                         </Link>
-                        <Link href="">
-                          <a className="ml-4 transition-colors hover:text-neutral-800 dark:hover:text-neutral-100">
+                        <Link href={project.demoURL}>
+                          <a
+                            className={`${
+                              project.demoURL.length === 0 && "hidden"
+                            } ml-4 transition-colors hover:text-neutral-800 dark:hover:text-neutral-100`}
+                          >
                             <Icon icon={faExternalLink} />
                           </a>
                         </Link>
