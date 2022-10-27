@@ -6,15 +6,21 @@ import InlineLink from "../links/InlineLink";
 
 export const Footer = () => {
   return (
-    <MainContainer className="p-0">
+    <MainContainer containerClassName=" shadow-none" className="p-0">
       <div className="absolute left-0 h-px w-full bg-neutral-200 dark:bg-neutral-800" />
-      <div className="flex items-center justify-between pt-10 pb-14 text-sm text-neutral-600 dark:text-neutral-400">
-        <ul className="flex space-x-5">
+      <div className="block items-center justify-between pt-10 pb-14 text-sm text-neutral-600 dark:text-neutral-400 md:flex">
+        <ul className="flex justify-evenly space-x-5  md:justify-start">
           {navLinks.map((navRoute) => {
-            return <li key={navRoute.pathname}>{navRoute.pathname}</li>;
+            return (
+              <li key={navRoute.pathname}>
+                <Link href={navRoute.href}>
+                  <a> {navRoute.pathname}</a>
+                </Link>
+              </li>
+            );
           })}
         </ul>
-        <div className="">
+        <div className="mx-auto mt-7 w-fit md:mt-4 md:w-auto">
           <span className="block text-xs">Design heavily inspired by</span>
           <span className="block text-neutral-700 dark:text-neutral-300">
             <Link href="https://tailwindui.com/templates/spotlight">
@@ -32,9 +38,9 @@ export const Footer = () => {
             </Link>
           </span>
         </div>
-        <div className="text-neutral-400 dark:text-neutral-600">
+        <p className="mt-4 text-center text-neutral-400 dark:text-neutral-600 md:mt-0  md:text-left">
           © 2022 Chris Warren. All rights reserved.
-        </div>
+        </p>
       </div>
     </MainContainer>
   );
