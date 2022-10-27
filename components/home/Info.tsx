@@ -78,8 +78,6 @@ export const Info = () => {
                   layout="fill"
                   className={` ${index === 2 && "scale-[2]"}`}
                   objectFit="cover"
-                  // width={500}
-                  // height={500}
                   src={logo}
                   alt={logo}
                 />

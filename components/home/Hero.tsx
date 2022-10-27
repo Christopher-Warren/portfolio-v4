@@ -10,6 +10,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import InlineLink from "../links/InlineLink";
+import { socialLinks } from "../../assets/socialLinks";
 
 export const Hero = () => {
   return (
@@ -33,17 +34,25 @@ export const Hero = () => {
 
       {/* connect icons */}
       <div className="mt-6 flex gap-6 text-xl text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
-        <Link href="">
-          <FontAwesomeIcon icon={faLinkedin} />
+        <Link href={socialLinks.linkedin}>
+          <a>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
         </Link>
-        <Link href="">
-          <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+        <Link href={socialLinks.github}>
+          <a>
+            <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+          </a>
         </Link>
-        <Link href="">
-          <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
+        <Link href={socialLinks.twitter}>
+          <a>
+            <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
+          </a>
         </Link>
-        <Link href="">
-          <FontAwesomeIcon icon={faStackOverflow} />
+        <Link href={socialLinks.stackoverflow}>
+          <a>
+            <FontAwesomeIcon icon={faStackOverflow} />
+          </a>
         </Link>
       </div>
       {/* <button className="mt-6 rounded-md bg-gradient-to-tr from-emerald-500 via-teal-500 to-green-500 px-4 py-2 text-white  shadow-lg shadow-teal-700 duration-200 hover:shadow-none">
