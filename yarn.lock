@@ -3075,7 +3075,7 @@
 "set-blocking@^2.0.0":
   "version" "2.0.0"
 
-"sharp@>= 0.30.6":
+"sharp@^0.31.1", "sharp@>= 0.30.6":
   "integrity" "sha512-GR8M1wBwOiFKLkm9JPun27OQnNRZdHfSf9VwcdZX6UrRmM1/XnOrLFTF0GAil+y/YK4E6qcM/ugxs80QirsHxg=="
   "resolved" "https://registry.npmjs.org/sharp/-/sharp-0.31.1.tgz"
   "version" "0.31.1"
