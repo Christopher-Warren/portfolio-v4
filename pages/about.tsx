@@ -19,7 +19,24 @@ import InlineLink from "../components/links/InlineLink";
 import TextInput from "../components/inputs/TextInput";
 import { socialLinks } from "../assets/socialLinks";
 
-const About = () => {
+import { getPlaiceholder } from "plaiceholder";
+import { extractImgSrc } from "@plaiceholder/tailwindcss/utils";
+
+export const getStaticProps = async () => {
+  const className = "plaiceholder-[/images/horsepens.jpg]";
+  const { img } = await getPlaiceholder(extractImgSrc(className));
+
+  return {
+    props: {
+      image: {
+        ...img,
+        className,
+      },
+    },
+  };
+};
+
+const About = ({ image }: any) => {
   const skills = [
     { name: "Typescript", icon: "/images/logos/tech/icons8-typescript.svg" },
     { name: "React", icon: "/images/logos/tech/icons8-react-native.svg" },
@@ -100,10 +117,17 @@ const About = () => {
             </div>
           </div>
           {/* Right */}
+          {/* { fontSize: 0 } fix for weird whitespace under image */}
           <div className="">
-            <div className="relative hidden rotate-3  md:block">
+            <div
+              style={{ fontSize: 0 }}
+              className="relative inset-0 hidden rotate-3 overflow-hidden rounded-xl md:block"
+            >
+              <div
+                className={`${image.className} absolute inset-0 z-[-1] h-full w-full scale-150 transform blur-2xl filter`}
+              />
               <Image
-                className="rounded-xl"
+                className="mb-10"
                 alt="Me at horsepens 40"
                 objectFit="cover"
                 layout="intrinsic"
