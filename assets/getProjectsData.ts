@@ -50,8 +50,8 @@ export const getProjects = async () => {
         "MongoDB",
         "TailwindCSS",
       ],
-      primaryImage: "https://www.chriswarren.tech/images/easydash/login.png",
-      images: ["https://www.chriswarren.tech/images/easydash/login.png"],
+      primaryImage: "/images/projects/easydash/dashboard.png",
+      images: [""],
 
       demoURL: "https://easydash-deploy-test.herokuapp.com/",
       sourceURL: "https://github.com/Christopher-Warren/easydash",
@@ -63,9 +63,8 @@ export const getProjects = async () => {
       description:
         "A turn-based, survival(ish) RPG game, built from scratch, using - NextJS and MongoDB (for statistic collection). While the art assets are not created by me, the small game engine, itself, is. I built this project to show my skills with bringing an idea to life.",
       tech: ["Javascript", "HTML5 Canvas", "NextJS", "React", "MongoDB"],
-      primaryImage: "https://www.chriswarren.tech/images/fenrir-preview.png",
-      images: ["https://www.chriswarren.tech/images/fenrir-preview.png"],
-
+      primaryImage: "/images/projects/fenrir/fenrir-preview.png",
+      images: [],
       demoURL: "https://beta-fenrir.vercel.app/",
       sourceURL: "https://github.com/Christopher-Warren/beta-fenrir",
     },
@@ -76,8 +75,8 @@ export const getProjects = async () => {
       description:
         "Dev-Apparel is a Fullstack E-commerce App, built using - NextJS, MongoDB, React, Stripe, and Bootstrap. Dev-Apparel uses CRUD operations to populate the storefront with items stored in a Mongo database.",
       tech: ["NextJS", "React", "MongoDB", "Stripe API", "Bootstrap"],
-      images: ["https://www.chriswarren.tech/images/dev-apparel.png"],
-      primaryImage: "https://www.chriswarren.tech/images/dev-apparel.png",
+      images: [""],
+      primaryImage: "/images/projects/devapparel/dev-apparel.png",
       demoURL: "https://dev-apparel.vercel.app/",
       sourceURL: "https://github.com/Christopher-Warren/dev-apparel",
     },
@@ -88,8 +87,8 @@ export const getProjects = async () => {
       description:
         "Refurn is a Fullstack E-commerce App, built using - React, NodeJS, Express, MongoDB, Bootstrap, and Firebase Storage as a solution to store images. Refurn was built to exemplify my abilities to work with CRUD operations. Refurn supports authentication, allowing users to login and upload furniture they wish to sell. This then enables the owner to see the listing and either approve or deny the offer.",
       tech: ["React", "NodeJs", "Express", "MongoDB", "Bootstrap", "Firestore"],
-      images: ["https://www.chriswarren.tech/images/refurn.png"],
-      primaryImage: "https://www.chriswarren.tech/images/refurn.png",
+      images: [""],
+      primaryImage: "/images/projects/refurn/refurn.png",
       demoURL: "https://refurn.herokuapp.com/",
       sourceURL: "https://github.com/Christopher-Warren/Refurn",
     },
@@ -100,8 +99,8 @@ export const getProjects = async () => {
       description:
         "IP Tracker is an IP location tool, built using - React, TailwindCSS, and leaflet as a mapping solution. IP Tracker gets the users IP address on load and shows the location and ISP information. This tool features a Generate IP button which generates a random IP address, then shows the IP location and ISP info.",
       tech: ["React", "Leaflet", "TailwindCSS"],
-      images: ["https://www.chriswarren.tech/images/iptracker.png"],
-      primaryImage: "https://www.chriswarren.tech/images/iptracker.png",
+      images: [""],
+      primaryImage: "/images/projects/iptracker/iptracker.png",
       demoURL: "https://iptracker-phi.vercel.app/",
       sourceURL: "https://github.com/Christopher-Warren/iptracker",
     },
