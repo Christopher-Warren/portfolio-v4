@@ -38,6 +38,14 @@ const Home: NextPage = ({ images }: any) => {
     <>
       <Head>
         <title>Christopher Warren - Full stack developer</title>
+
+        <meta property="og:title" content="Christopher Warren - Portfolio" />
+        <meta property="og:image" content="/images/seo/seo-linkedin.png" />
+        <meta
+          property="og:description"
+          content="The porfolio page of Christopher Warren"
+        />
+        <meta property="og:url" content="https://www.chriswarren.tech/" />
       </Head>
 
       <MainContainer className="">

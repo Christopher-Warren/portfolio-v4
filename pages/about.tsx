@@ -69,14 +69,6 @@ const About = ({ image }: any) => {
     <>
       <Head>
         <title>Christopher Warren - About</title>
-
-        <meta property="og:title" content="Christopher Warren - Portfolio" />
-        <meta property="og:image" content="/images/seo/seo-linkedin.png" />
-        <meta
-          property="og:description"
-          content="The porfolio page of Christopher Warren"
-        />
-        <meta property="og:url" content="https://www.chriswarren.tech/" />
       </Head>
       <MainContainer className="pt-44">
         <div className="justify-between gap-6 md:flex">
