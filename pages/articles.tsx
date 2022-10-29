@@ -1,15 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faGithub,
-  faStackOverflow,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import InlineLink from "../components/links/InlineLink";
-import { socialLinks } from "../assets/socialLinks";
 import { MainContainer } from "../components/containers/MainContainer";
 
 const Articles = () => {

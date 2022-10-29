@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "../../assets/navLinks";
 import { MainContainer } from "../containers/MainContainer";
-import InlineLink from "../links/InlineLink";
 
 export const Footer = () => {
   return (

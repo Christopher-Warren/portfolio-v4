@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { MainContainer } from "../components/containers/MainContainer";
@@ -14,9 +13,9 @@ import {
 import { faIdCard as skillsIcon } from "@fortawesome/free-regular-svg-icons";
 
 import Link from "next/link";
-import { Hero } from "../components/home";
+
 import InlineLink from "../components/links/InlineLink";
-import TextInput from "../components/inputs/TextInput";
+
 import { socialLinks } from "../assets/socialLinks";
 
 import { getPlaiceholder } from "plaiceholder";
