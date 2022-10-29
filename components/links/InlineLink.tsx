@@ -8,7 +8,11 @@ interface InlineLinkProps extends LinkProps {
 const InlineLink = ({ href, className, children }: InlineLinkProps) => {
   return (
     <Link href={href}>
-      <a className={`${className} text-green-400`}>{children}</a>
+      <a
+        className={`${className} font-bold text-green-500 dark:text-green-400`}
+      >
+        {children}
+      </a>
     </Link>
   );
 };

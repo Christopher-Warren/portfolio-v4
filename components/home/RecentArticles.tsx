@@ -41,7 +41,10 @@ export const RecentArticles = () => {
             <p className="relative mb-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
               {heading}
             </p>
-            <div className="relative text-sm text-green-500 dark:text-green-400">
+            <div
+              aria-hidden
+              className="relative text-sm text-green-500 dark:text-green-400"
+            >
               Read article
             </div>
           </article>

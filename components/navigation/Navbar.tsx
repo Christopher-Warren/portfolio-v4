@@ -88,8 +88,8 @@ export const Navbar = () => {
                 >
                   <Link href={route.href}>
                     <a
-                      className={`relative px-3 py-2 transition-colors hover:text-green-400 ${
-                        isCurrentPage && "text-green-400"
+                      className={`relative px-3 py-2 transition-colors hover:text-green-500 dark:hover:text-green-400 ${
+                        isCurrentPage && "text-green-500 dark:text-green-400"
                       } `}
                     >
                       {route.pathname}
@@ -108,6 +108,7 @@ export const Navbar = () => {
         {/* Mobile Nav */}
         <div className="relative flex">
           <button
+            aria-label="Toggle dark mode"
             className="dark:neumorphism-shadow neumorphism-shadow z-20 mr-4 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none   dark:border-none dark:bg-neutral-800/80  dark:text-neutral-200  dark:hover:bg-neutral-800"
             onClick={() => setDarkModeActive(!darkModeActive)}
           >
@@ -117,6 +118,7 @@ export const Navbar = () => {
             />
           </button>
           <button
+            aria-label="Open navigation menu"
             onClick={() => setShowMobileNav(!showMobileNav)}
             className="dark:neumorphism-shadow neumorphism-shadow z-20 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none dark:border-none   dark:bg-neutral-800/80 dark:text-neutral-200  dark:hover:bg-neutral-800  md:hidden"
           >
