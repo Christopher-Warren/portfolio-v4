@@ -144,6 +144,7 @@ export const Navbar = () => {
         >
           <button
             onClick={() => setShowMobileNav(false)}
+            aria-label="Close navigation menu"
             className="absolute right-0 flex h-6 w-6 items-center justify-center p-7"
           >
             <Icon icon={faX} />

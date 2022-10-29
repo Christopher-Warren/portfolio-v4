@@ -23,6 +23,9 @@ export const ImagesBreak = ({ images }: any) => {
                     layout="fill"
                     objectFit="cover"
                     blurDataURL={image.src}
+                    sizes="(max-width: 768px) 33vw,
+                    (max-width: 1200px) 15vw,
+                    15vw"
                   />
                 </div>
               );
