@@ -32,7 +32,6 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage = ({ images }: any) => {
-  console.log(images);
   return (
     <>
       <Head>
