@@ -19,10 +19,6 @@ model Post {
   authorId  String?
 }
 
-model Thing {
-  id String @id @default(cuid())
-}
-
 model User {
   id        String   @id @default(cuid())
   name      String?
