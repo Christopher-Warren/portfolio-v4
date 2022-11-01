@@ -1,4 +1,5 @@
 import { MainContainer } from "../../components/containers/MainContainer";
+import BlogHeader from "../../components/navigation/BlogHeader";
 
 import { GetStaticProps } from "next/types";
 
@@ -22,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Blog = (props: any) => {
   return (
     <MainContainer>
-      <h1>welcome to the blog!</h1>
+      <BlogHeader />
     </MainContainer>
   );
 };
