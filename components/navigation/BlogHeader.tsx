@@ -153,7 +153,7 @@ const Header: React.FC = () => {
     right = (
       <div className="right">
         <p></p>
-        <Link href="/create">
+        <Link href="/blog/create-post">
           <button>
             <a>New post</a>
           </button>
