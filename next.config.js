@@ -11,6 +11,15 @@ const nextConfig = {
   //     "www.chriswarren.tech",
   //   ],
   // },
+
+  async rewrites() {
+    return [
+      {
+        source: "/blog",
+        destination: "http://blog.localhost:3000",
+      },
+    ];
+  },
 };
 
 module.exports = withPlaiceholder({ ...nextConfig });

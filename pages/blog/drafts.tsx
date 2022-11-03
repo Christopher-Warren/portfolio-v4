@@ -4,10 +4,12 @@ import React from "react";
 import { GetServerSideProps } from "next";
 import { useSession, getSession } from "next-auth/react";
 
+import Link from "next/link";
+
 // import Post, { PostProps } from "../../components/Post";
 import prisma from "../../lib/prisma";
 import { MainContainer } from "../../components/containers/MainContainer";
-import { PostProps } from "./post/[id]";
+import { PostProps } from "../../@types/Post";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
@@ -54,14 +56,18 @@ const Drafts: React.FC<Props> = (props) => {
         <h1>My Drafts</h1>
         <main>
           {props.drafts.map((post) => (
-            <div key={post.id} className="">
-              <div className="flex">
-                <div className="">{post.title}</div>
-                <div className="">{post.author?.name}</div>
-                <div className="">{post.content}</div>
-                <div className=""></div>
-              </div>
-            </div>
+            <Link href={"/"} key={post.id}>
+              <a>
+                <div className="">
+                  <div className="flex">
+                    <div className="">{post.title}</div>
+                    <div className="">{post.author?.name}</div>
+                    <div className="">{post.content}</div>
+                    <div className=""></div>
+                  </div>
+                </div>
+              </a>
+            </Link>
           ))}
         </main>
       </div>

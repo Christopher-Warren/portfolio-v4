@@ -126,7 +126,7 @@ const Header: React.FC = () => {
             Feed
           </a>
         </Link>
-        <Link href="/drafts">
+        <Link href="/blog/drafts">
           <a data-active={isActive("/drafts")}>My drafts</a>
         </Link>
         <style jsx>{`

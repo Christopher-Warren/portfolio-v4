@@ -6,6 +6,7 @@ import { GetStaticProps } from "next/types";
 import prisma from "../../lib/prisma";
 
 export const getStaticProps: GetStaticProps = async () => {
+  console.log("hello");
   const feed = await prisma.post.findMany({
     where: { published: true },
     include: {
