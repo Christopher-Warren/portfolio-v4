@@ -79,8 +79,8 @@ export const Navbar = () => {
         >
           <ul className="flex">
             {navLinks.map((route: NavPath) => {
-              const isCurrentPage = router.pathname === route.href;
-
+              const isCurrentPage = router.pathname.includes(route.href);
+              console.log(router.pathname.includes(route.href));
               return (
                 <li
                   key={route.pathname}

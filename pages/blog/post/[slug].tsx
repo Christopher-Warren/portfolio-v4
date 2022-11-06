@@ -17,7 +17,6 @@ interface ApiPostProps extends PostProps {
 export const getServerSideProps: GetServerSideProps<any> = async ({
   params,
 }) => {
-  // console.log("asd", params);
   const post = await prisma.post.findUnique({
     where: {
       slug: String(params?.slug),
@@ -35,7 +34,7 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
         error: "Post not found",
       },
     };
-  console.log("asdhk");
+
   return {
     props: post,
   };
@@ -50,7 +49,7 @@ async function publishPost(id: string): Promise<void> {
 
 const Post: React.FC<ApiPostProps> = (props) => {
   const { data: session, status } = useSession();
-  console.log(status);
+
   if (status === "loading") {
     return <div>Authenticating ...</div>;
   }

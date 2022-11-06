@@ -15,7 +15,6 @@ interface ApiPostProps extends PostProps {
 export const getServerSideProps: GetServerSideProps<any> = async ({
   params,
 }) => {
-  // console.log("asd", params);
   const post = await prisma.post.findUnique({
     where: {
       slug: String(params?.slug),
