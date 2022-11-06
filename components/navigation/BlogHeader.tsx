@@ -12,6 +12,8 @@ const Header: React.FC = () => {
 
   const { data: session, status } = useSession();
 
+  console.log(status);
+
   let left = (
     <div className="left">
       <Link href="/">
@@ -90,7 +92,9 @@ const Header: React.FC = () => {
         <Link href="/api/auth/signin">
           <a data-active={isActive("/signup")}>Log in</a>
         </Link>
-        <button onClick={() => signIn().catch((err) => console.log(err))}>
+        <button
+          onClick={() => signIn("github").catch((err) => console.log(err))}
+        >
           login
         </button>
         <style jsx>{`

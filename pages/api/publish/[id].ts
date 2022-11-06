@@ -1,6 +1,7 @@
 import prisma from "../../../lib/prisma";
 
 import { NextApiRequest, NextApiResponse } from "next";
+import { getSession } from "next-auth/react";
 
 export default async function handle(
   req: NextApiRequest,
@@ -9,6 +10,14 @@ export default async function handle(
   const postId = req.query.id;
   if (typeof postId !== "string") {
     return;
+  }
+
+  const session = await getSession({ req });
+
+  const isAdmin = session?.user?.email === "chrisalmith@gmail.com";
+
+  if (!session || !isAdmin) {
+    res.json({ unauthorized: "You must be an admin to create posts" });
   }
 
   const post = await prisma.post.update({

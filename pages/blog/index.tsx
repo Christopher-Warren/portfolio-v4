@@ -6,6 +6,8 @@ import { GetStaticProps } from "next/types";
 import prisma from "../../lib/prisma";
 import { PostProps } from "../../@types/Post";
 
+import Link from "next/link";
+
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
     where: { published: true },
@@ -30,10 +32,14 @@ const Blog = (props: any) => {
         if (!post.published) return null;
 
         return (
-          <div key={post.id}>
-            <h2>author: {post.author.name}</h2>
-            <p>title: {post.title} </p>
-          </div>
+          <Link key={post.id} href={`/blog/${post.slug}`}>
+            <a>
+              <div>
+                <h2>author: {post.author.name}</h2>
+                <p>title: {post.title} </p>
+              </div>
+            </a>
+          </Link>
         );
       })}
     </MainContainer>

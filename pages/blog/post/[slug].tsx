@@ -10,12 +10,17 @@ import prisma from "../../../lib/prisma";
 import { PostProps } from "../../../@types/Post";
 import { MainContainer } from "../../../components/containers/MainContainer";
 
+interface ApiPostProps extends PostProps {
+  error: string;
+}
+
 export const getServerSideProps: GetServerSideProps<any> = async ({
   params,
 }) => {
+  // console.log("asd", params);
   const post = await prisma.post.findUnique({
     where: {
-      id: String(params?.id),
+      slug: String(params?.slug),
     },
     include: {
       author: {
@@ -23,6 +28,14 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
       },
     },
   });
+
+  if (!post)
+    return {
+      props: {
+        error: "Post not found",
+      },
+    };
+  console.log("asdhk");
   return {
     props: post,
   };
@@ -35,17 +48,21 @@ async function publishPost(id: string): Promise<void> {
   await Router.push("/");
 }
 
-const Post: React.FC<PostProps> = (props) => {
+const Post: React.FC<ApiPostProps> = (props) => {
   const { data: session, status } = useSession();
+  console.log(status);
   if (status === "loading") {
     return <div>Authenticating ...</div>;
   }
+
   const userHasValidSession = Boolean(session);
   const postBelongsToUser = session?.user?.email === props.author?.email;
   let title = props.title;
   if (!props.published) {
     title = `${title} (Draft)`;
   }
+
+  if (props.error) return <div>{props.error}</div>;
 
   return (
     <MainContainer>
