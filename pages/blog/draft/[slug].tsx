@@ -10,6 +10,8 @@ import prisma from "../../../lib/prisma";
 import { PostProps } from "../../../@types/Post";
 import { MainContainer } from "../../../components/containers/MainContainer";
 
+import remarkGfm from "remark-gfm";
+
 interface ApiPostProps extends PostProps {
   error: string;
 }
@@ -63,12 +65,43 @@ const Post: React.FC<ApiPostProps> = (props) => {
 
   if (props.error) return <div>{props.error}</div>;
 
+  const sample = `A paragraph with *emphasis* and **strong importance**.
+
+  > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+  
+  * Lists
+  * [ ] todo
+  * [x] done
+  
+  | Option | Description |
+  | ------ | ----------- |
+  | data   | path to data files to supply the data that will be passed into templates. |
+  | engine | engine to be used for processing templates. Handlebars is the default. |
+  | ext    | extension to be used for dest files. |
+  
+  Right aligned columns
+  
+  | Option | Description |
+  | ------:| -----------:|
+  | data   | path to data files to supply the data that will be passed into templates. |
+  | engine | engine to be used for processing templates. Handlebars is the default. |
+  | ext    | extension to be used for dest files. |
+  `;
+
   return (
     <MainContainer>
       <div>
         <h2>{title}</h2>
         <p>By {props?.author?.name || "Unknown author"}</p>
-        <ReactMarkdown>{props.content}</ReactMarkdown>
+        <div className="">
+          <ReactMarkdown
+            className="prose prose-invert"
+            remarkPlugins={[remarkGfm]}
+          >
+            {sample}
+          </ReactMarkdown>
+        </div>
+
         {!props.published && userHasValidSession && postBelongsToUser && (
           <button onClick={() => publishPost(String(props.id))}>Publish</button>
         )}

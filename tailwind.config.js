@@ -8,5 +8,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("@plaiceholder/tailwindcss")],
+  plugins: [
+    require("@plaiceholder/tailwindcss"),
+    require("@tailwindcss/typography"),
+  ],
 };
