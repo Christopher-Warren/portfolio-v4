@@ -44,7 +44,11 @@ export const Info = () => {
           time. <span className="text-xs">🚧 Coming soon</span>
         </p>
         <div className="flex justify-between">
-          <TextInput disabled placeholder="E mail address" />
+          <TextInput
+            className="text-sm"
+            disabled
+            placeholder="E mail address"
+          />
           <button
             disabled
             className="ml-4 rounded bg-neutral-700 px-4 py-2 text-sm text-white"

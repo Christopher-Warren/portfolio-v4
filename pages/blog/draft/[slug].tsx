@@ -95,7 +95,7 @@ const Post: React.FC<ApiPostProps> = (props) => {
         <p>By {props?.author?.name || "Unknown author"}</p>
         <div className="">
           <ReactMarkdown
-            className="prose prose-invert"
+            className="prose dark:prose-invert"
             remarkPlugins={[remarkGfm]}
           >
             {sample}
