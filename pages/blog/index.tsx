@@ -7,6 +7,7 @@ import prisma from "../../lib/prisma";
 import { PostProps } from "../../@types/Post";
 
 import Link from "next/link";
+import { serializeData } from "../../utils/serializeData";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -17,8 +18,9 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     },
   });
+
   return {
-    props: { feed },
+    props: { feed: serializeData(feed) },
     revalidate: 10,
   };
 };

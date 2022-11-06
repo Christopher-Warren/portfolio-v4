@@ -11,6 +11,7 @@ import { PostProps } from "../../../@types/Post";
 import { MainContainer } from "../../../components/containers/MainContainer";
 
 import remarkGfm from "remark-gfm";
+import { serializeData } from "../../../utils/serializeData";
 
 interface ApiPostProps extends PostProps {
   error: string;
@@ -38,7 +39,7 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
     };
 
   return {
-    props: post,
+    props: serializeData(post),
   };
 };
 

@@ -10,6 +10,7 @@ import Link from "next/link";
 import prisma from "../../lib/prisma";
 import { MainContainer } from "../../components/containers/MainContainer";
 import { PostProps } from "../../@types/Post";
+import { serializeData } from "../../utils/serializeData";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
@@ -30,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     },
   });
   return {
-    props: { drafts },
+    props: { drafts: serializeData(drafts) },
   };
 };
 
