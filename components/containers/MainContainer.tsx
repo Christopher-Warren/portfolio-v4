@@ -9,6 +9,7 @@ export const MainContainer = ({
   className,
   containerClassName,
 }: Props) => {
+  //
   return (
     <div
       className={`relative max-w-7xl border-x border-neutral-200 
