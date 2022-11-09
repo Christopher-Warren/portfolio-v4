@@ -13,6 +13,9 @@ import { MainContainer } from "../../../components/containers/MainContainer";
 import remarkGfm from "remark-gfm";
 import { serializeData } from "../../../utils/serializeData";
 
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { a11yDark as dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
 interface ApiPostProps extends PostProps {
   error: string;
 }
@@ -66,14 +69,27 @@ const Post: React.FC<ApiPostProps> = (props) => {
 
   if (props.error) return <div>{props.error}</div>;
 
-  const sample = `A paragraph with *emphasis* and **strong importance**.
+  const sample = `
+  
+  ## A paragraph with *emphasis* and **strong importance**.
 
   > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+
   
-  * Lists
-  * [ ] todo
+Lists
+  * [ ] todo 
   * [x] done
   
+  ~~~js
+  console.log("ayy boi")
+  const variable = 'string'
+
+  const func = (args) => {
+    return
+  }
+  ~~~
+
   | Option | Description |
   | ------ | ----------- |
   | data   | path to data files to supply the data that will be passed into templates. |
@@ -94,10 +110,32 @@ const Post: React.FC<ApiPostProps> = (props) => {
       <div>
         <h2>{title}</h2>
         <p>By {props?.author?.name || "Unknown author"}</p>
-        <div className="">
+        <div className="mt-10">
           <ReactMarkdown
-            className="prose dark:prose-invert"
+            className="prose prose-pre:rounded-lg prose-pre:p-0  dark:prose-invert"
             remarkPlugins={[remarkGfm]}
+            components={{
+              code({ node, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || "");
+
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={dark as any}
+                    language={match[1]}
+                    showLineNumbers
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    {...props}
+                  >
+                    {String(children).replace(/\n$/, "")}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
           >
             {sample}
           </ReactMarkdown>
