@@ -1,6 +1,6 @@
 // pages/p/[id].tsx
 
-import React from "react";
+import React, { useState } from "react";
 import { GetServerSideProps } from "next";
 import ReactMarkdown from "react-markdown";
 import Router from "next/router";
@@ -15,6 +15,7 @@ import { serializeData } from "../../../utils/serializeData";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark as dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import SyntaxHighlight from "../../../components/markdown/SyntaxHighlight";
 
 interface ApiPostProps extends PostProps {
   error: string;
@@ -75,6 +76,36 @@ const Post: React.FC<ApiPostProps> = (props) => {
 
   > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
 
+  # GFM
+
+## Autolink literals
+
+www.example.com, https://example.com, and contact@example.com.
+
+## Footnote
+
+A note[^1]
+
+[^1]: Big note.
+
+## Strikethrough
+
+~one~ or ~~two~~ tildes.
+
+## Table
+
+| Beep |   No.  |   Boop |
+| :--- | :----: | -----: |
+| beep |  1024  |    xyz |
+| boop | 338845 |    tuv |
+| foo  |  10106 | qrstuv |
+| bar  |   45   |   lmno |
+
+## Tasklist
+
+* [ ] to do
+* [x] done
+
 
   
 Lists
@@ -82,13 +113,21 @@ Lists
   * [x] done
   
   ~~~js
-  console.log("ayy boi")
-  const variable = 'string'
-
-  const func = (args) => {
-    return
+  export default function isInViewport(el) {
+    var rect = el.getBoundingClientRect();
+  
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   }
   ~~~
+
+
+  ![AltTextHere](/images/headshot.png)
 
   | Option | Description |
   | ------ | ----------- |
@@ -98,6 +137,10 @@ Lists
   
   Right aligned columns
   
+
+  | Feature | Support | | ---------: | :------------------- | | CommonMark | 100% | | GFM | 100% w/ remark-gfm |
+
+
   | Option | Description |
   | ------:| -----------:|
   | data   | path to data files to supply the data that will be passed into templates. |
@@ -107,33 +150,17 @@ Lists
 
   return (
     <MainContainer>
-      <div>
-        <h2>{title}</h2>
-        <p>By {props?.author?.name || "Unknown author"}</p>
-        <div className="mt-10">
+      <div className="">
+        <div className="prose mx-auto prose-pre:rounded-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert lg:min-w-[800px]">
+          <h2>{title}</h2>
+          <p>By {props?.author?.name || "Unknown author"}</p>
           <ReactMarkdown
-            className="prose prose-pre:rounded-lg prose-pre:p-0  dark:prose-invert"
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ node, inline, className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || "");
+              code(props) {
+                // const match = /language-(\w+)/.exec(className || "");
 
-                return !inline && match ? (
-                  <SyntaxHighlighter
-                    style={dark as any}
-                    language={match[1]}
-                    showLineNumbers
-                    PreTag="div"
-                    customStyle={{ margin: 0 }}
-                    {...props}
-                  >
-                    {String(children).replace(/\n$/, "")}
-                  </SyntaxHighlighter>
-                ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                );
+                return <SyntaxHighlight {...props} />;
               },
             }}
           >
@@ -141,9 +168,9 @@ Lists
           </ReactMarkdown>
         </div>
 
-        {!props.published && userHasValidSession && postBelongsToUser && (
+        {/* {!props.published && userHasValidSession && postBelongsToUser && (
           <button onClick={() => publishPost(String(props.id))}>Publish</button>
-        )}
+        )} */}
       </div>
       <style jsx>{`
         .page {
