@@ -151,7 +151,7 @@ Lists
   return (
     <MainContainer>
       <div className="">
-        <div className="prose mx-auto prose-pre:rounded-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert lg:min-w-[800px]">
+        <div className="prose mx-auto  prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert lg:min-w-[800px]">
           <h2>{title}</h2>
           <p>By {props?.author?.name || "Unknown author"}</p>
           <ReactMarkdown

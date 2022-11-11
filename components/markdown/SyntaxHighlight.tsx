@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark as dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
+
+import {
+  faChevronLeft,
+  faChevronRight,
+  faCopy,
+} from "@fortawesome/free-solid-svg-icons";
+
 const SyntaxHighlight = ({
   node,
   inline,
@@ -17,37 +25,42 @@ const SyntaxHighlight = ({
     if (hasCopied) {
       const timeout = setTimeout(() => {
         setHasCopied(false);
-      }, 1300);
-
-      console.log(timeout);
+      }, 2000);
 
       return () => clearTimeout(timeout);
     }
   }, [hasCopied]);
 
   return !inline && match ? (
-    <div className="relative border">
-      <div className="flex h-8 justify-between">
-        <span>filename</span>
-
-        <span
-          className={`rounded-lg bg-green-600 transition-all duration-300 ${
-            hasCopied ? "scale-100 opacity-100" : "scale-90 opacity-0"
-          }`}
-        >
-          copied?
-        </span>
+    <div className="relative overflow-hidden rounded-xl">
+      <div className="flex h-8 justify-between rounded-t-lg bg-neutral-800">
+        <span className="mx-[14px] mt-1">filename</span>
       </div>
 
       <div className="absolute right-0">
+        {/* Copied alert */}
+        <div
+          className={`absolute -top-6 left-0 right-0 rounded-lg bg-green-600 text-center transition-all duration-300 ${
+            hasCopied ? "scale-100 opacity-100" : "scale-90 opacity-0"
+          }`}
+        >
+          <span className="text-xs text-white">Copied</span>
+          <div className="absolute -bottom-1 right-0 left-0 mx-auto h-2 w-2 rotate-45 rounded-sm bg-green-600"></div>
+        </div>
+
         <button
-          className="bg-blue-600 p-3"
+          className={`m-3 flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-800  p-3 transition-opacity hover:opacity-80  ${
+            hasCopied ? " " : ""
+          }`}
           onClick={(e) => {
             navigator.clipboard.writeText(String(children).replace(/\n$/, ""));
             setHasCopied(true);
           }}
         >
-          copy
+          <Icon
+            className={`${hasCopied ? "text-green-400" : "text-neutral-300"}`}
+            icon={faCopy}
+          />
         </button>
       </div>
       <SyntaxHighlighter
@@ -58,6 +71,7 @@ const SyntaxHighlight = ({
         codeTagProps={{ className: "" }}
         customStyle={{
           margin: 0,
+          borderRadius: 0,
         }}
         {...props}
       >
