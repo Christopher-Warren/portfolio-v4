@@ -113,8 +113,12 @@ Lists
   * [x] done
   
   ~~~js
+  # fn hey man
   export default function isInViewport(el) {
     var rect = el.getBoundingClientRect();
+  
+
+    const heyDude = 123;
   
     return (
       rect.top >= 0 &&

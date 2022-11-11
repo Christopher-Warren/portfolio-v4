@@ -31,10 +31,27 @@ const SyntaxHighlight = ({
     }
   }, [hasCopied]);
 
+  // const codeTitle = String(children)
+  //   .split(/^(.*?)\r?\n(.*)s/)[1]
+  //   .split("# fn")[1]
+  //   .trim();
+
+  let codeTitle;
+  let codeContent;
+
+  if (String(children).startsWith("# fn")) {
+    codeTitle = String(children)
+      .split(/^(.*?)\r?\n(.*)s/)[1]
+      .split("# fn")[1]
+      .trim();
+
+    codeContent = String(children).split(codeTitle)[1].trimStart();
+  }
+
   return !inline && match ? (
     <div className="relative overflow-hidden rounded-xl">
       <div className="flex h-8 justify-between rounded-t-lg bg-neutral-800">
-        <span className="mx-[14px] mt-1">filename</span>
+        <span className="mx-[14px] mt-1">{codeTitle}</span>
       </div>
 
       <div className="absolute right-0">
@@ -75,7 +92,7 @@ const SyntaxHighlight = ({
         }}
         {...props}
       >
-        {String(children).replace(/\n$/, "")}
+        {codeTitle ? codeContent : String(children)}
       </SyntaxHighlighter>
     </div>
   ) : (
