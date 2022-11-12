@@ -14,7 +14,7 @@ export default async function handle(
 
   const session = await getSession({ req });
 
-  const isAdmin = session?.user?.email === "chrisalmith@gmail.com";
+  const isAdmin = session?.user?.email === process.env.ADMIN_CHRIS;
 
   if (!session || !isAdmin) {
     res.json({ unauthorized: "You must be an admin to create posts" });

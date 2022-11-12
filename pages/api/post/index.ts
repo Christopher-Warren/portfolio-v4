@@ -20,7 +20,7 @@ export default async function handle(
 
   const session = await getSession({ req });
 
-  const isAdmin = session?.user?.email === "chrisalmith@gmail.com";
+  const isAdmin = session?.user?.email === process.env.NEXT_PUBLIC_ADMIN_CHRIS;
 
   const sanitizedUri = title
     .replace(/[^a-zA-Z 0-9]/g, "")
