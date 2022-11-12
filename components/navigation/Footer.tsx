@@ -4,7 +4,7 @@ import { MainContainer } from "../containers/MainContainer";
 
 export const Footer = () => {
   return (
-    <MainContainer containerClassName=" shadow-none" className="p-0">
+    <MainContainer containerClassName=" shadow-none" className="p-0 pt-20">
       <div className="absolute left-0 h-px w-full bg-neutral-200 dark:bg-neutral-800" />
       <div className="block items-center justify-between pt-10 pb-14 text-sm text-neutral-600 dark:text-neutral-400 md:flex">
         <ul className="flex justify-evenly space-x-5  md:justify-start">

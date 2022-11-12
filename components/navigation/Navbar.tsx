@@ -58,7 +58,7 @@ export const Navbar = () => {
   return (
     <>
       <div
-        className={`fixed right-0 left-0 z-40 mx-auto -mt-5 flex w-full max-w-7xl justify-between px-4 pt-12 transition-transform duration-300 
+        className={`pointer-events-none fixed right-0 left-0 z-40 mx-auto -mt-5 flex w-full max-w-7xl justify-between px-4 pt-12 transition-transform duration-300 
       sm:px-10 md:justify-between lg:px-36 xl:px-20
       ${visible ? "translate-y-0" : `-translate-y-full`}`}
       >
@@ -66,7 +66,7 @@ export const Navbar = () => {
           <Link href="/">
             <a
               onClick={() => setShowMobileNav(!showMobileNav)}
-              className="signature z-20 rounded-full border  border-neutral-300 bg-neutral-100/80 p-2 align-middle text-neutral-600  shadow-md backdrop-blur hover:shadow-none    dark:border-neutral-800  dark:bg-neutral-900/30 dark:text-neutral-300 dark:hover:bg-neutral-800"
+              className="signature pointer-events-auto z-20 rounded-full border  border-neutral-300 bg-neutral-100/80 p-2 align-middle text-neutral-600  shadow-md backdrop-blur hover:shadow-none    dark:border-neutral-800  dark:bg-neutral-900/30 dark:text-neutral-300 dark:hover:bg-neutral-800"
             >
               CW
             </a>
@@ -88,7 +88,7 @@ export const Navbar = () => {
                 >
                   <Link href={route.href}>
                     <a
-                      className={`relative px-3 py-2 transition-colors hover:text-green-500 dark:hover:text-green-400 ${
+                      className={`pointer-events-auto relative px-3 py-2 transition-colors hover:text-green-500 dark:hover:text-green-400 ${
                         isCurrentPage && "text-green-500 dark:text-green-400"
                       } `}
                     >
@@ -109,7 +109,7 @@ export const Navbar = () => {
         <div className="relative flex">
           <button
             aria-label="Toggle dark mode"
-            className="dark:neumorphism-shadow neumorphism-shadow z-20 mr-4 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none   dark:border-none dark:bg-neutral-800/80  dark:text-neutral-200  dark:hover:bg-neutral-800"
+            className="dark:neumorphism-shadow neumorphism-shadow pointer-events-auto z-20 mr-4 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none   dark:border-none dark:bg-neutral-800/80  dark:text-neutral-200  dark:hover:bg-neutral-800"
             onClick={() => setDarkModeActive(!darkModeActive)}
           >
             <Icon
@@ -120,7 +120,7 @@ export const Navbar = () => {
           <button
             aria-label="Open navigation menu"
             onClick={() => setShowMobileNav(!showMobileNav)}
-            className="dark:neumorphism-shadow neumorphism-shadow z-20 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none dark:border-none   dark:bg-neutral-800/80 dark:text-neutral-200  dark:hover:bg-neutral-800  md:hidden"
+            className="dark:neumorphism-shadow neumorphism-shadow pointer-events-auto z-20 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none dark:border-none   dark:bg-neutral-800/80 dark:text-neutral-200  dark:hover:bg-neutral-800  md:hidden"
           >
             <Icon
               className="p-3 text-xl text-neutral-500 dark:text-neutral-300"

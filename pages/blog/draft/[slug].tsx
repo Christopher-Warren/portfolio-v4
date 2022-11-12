@@ -77,18 +77,19 @@ const Post: React.FC<ApiPostProps> = (props) => {
   return (
     <MainContainer>
       <div className="">
-        <div className="content prose mx-auto prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert lg:min-w-[800px]">
-          <h2>{title}</h2>
-          <p>By {props?.author?.name || "Unknown author"}</p>
-          <CustomReactMarkdown>{markdownSample}</CustomReactMarkdown>
-        </div>
+        <CustomReactMarkdown title={title} author={props?.author?.name}>
+          {markdownSample}
+        </CustomReactMarkdown>
+
         {!props.published && userHasValidSession && postBelongsToUser && (
-          <button
-            className="bg-blue-500"
-            onClick={() => publishPost(String(props.id))}
-          >
-            Publish
-          </button>
+          <div className="flex justify-end">
+            <button
+              className="bg-blue-500 px-3 py-2"
+              onClick={() => publishPost(String(props.id))}
+            >
+              Publish
+            </button>
+          </div>
         )}
       </div>
     </MainContainer>

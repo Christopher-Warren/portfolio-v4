@@ -7,10 +7,22 @@ import { MainContainer } from "../../components/containers/MainContainer";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import TextInput from "../../components/inputs/TextInput";
+import CustomReactMarkdown from "../../components/markdown/CustomReactMarkdown";
+import { markdownSample } from "../../assets/markdownExample";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronCircleLeft,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-regular-svg-icons";
+
+import Link from "next/link";
 
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const [isPreviewing, setIsPreviewing] = useState(false);
 
   const submitPost = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -43,42 +55,101 @@ const Draft: React.FC = () => {
   };
 
   return (
-    <MainContainer>
-      <div className="mx-auto max-w-2xl">
-        <form className="flex flex-col">
-          <div className="">{"<"}</div>
-          <h1>New Draft</h1>
-          <TextInput
-            className="text-lg"
-            autoFocus
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Title"
-            type="text"
-            value={title}
-          />
-          <textarea
-            cols={50}
-            className="mt-5 rounded border px-2 py-2 shadow outline-none ring-green-500/50 ring-offset-1 ring-offset-neutral-900 focus:border-green-500 focus:ring dark:border-neutral-700 dark:bg-neutral-800 dark:focus:border-green-500 "
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Content"
-            rows={8}
-            value={content}
-          />
-          <div>
-            <button onClick={submitPost}>Post</button>
-            <button onClick={submitDraft}>Save Draft</button>
+    <MainContainer className="">
+      <div className="mx-auto min-h-screen max-w-[800px]">
+        <Link className="border" href={"/blog"}>
+          <a>
+            <button className="mt-2 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 text-neutral-300 transition-colors hover:border-neutral-500 hover:text-neutral-500 dark:border-neutral-700 dark:text-neutral-700 dark:hover:border-neutral-200 dark:hover:text-neutral-200">
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+          </a>
+        </Link>
+
+        <h1 className="my-10 text-xl">New Post</h1>
+        <form className="mx-auto rounded-lg border border-neutral-300 shadow-lg dark:border-neutral-700">
+          <div
+            className={`rounded-t-lg border-b px-4 transition-colors ${
+              isPreviewing
+                ? "border-transparent"
+                : "border-neutral-300 dark:border-neutral-700"
+            }`}
+          >
+            <ul className="flex gap-3">
+              <li>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsPreviewing(false);
+                  }}
+                  className={`-mb-px py-2 px-4 ${
+                    !isPreviewing &&
+                    "border-b-2 border-neutral-400 bg-neutral-200/60 transition-colors dark:border-neutral-100 dark:bg-neutral-800/90"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faEdit} />
+                  <span className="ml-3">Edit</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsPreviewing(true);
+                  }}
+                  className={`-mb-px py-2 px-4 ${
+                    isPreviewing &&
+                    "border-b-2 border-neutral-400 bg-neutral-200/60 transition-colors dark:border-neutral-100 dark:bg-neutral-800/90"
+                  }`}
+                >
+                  <span> Preview</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div
+            className={`flex flex-col overflow-hidden transition-all  ${
+              isPreviewing ? "h-0 p-0" : "h-auto p-4"
+            }`}
+          >
+            <TextInput
+              autoFocus
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Title"
+              type="text"
+              value={title}
+            />
+            <TextInput
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Content"
+              multiline
+              value={content}
+            />
           </div>
         </form>
 
-        {/* <div>
-          <h1>Preview</h1>
-          <ReactMarkdown
-            className="prose dark:prose-invert"
-            remarkPlugins={[remarkGfm]}
+        <div
+          className={` ${
+            isPreviewing ? "mt-16 block opacity-100" : "hidden opacity-0"
+          }`}
+        >
+          <CustomReactMarkdown title={title}>
+            {markdownSample}
+          </CustomReactMarkdown>
+        </div>
+        <div className="mt-10 flex justify-end gap-6">
+          <button
+            className="rounded-lg border border-neutral-500 px-4 py-2 text-neutral-500 transition-opacity hover:opacity-80 dark:border-neutral-400 dark:text-neutral-400"
+            onClick={submitDraft}
           >
-            {content}
-          </ReactMarkdown>
-        </div> */}
+            Save
+          </button>
+          <button
+            className="rounded-lg bg-green-700 px-4 py-2 text-white transition-opacity hover:opacity-80 "
+            onClick={submitPost}
+          >
+            Post
+          </button>
+        </div>
       </div>
     </MainContainer>
   );
