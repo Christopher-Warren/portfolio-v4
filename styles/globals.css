@@ -44,3 +44,37 @@ a {
 /* .neumorphism-pressed {
   box-shadow: inset 1px 1px 3px #0f0f0f, inset -1px -1px 3px #1f1f1f;
 } */
+
+.admonition {
+  font-style: normal;
+}
+
+.admonition > p::before,
+.admonition > p::after {
+  content: none;
+}
+
+.admonition-title {
+  align-items: center;
+  display: flex;
+  font-size: 1.5em;
+  color: ;
+}
+.admonition-title::before {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  content: "i";
+  font-style: normal;
+  /* font-size: 1.5em; */
+  margin-right: 12px;
+
+  font-family: "Lucida Sans", "Trebuchet MS", "Times New Roman";
+  border-radius: 999999px;
+  width: 30px;
+  height: 30px;
+
+  border: rgb(96 165 250/0.7) 2px solid;
+}
+/* blue 96 165 250 */

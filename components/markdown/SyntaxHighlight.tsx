@@ -39,17 +39,17 @@ const SyntaxHighlight = ({
   let codeTitle;
   let codeContent;
 
-  if (String(children).startsWith("# fn")) {
+  if (String(children).startsWith("#")) {
     codeTitle = String(children)
       .split(/^(.*?)\r?\n(.*)s/)[1]
-      .split("# fn")[1]
+      .split("#")[1]
       .trim();
 
     codeContent = String(children).split(codeTitle)[1].trimStart();
   }
 
   return !inline && match ? (
-    <div className="relative overflow-hidden rounded-xl">
+    <div className="relative overflow-hidden rounded-xl bg-blue-500">
       <div className="flex h-8 justify-between rounded-t-lg bg-neutral-800">
         <span className="mx-[14px] mt-1">{codeTitle}</span>
       </div>
