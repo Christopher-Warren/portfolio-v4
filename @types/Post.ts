@@ -8,4 +8,5 @@ export type PostProps = {
   };
   content: string;
   published: boolean;
+  createdAt: Date;
 };
