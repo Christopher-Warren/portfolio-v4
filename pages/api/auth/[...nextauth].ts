@@ -11,6 +11,5 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-
   adapter: PrismaAdapter(prisma),
 });

@@ -14,6 +14,7 @@ import { serializeData } from "../../utils/serializeData";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
+
   if (!session) {
     res.statusCode = 403;
     return { props: { drafts: [] } };
@@ -21,15 +22,17 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
   const drafts = await prisma.post.findMany({
     where: {
-      author: { email: session.user?.email },
+      // author: { email: session.user?.email },
       published: false,
     },
     include: {
       author: {
-        select: { name: true },
+        select: { name: true, email: true },
       },
     },
   });
+
+  console.log(drafts, session.user?.email);
   return {
     props: { drafts: serializeData(drafts) },
   };

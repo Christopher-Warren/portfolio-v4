@@ -16,7 +16,7 @@ model Post {
   content   String
   published Boolean  @default(false)
   author    User?    @relation(fields: [authorId], references: [id])
-  authorId  String?
+  authorId  String?  @db.ObjectId
 }
 
 model Account {
@@ -41,7 +41,7 @@ model Account {
 model Session {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   sessionToken String   @unique @map("session_token")
-  userId       String
+  userId       String   @db.ObjectId
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
