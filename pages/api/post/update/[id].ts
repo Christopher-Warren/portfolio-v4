@@ -14,14 +14,28 @@ export default async function handle(
 
   const session = await getSession({ req });
 
-  console.log(session);
+  // Get inputs
+  const { title, content, preview, published } = req.body;
 
-  //   const user = await prisma.user.findUnique({where: {}})
+  if (session?.user?.email) {
+    // Get user
+    const user = await prisma.user.findUnique({
+      where: { email: session?.user?.email },
+    });
 
-  //   const post = await prisma.post.update({
-  //     where: { id: postId },
-  //     data: { published: false },
-  //   });
-  //   console.log(post);
+    // Get post
+    const post = await prisma.post.findUnique({ where: { id: postId } });
+
+    // Check that user is owner of post
+    if (post?.authorId === user?.id) {
+      // Update post
+      const post = await prisma.post.update({
+        where: { id: postId },
+        data: req.body,
+      });
+    }
+  }
+
+  // console.log(post);
   res.json({ hey: "hjere" });
 }

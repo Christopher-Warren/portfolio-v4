@@ -59,26 +59,26 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
 
 const Post: React.FC<ApiPostProps> = ({
   id,
-  title,
+  title: initialTitle,
   author,
-  content,
+  content: initialContent,
   createdAt,
   published,
-  preview,
+  preview: initialPreview,
   error,
 }) => {
   const { data: session, status } = useSession();
 
-  const [titleState, setTitleState] = useState(title || "");
-  const [contentState, setContentState] = useState(content || "");
-  const [previewContent, setPreviewContent] = useState(preview || "");
+  const [title, setTitle] = useState(initialTitle || "");
+  const [content, setContent] = useState(initialContent || "");
+  const [preview, setPreview] = useState(initialPreview || "");
 
   const [isPreviewing, setIsPreviewing] = useState(false);
 
   const submitPost = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const body = { title, content, preview: previewContent, published: true };
+      const body = { title, content, preview };
       await fetch(`/api/post/update/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -96,7 +96,7 @@ const Post: React.FC<ApiPostProps> = ({
       const body = {
         title,
         content,
-        preview: previewContent,
+        preview,
         published: false,
       };
       await fetch("/api/post", {
@@ -178,20 +178,20 @@ const Post: React.FC<ApiPostProps> = ({
           >
             <TextInput
               autoFocus
-              onChange={(e) => setTitleState(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="Title"
               type="text"
-              value={titleState}
+              value={title}
             />
             <TextInput
-              onChange={(e) => setPreviewContent(e.target.value)}
+              onChange={(e) => setPreview(e.target.value)}
               placeholder="Preview Content"
               multiline
               rows={2}
-              value={previewContent}
+              value={preview}
             />
             <TextInput
-              onChange={(e) => setContentState(e.target.value)}
+              onChange={(e) => setContent(e.target.value)}
               placeholder="Content"
               multiline
               rows={8}
@@ -205,9 +205,7 @@ const Post: React.FC<ApiPostProps> = ({
             isPreviewing ? "mt-16 block opacity-100" : "hidden opacity-0"
           }`}
         >
-          <CustomReactMarkdown title={title}>
-            {contentState}
-          </CustomReactMarkdown>
+          <CustomReactMarkdown title={title}>{content}</CustomReactMarkdown>
         </div>
         <div className="mt-10 flex justify-end gap-6">
           <button
