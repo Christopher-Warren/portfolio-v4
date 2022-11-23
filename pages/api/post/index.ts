@@ -9,6 +9,7 @@ interface ExtendedNextRequest extends NextApiRequest {
     title: string;
     content: string;
     published: boolean;
+    preview?: string;
   };
 }
 
@@ -16,7 +17,7 @@ export default async function handle(
   req: ExtendedNextRequest,
   res: NextApiResponse<any>
 ) {
-  const { title, content, published } = req.body;
+  const { title, content, published, preview } = req.body;
 
   const session = await getSession({ req });
 
@@ -37,6 +38,7 @@ export default async function handle(
       title,
       content,
       published,
+      preview,
       slug: sanitizedUri,
       author: { connect: { email: session?.user?.email || undefined } },
     },

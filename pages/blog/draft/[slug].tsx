@@ -20,6 +20,12 @@ import remarkGithubBlockQuote from "remark-github-beta-blockquote-admonitions";
 
 import { markdownSample } from "../../../assets/markdownExample";
 import CustomReactMarkdown from "../../../components/markdown/CustomReactMarkdown";
+import TextInput from "../../../components/inputs/TextInput";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-regular-svg-icons";
+
+import Link from "next/link";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 interface ApiPostProps extends PostProps {
   error: string;
@@ -51,49 +57,201 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
   };
 };
 
-async function publishPost(id: string): Promise<void> {
-  await fetch(`/api/publish/${id}`, {
-    method: "PUT",
-  });
-  await Router.push("/");
-}
-
-const Post: React.FC<ApiPostProps> = (props) => {
+const Post: React.FC<ApiPostProps> = ({
+  id,
+  title,
+  author,
+  content,
+  createdAt,
+  published,
+  preview,
+  error,
+}) => {
   const { data: session, status } = useSession();
+
+  const [titleState, setTitleState] = useState(title || "");
+  const [contentState, setContentState] = useState(content || "");
+  const [previewContent, setPreviewContent] = useState(preview || "");
+
+  const [isPreviewing, setIsPreviewing] = useState(false);
+
+  const submitPost = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const body = { title, content, preview: previewContent, published: true };
+      await fetch(`/api/post/update/${id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      // await Router.push("/blog/drafts");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const submitDraft = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const body = {
+        title,
+        content,
+        preview: previewContent,
+        published: false,
+      };
+      await fetch("/api/post", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      await Router.push("/blog/drafts");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   if (status === "loading") {
     return <div>Authenticating ...</div>;
   }
 
   const userHasValidSession = Boolean(session);
-  const postBelongsToUser = session?.user?.email === props.author?.email;
-  let title = props.title;
-  if (!props.published) {
-    title = `${title} (Draft)`;
-  }
+  const postBelongsToUser = session?.user?.email === author?.email;
 
-  if (props.error) return <div>{props.error}</div>;
+  if (error) return <div>{error}</div>;
 
   return (
-    <MainContainer>
-      <div className="">
-        <CustomReactMarkdown title={title} author={props?.author?.name}>
-          {markdownSample}
-        </CustomReactMarkdown>
-
-        {!props.published && userHasValidSession && postBelongsToUser && (
-          <div className="flex justify-end">
-            <button
-              className="bg-blue-500 px-3 py-2"
-              onClick={() => publishPost(String(props.id))}
-            >
-              Publish
+    <MainContainer className="">
+      <div className="mx-auto min-h-screen max-w-[800px]">
+        <Link className="border" href={"/blog"}>
+          <a>
+            <button className="mt-2 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 text-neutral-300 transition-colors hover:border-neutral-500 hover:text-neutral-500 dark:border-neutral-700 dark:text-neutral-700 dark:hover:border-neutral-200 dark:hover:text-neutral-200">
+              <FontAwesomeIcon icon={faChevronLeft} />
             </button>
+          </a>
+        </Link>
+
+        <h1 className="my-10 text-xl">New Post</h1>
+        <form className="mx-auto rounded-lg border border-neutral-300 shadow-lg dark:border-neutral-700">
+          <div
+            className={`rounded-t-lg border-b px-4 transition-colors ${
+              isPreviewing
+                ? "border-transparent"
+                : "border-neutral-300 dark:border-neutral-700"
+            }`}
+          >
+            <ul className="flex gap-3">
+              <li>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsPreviewing(false);
+                  }}
+                  className={`-mb-px py-2 px-4 ${
+                    !isPreviewing &&
+                    "border-b-2 border-neutral-400 bg-neutral-200/60 transition-colors dark:border-neutral-100 dark:bg-neutral-800/90"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faEdit} />
+                  <span className="ml-3">Edit</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsPreviewing(true);
+                  }}
+                  className={`-mb-px py-2 px-4 ${
+                    isPreviewing &&
+                    "border-b-2 border-neutral-400 bg-neutral-200/60 transition-colors dark:border-neutral-100 dark:bg-neutral-800/90"
+                  }`}
+                >
+                  <span> Preview</span>
+                </button>
+              </li>
+            </ul>
           </div>
-        )}
+          <div
+            className={`flex flex-col overflow-hidden transition-all  ${
+              isPreviewing ? "h-0 p-0" : "h-auto p-4"
+            }`}
+          >
+            <TextInput
+              autoFocus
+              onChange={(e) => setTitleState(e.target.value)}
+              placeholder="Title"
+              type="text"
+              value={titleState}
+            />
+            <TextInput
+              onChange={(e) => setPreviewContent(e.target.value)}
+              placeholder="Preview Content"
+              multiline
+              rows={2}
+              value={previewContent}
+            />
+            <TextInput
+              onChange={(e) => setContentState(e.target.value)}
+              placeholder="Content"
+              multiline
+              rows={8}
+              value={content}
+            />
+          </div>
+        </form>
+
+        <div
+          className={` ${
+            isPreviewing ? "mt-16 block opacity-100" : "hidden opacity-0"
+          }`}
+        >
+          <CustomReactMarkdown title={title}>
+            {contentState}
+          </CustomReactMarkdown>
+        </div>
+        <div className="mt-10 flex justify-end gap-6">
+          <button
+            className="rounded-lg border border-neutral-500 px-4 py-2 text-neutral-500 transition-opacity hover:opacity-80 dark:border-neutral-400 dark:text-neutral-400"
+            // onClick={submitDraft}
+          >
+            Save Draft
+          </button>
+          <button
+            className="rounded-lg bg-green-700 px-4 py-2 text-white transition-opacity hover:opacity-80 "
+            onClick={submitPost}
+          >
+            Post
+          </button>
+        </div>
       </div>
     </MainContainer>
   );
+
+  // return (
+  //   <MainContainer>
+  //     <div className="">
+  //       <CustomReactMarkdown
+  //         author={author}
+  //         createdAt={createdAt}
+  //         preview={preview}
+  //         title={title}
+  //       >
+  //         {content}
+  //       </CustomReactMarkdown>
+
+  //       {!published && userHasValidSession && postBelongsToUser && (
+  //         <div className="flex justify-end">
+  //           <button
+  //             className="bg-blue-500 px-3 py-2"
+  //             onClick={() => publishPost(String(id))}
+  //           >
+  //             Publish
+  //           </button>
+  //         </div>
+  //       )}
+  //     </div>
+  //   </MainContainer>
+  // );
 };
 
 export default Post;

@@ -3,20 +3,34 @@ import remarkGfm from "remark-gfm";
 
 // pages/p/[id].tsx
 
-import React from "react";
+import React, { useState } from "react";
 
 import SyntaxHighlight from "./SyntaxHighlight";
 
 import remarkEmoji from "remark-emoji";
 import remarkGithubBlockQuote from "remark-github-beta-blockquote-admonitions";
 
-const CustomReactMarkdown = ({ children, title, author }: any) => {
+const CustomReactMarkdown = ({
+  children,
+  title,
+  author,
+  createdAt,
+  preview,
+}: any) => {
+  const publishDate = new Date(createdAt).toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
     // Padding bottom fixes a strange glitch
     <div className="content prose mx-auto pb-1 prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert lg:min-w-[800px]">
-      <div>
-        <h1>{title ? title : "Enter title"}</h1>
-        <p>By {author || "Unknown author"}</p>
+      <div className="inline-block">
+        <p className="inline-block">By {author?.name || "Unknown author"}</p>
+        <p className="inline-block">{publishDate}</p>
+        <h1>{title}</h1>
+        <p className="inline-block">{preview}</p>
       </div>
 
       <ReactMarkdown

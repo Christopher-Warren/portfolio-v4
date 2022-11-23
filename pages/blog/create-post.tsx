@@ -21,13 +21,14 @@ import Link from "next/link";
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [previewContent, setPreviewContent] = useState("");
 
   const [isPreviewing, setIsPreviewing] = useState(false);
 
   const submitPost = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const body = { title, content, published: true };
+      const body = { title, content, preview: previewContent, published: true };
       await fetch("/api/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,7 +43,12 @@ const Draft: React.FC = () => {
   const submitDraft = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const body = { title, content, published: true };
+      const body = {
+        title,
+        content,
+        preview: previewContent,
+        published: false,
+      };
       await fetch("/api/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -119,9 +125,17 @@ const Draft: React.FC = () => {
               value={title}
             />
             <TextInput
+              onChange={(e) => setPreviewContent(e.target.value)}
+              placeholder="Preview Content"
+              multiline
+              rows={2}
+              value={previewContent}
+            />
+            <TextInput
               onChange={(e) => setContent(e.target.value)}
               placeholder="Content"
               multiline
+              rows={8}
               value={content}
             />
           </div>
@@ -141,7 +155,7 @@ const Draft: React.FC = () => {
             className="rounded-lg border border-neutral-500 px-4 py-2 text-neutral-500 transition-opacity hover:opacity-80 dark:border-neutral-400 dark:text-neutral-400"
             onClick={submitDraft}
           >
-            Save
+            Save Draft
           </button>
           <button
             className="rounded-lg bg-green-700 px-4 py-2 text-white transition-opacity hover:opacity-80 "

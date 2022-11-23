@@ -49,7 +49,7 @@ const SyntaxHighlight = ({
   }
 
   return !inline && match ? (
-    <div className="relative overflow-hidden rounded-xl bg-blue-500">
+    <div className="relative overflow-hidden rounded-xl ">
       <div className="flex h-8 justify-between rounded-t-lg bg-neutral-800">
         <span className="mx-[14px] mt-1">{codeTitle}</span>
       </div>

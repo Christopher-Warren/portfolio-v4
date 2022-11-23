@@ -2,6 +2,7 @@ import { FC, InputHTMLAttributes } from "react";
 interface InputProps
   extends InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   multiline?: boolean;
+  rows?: number;
 }
 const TextInput: FC<InputProps> = ({
   placeholder,
@@ -10,14 +11,15 @@ const TextInput: FC<InputProps> = ({
   value,
   onChange,
   multiline,
+  rows,
 }) => {
   if (multiline) {
     return (
       <textarea
         className="mt-5 rounded border px-2 py-2 shadow outline-none ring-green-500/50 ring-offset-1 ring-offset-neutral-900 focus:border-green-500 focus:ring dark:border-neutral-700 dark:bg-neutral-800 dark:focus:border-green-500 "
         onChange={onChange}
-        placeholder="Content"
-        rows={8}
+        placeholder={placeholder}
+        rows={rows}
         value={value}
       />
     );

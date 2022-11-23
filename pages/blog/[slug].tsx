@@ -41,26 +41,19 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
 };
 
 const Post: React.FC<ApiPostProps> = (props) => {
-  const { title, createdAt } = props;
+  const { title, createdAt, author, preview } = props;
 
-  const publishDate = new Date(createdAt).toLocaleString("default", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  console.log(publishDate);
   return (
     <MainContainer>
       <div className="mx-auto min-h-screen max-w-[800px]">
-        <div className="inline-block">
-          <p className="inline-block">
-            By {props?.author?.name || "Unknown author"}
-          </p>
-          <p className="inline-block">{publishDate}</p>
-        </div>
-
-        <CustomReactMarkdown title={title}>{props.content}</CustomReactMarkdown>
+        <CustomReactMarkdown
+          author={author}
+          createdAt={createdAt}
+          preview={preview}
+          title={title}
+        >
+          {props.content}
+        </CustomReactMarkdown>
       </div>
     </MainContainer>
   );
