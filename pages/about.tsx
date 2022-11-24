@@ -73,7 +73,7 @@ const About = ({ image }: any) => {
         <div className="justify-between gap-6 md:flex">
           {/* Left */}
           <div className="max-w-lg">
-            <div className="relative flex justify-center border md:hidden">
+            <div className="relative mb-10 flex justify-center md:hidden">
               <Image
                 className="mx-auto rounded-xl"
                 alt="Me at horsepens 40"
