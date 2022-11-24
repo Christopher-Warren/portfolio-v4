@@ -78,7 +78,7 @@ const Post: React.FC<ApiPostProps> = ({
   const submitPost = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const body = { title, content, preview };
+      const body = { title, content, preview, published: true };
       await fetch(`/api/post/update/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -93,18 +93,13 @@ const Post: React.FC<ApiPostProps> = ({
   const submitDraft = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const body = {
-        title,
-        content,
-        preview,
-        published: false,
-      };
-      await fetch("/api/post", {
+      const body = { title, content, preview };
+      await fetch(`/api/post/update/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      await Router.push("/blog/drafts");
+      // await Router.push("/blog/drafts");
     } catch (error) {
       console.error(error);
     }
@@ -210,7 +205,7 @@ const Post: React.FC<ApiPostProps> = ({
         <div className="mt-10 flex justify-end gap-6">
           <button
             className="rounded-lg border border-neutral-500 px-4 py-2 text-neutral-500 transition-opacity hover:opacity-80 dark:border-neutral-400 dark:text-neutral-400"
-            // onClick={submitDraft}
+            onClick={submitDraft}
           >
             Save Draft
           </button>
@@ -224,32 +219,6 @@ const Post: React.FC<ApiPostProps> = ({
       </div>
     </MainContainer>
   );
-
-  // return (
-  //   <MainContainer>
-  //     <div className="">
-  //       <CustomReactMarkdown
-  //         author={author}
-  //         createdAt={createdAt}
-  //         preview={preview}
-  //         title={title}
-  //       >
-  //         {content}
-  //       </CustomReactMarkdown>
-
-  //       {!published && userHasValidSession && postBelongsToUser && (
-  //         <div className="flex justify-end">
-  //           <button
-  //             className="bg-blue-500 px-3 py-2"
-  //             onClick={() => publishPost(String(id))}
-  //           >
-  //             Publish
-  //           </button>
-  //         </div>
-  //       )}
-  //     </div>
-  //   </MainContainer>
-  // );
 };
 
 export default Post;
