@@ -115,7 +115,7 @@ const Post: React.FC<ApiPostProps> = ({
   if (error) return <div>{error}</div>;
 
   return (
-    <MainContainer className="">
+    <MainContainer>
       <div className="mx-auto min-h-screen max-w-[800px]">
         <Link className="border" href={"/blog"}>
           <a>

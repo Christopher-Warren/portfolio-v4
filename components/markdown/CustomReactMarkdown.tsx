@@ -9,6 +9,7 @@ import SyntaxHighlight from "./SyntaxHighlight";
 
 import remarkEmoji from "remark-emoji";
 import remarkGithubBlockQuote from "remark-github-beta-blockquote-admonitions";
+import { dateToString } from "../../utils/date";
 
 const CustomReactMarkdown = ({
   children,
@@ -17,11 +18,7 @@ const CustomReactMarkdown = ({
   createdAt,
   preview,
 }: any) => {
-  const publishDate = new Date(createdAt).toLocaleString("default", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const publishDate = dateToString(createdAt);
 
   return (
     // Padding bottom fixes a strange glitch

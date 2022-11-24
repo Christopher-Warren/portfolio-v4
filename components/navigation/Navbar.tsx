@@ -3,7 +3,10 @@ import { useRouter } from "next/router";
 
 import { useEffect, useRef, useState } from "react";
 
-import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
+import {
+  FontAwesomeIcon,
+  FontAwesomeIcon as Icon,
+} from "@fortawesome/react-fontawesome";
 
 import {
   faSun as sun,
@@ -14,6 +17,8 @@ import { faBars as mobileIcon, faX } from "@fortawesome/free-solid-svg-icons";
 
 import useDarkMode from "../../hooks/useDarkMode";
 import { navLinks } from "../../assets/navLinks";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 interface NavPath {
   href: string;
@@ -32,6 +37,8 @@ export const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const router = useRouter();
+
+  const { data: session } = useSession();
 
   const handleScroll = (e: any) => {
     const currentScroll = window.scrollY;
@@ -106,17 +113,38 @@ export const Navbar = () => {
         </nav>
 
         {/* Mobile Nav */}
-        <div className="relative flex">
-          <button
-            aria-label="Toggle dark mode"
-            className="dark:neumorphism-shadow neumorphism-shadow pointer-events-auto z-20 mr-4 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none   dark:border-none dark:bg-neutral-800/80  dark:text-neutral-200  dark:hover:bg-neutral-800"
-            onClick={() => setDarkModeActive(!darkModeActive)}
-          >
-            <Icon
-              className="rounded-full p-3.5 text-indigo-400 dark:text-yellow-200"
-              icon={darkModeActive ? sun : moon}
-            />
-          </button>
+        <div className="relative flex items-center">
+          <div className="pointer-events-auto flex items-center">
+            <div className="mr-4">
+              {session ? (
+                <button className=" bg-neutral-300" onClick={() => signOut()}>
+                  <a>Log out</a>
+                </button>
+              ) : (
+                <button
+                  className="font-lg"
+                  onClick={() =>
+                    signIn("github").catch((err) => console.error(err))
+                  }
+                >
+                  <FontAwesomeIcon className="mr-3" icon={faGithub} />
+                  Login
+                </button>
+              )}
+            </div>
+
+            <button
+              aria-label="Toggle dark mode"
+              className="dark:neumorphism-shadow neumorphism-shadow pointer-events-auto z-20 mr-4 flex justify-center rounded-full border border-neutral-200 bg-neutral-100/80 shadow-md backdrop-blur hover:shadow-none   dark:border-none dark:bg-neutral-800/80  dark:text-neutral-200  dark:hover:bg-neutral-800"
+              onClick={() => setDarkModeActive(!darkModeActive)}
+            >
+              <Icon
+                className="rounded-full p-3.5 text-indigo-400 dark:text-yellow-200"
+                icon={darkModeActive ? sun : moon}
+              />
+            </button>
+          </div>
+
           <button
             aria-label="Open navigation menu"
             onClick={() => setShowMobileNav(!showMobileNav)}
@@ -150,7 +178,7 @@ export const Navbar = () => {
             <Icon icon={faX} />
           </button>
           <nav>
-            <ul className="bg-10 ml-10 mt-10 mb-10 flex flex-col">
+            <ul className="ml-10 mt-10 mb-10 flex flex-col">
               {navLinks.map((route: NavPath) => {
                 const isCurrentPage = router.pathname === route.href;
                 return (
