@@ -9,6 +9,7 @@ import { PostProps } from "../../@types/Post";
 import Link from "next/link";
 import { serializeData } from "../../utils/serializeData";
 import { useSession } from "next-auth/react";
+import { readingTime } from "../../utils/readingTime";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -52,10 +53,14 @@ const Blog = (props: any) => {
       </div>
 
       {props.feed.map((post: PostProps) => {
+        const { content } = post;
+
+        const timeToRead = readingTime(content);
+
         return (
           <Link key={post.id} href={`/blog/${post.slug}`}>
             <a>
-              <div>
+              <div className="">
                 <h2>author: {post.author.name}</h2>
                 <p>title: {post.title} </p>
               </div>
