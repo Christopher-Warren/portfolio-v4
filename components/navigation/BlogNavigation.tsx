@@ -1,21 +1,23 @@
 // Header.tsx
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { signOut, signIn, useSession } from "next-auth/react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
+
+import { faAdd, faList } from "@fortawesome/free-solid-svg-icons";
 
 const Header: React.FC = () => {
   return (
-    <div className="w-full">
+    <div className="w-full  font-medium dark:text-green-300">
       <Link href="/blog/create-post">
-        <a className=" text-lg font-medium text-green-400 transition-opacity hover:opacity-80">
+        <a className="mr-6 transition-opacity hover:opacity-80  dark:hover:text-green-400">
+          <FontAwesomeIcon className="mr-2" icon={faAdd} />
           New post
         </a>
       </Link>
       <Link href="/blog/drafts">
-        <a className="ml-6 text-lg font-medium text-green-400 transition-opacity hover:opacity-80">
+        <a className=" transition-opacity hover:opacity-80  dark:hover:text-green-400">
+          <FontAwesomeIcon className="mr-2" icon={faList} />
           My drafts
         </a>
       </Link>
