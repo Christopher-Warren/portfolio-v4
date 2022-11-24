@@ -8,6 +8,7 @@ import { PostProps } from "../../@types/Post";
 
 import Link from "next/link";
 import { serializeData } from "../../utils/serializeData";
+import { useSession } from "next-auth/react";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -26,9 +27,11 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Blog = (props: any) => {
+  const { data: session } = useSession();
+
   return (
     <MainContainer>
-      <BlogNavigation />
+      {session && <BlogNavigation />}
 
       <div className="max-w-2xl ">
         <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug ">

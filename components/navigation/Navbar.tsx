@@ -69,7 +69,7 @@ export const Navbar = () => {
 
   return (
     <div className="fixed left-0 right-0 z-30 mx-auto w-full border-b bg-white/80 shadow backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/80">
-      <div className="left-0 right-0 mx-auto flex h-12 max-w-7xl items-center justify-between sm:mx-6 lg:mx-16 xl:mx-auto">
+      <div className="left-0 right-0 mx-auto flex h-12 max-w-7xl items-center justify-between px-4  lg:mx-16 xl:mx-auto">
         {/* Logo */}
         <div className="">
           <div className="flex items-center">
@@ -131,12 +131,15 @@ export const Navbar = () => {
 
           <div className="hover:text-neutral-900 dark:hover:text-neutral-100">
             {session ? (
-              <button className=" bg-neutral-300" onClick={() => signOut()}>
+              <button
+                className="font-lg px-2 py-1 transition-colors "
+                onClick={() => signOut()}
+              >
                 <a>Log out</a>
               </button>
             ) : (
               <button
-                className="font-lg px-2 py-1 transition-colors"
+                className="font-lg px-2 py-1 transition-colors "
                 onClick={() =>
                   signIn("github").catch((err) => console.error(err))
                 }
