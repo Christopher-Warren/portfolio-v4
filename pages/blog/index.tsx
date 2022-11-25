@@ -11,6 +11,9 @@ import { serializeData } from "../../utils/serializeData";
 import { useSession } from "next-auth/react";
 import { readingTime } from "../../utils/readingTime";
 
+import Image from "next/image";
+import { dateToString } from "../../utils/date";
+
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
     where: { published: true },
@@ -29,6 +32,44 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Blog = (props: any) => {
   const { data: session } = useSession();
+  // return (
+  //   <div className="rounded " key={post.id}>
+  //     <Link href={`/blog/${post.slug}`}>
+  //       <a>
+  //         {/* container */}
+  //         <div className="flex flex-col  border">
+  //           <div className="">
+  //             <Image
+  //               alt="placeholder"
+  //               layout="responsive"
+  //               width={400}
+  //               height={200}
+  //               objectFit="cover"
+  //               src={"/150x250.png"}
+  //             />
+  //           </div>
+
+  //           <div className="flex flex-col p-4">
+  //             <h2 className="text-xl">
+  //               Build a React dashboard with Tremor
+  //             </h2>
+  //             <p className="my-5 h-full min-h-[96px] text-neutral-400">
+  //               {post.content}
+  //             </p>
+  //             <div className="justify-self-end text-xs">
+  //               <p className="text-sm">{post.author.name}</p>
+  //               <p className="text-neutral-400">
+  //                 {dateToString(post.createdAt)}{" "}
+  //                 <div className="mx-2 inline">•</div>{" "}
+  //                 {readingTime(content)} min read
+  //               </p>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </a>
+  //     </Link>
+  //   </div>
+  // );
 
   return (
     <MainContainer>
@@ -52,22 +93,61 @@ const Blog = (props: any) => {
           </button> */}
       </div>
 
-      {props.feed.map((post: PostProps) => {
-        const { content } = post;
+      <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
+        {props.feed.map((post: PostProps) => {
+          const { content } = post;
 
-        const timeToRead = readingTime(content);
+          const timeToRead = readingTime(content);
 
-        return (
-          <Link key={post.id} href={`/blog/${post.slug}`}>
-            <a>
-              <div className="">
-                <h2>author: {post.author.name}</h2>
-                <p>title: {post.title} </p>
+          return (
+            <div
+              className="overflow-hidden rounded-xl bg-neutral-800"
+              key={post.id}
+            >
+              <div className="grid-cols-6 md:grid">
+                <div className="relative col-span-2 hidden md:block">
+                  <Image
+                    className=""
+                    alt="placeholder"
+                    layout="fill"
+                    objectFit="cover"
+                    src={"/150x250.png"}
+                  />
+                </div>
+
+                <div className="relative block h-[250px]  md:hidden">
+                  <Image
+                    className=""
+                    alt="placeholder"
+                    layout="fill"
+                    objectFit="cover"
+                    src={"/150x250.png"}
+                  />
+                </div>
+
+                <div className="col-span-4 flex flex-col p-4">
+                  <h2 className="text-xl font-medium">
+                    <Link href={`/blog/${post.slug}`}>
+                      <a>{post.title}</a>
+                    </Link>
+                  </h2>
+                  <p className="my-5 h-full text-sm text-neutral-400">
+                    {post.content}
+                  </p>
+                  <div className="justify-self-end text-xs">
+                    <p className="text-sm">{post.author.name}</p>
+                    <p className="text-neutral-400">
+                      {dateToString(post.createdAt)}{" "}
+                      <div className="mx-2 inline">•</div>{" "}
+                      {readingTime(content)} min read
+                    </p>
+                  </div>
+                </div>
               </div>
-            </a>
-          </Link>
-        );
-      })}
+            </div>
+          );
+        })}
+      </div>
     </MainContainer>
   );
 };
