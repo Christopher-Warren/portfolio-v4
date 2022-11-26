@@ -14,8 +14,13 @@ import { socialLinks } from "../../assets/socialLinks";
 export const Hero = () => {
   return (
     <div className="max-w-2xl ">
-      <div className="dark:neumorphism-shadow h-[75px] w-[75px] overflow-hidden  rounded-full bg-gradient-to-br  from-neutral-300  to-neutral-100  dark:from-neutral-700 dark:to-neutral-300/10">
-        <Image alt="me" width={75} height={75} src={"/images/headshot2.png"} />
+      <div className="h-[75px] w-[75px] overflow-hidden  rounded-full bg-gradient-to-br  from-neutral-300  to-neutral-100  dark:from-neutral-700 dark:to-neutral-300/10">
+        <Image
+          alt="Portiat of Chris Warren"
+          width={75}
+          height={75}
+          src={"/images/headshot2.png"}
+        />
       </div>
 
       <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug">

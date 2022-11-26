@@ -32,44 +32,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Blog = (props: any) => {
   const { data: session } = useSession();
-  // return (
-  //   <div className="rounded " key={post.id}>
-  //     <Link href={`/blog/${post.slug}`}>
-  //       <a>
-  //         {/* container */}
-  //         <div className="flex flex-col  border">
-  //           <div className="">
-  //             <Image
-  //               alt="placeholder"
-  //               layout="responsive"
-  //               width={400}
-  //               height={200}
-  //               objectFit="cover"
-  //               src={"/150x250.png"}
-  //             />
-  //           </div>
-
-  //           <div className="flex flex-col p-4">
-  //             <h2 className="text-xl">
-  //               Build a React dashboard with Tremor
-  //             </h2>
-  //             <p className="my-5 h-full min-h-[96px] text-neutral-400">
-  //               {post.content}
-  //             </p>
-  //             <div className="justify-self-end text-xs">
-  //               <p className="text-sm">{post.author.name}</p>
-  //               <p className="text-neutral-400">
-  //                 {dateToString(post.createdAt)}{" "}
-  //                 <div className="mx-2 inline">•</div>{" "}
-  //                 {readingTime(content)} min read
-  //               </p>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </a>
-  //     </Link>
-  //   </div>
-  // );
 
   return (
     <MainContainer>
@@ -93,57 +55,63 @@ const Blog = (props: any) => {
           </button> */}
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
-        {props.feed.map((post: PostProps) => {
-          const { content } = post;
-
-          const timeToRead = readingTime(content);
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {props.feed.map((post: PostProps, index: number) => {
+          const timeToRead = readingTime(post.content);
 
           return (
             <div
-              className="overflow-hidden rounded-xl bg-neutral-800"
+              className="flex flex-col overflow-hidden rounded-lg bg-neutral-800 sm:flex-row"
               key={post.id}
             >
-              <div className="grid-cols-6 md:grid">
-                <div className="relative col-span-2 hidden md:block">
-                  <Image
-                    className=""
-                    alt="placeholder"
-                    layout="fill"
-                    objectFit="cover"
-                    src={"/150x250.png"}
-                  />
-                </div>
+              {/* Left image */}
+              <div className="relative h-36 w-full border sm:h-full sm:w-2/5">
+                <Image
+                  alt="placeholder"
+                  layout="fill"
+                  objectFit="cover"
+                  src={"/150x250.png"}
+                />
+              </div>
 
-                <div className="relative block h-[250px]  md:hidden">
-                  <Image
-                    className=""
-                    alt="placeholder"
-                    layout="fill"
-                    objectFit="cover"
-                    src={"/150x250.png"}
-                  />
-                </div>
+              {/* right text */}
+              <div className="flex w-full flex-col justify-between p-4">
+                <h1 className="mb-2 text-xl font-semibold">{post.title}</h1>
+                <p className="mb-4 min-h-[80px] flex-1 text-sm text-neutral-500 dark:text-neutral-400">
+                  {post.preview}
+                </p>
 
-                <div className="col-span-4 flex flex-col p-4">
-                  <h2 className="text-xl font-medium">
-                    <Link href={`/blog/${post.slug}`}>
-                      <a>{post.title}</a>
-                    </Link>
-                  </h2>
-                  <p className="my-5 h-full text-sm text-neutral-400">
-                    {post.content}
-                  </p>
-                  <div className="justify-self-end text-xs">
-                    <p className="text-sm">{post.author.name}</p>
-                    <p className="text-neutral-400">
-                      {dateToString(post.createdAt)}{" "}
-                      <div className="mx-2 inline">•</div>{" "}
-                      {readingTime(content)} min read
-                    </p>
+                <div className="">
+                  <p className="text-sm">{post.author.name}</p>
+                  <div className=" mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+                    {dateToString(post.createdAt)}
+                    <div className="mx-2 inline text-xs">•</div> {timeToRead}{" "}
+                    min read
                   </div>
                 </div>
               </div>
+              {/* <div className="flex w-full flex-wrap border  border-pink-500">
+                <h2 className="h-fit border">
+                  {post.title}
+                  {post.title}
+                </h2>
+                <p className="  border">
+                  {index % 3
+                    ? `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Dicta deserunt a at adipisci iusto consectetur doloribus nisi
+                  minus numquam? Atque, error at. Hic impedit laboriosam
+                  architecto quod nobis est autem.`
+                    : "one line one lineone lineone lineone lineone line"}
+                </p>
+
+                <div className="border text-xs">
+                  <p className="text-sm">{post.author.name}</p>
+                  <p className="text-neutral-500 dark:text-neutral-400">
+                    {dateToString(post.createdAt)}{" "}
+                    <div className="mx-2 inline">•</div> {timeToRead} min read
+                  </p>
+                </div>
+              </div> */}
             </div>
           );
         })}

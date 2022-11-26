@@ -12,11 +12,11 @@ model Post {
   createdAt DateTime @default(now())
   slug      String   @unique
   title     String
-  preview   String?
+  preview   String
   content   String
   published Boolean  @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  String?  @db.ObjectId
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
 }
 
 model Account {
@@ -48,8 +48,8 @@ model Session {
 
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
+  name          String
+  email         String    @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]

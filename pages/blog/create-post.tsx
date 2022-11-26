@@ -146,8 +146,8 @@ const Draft: React.FC = () => {
             isPreviewing ? "mt-16 block opacity-100" : "hidden opacity-0"
           }`}
         >
-          <CustomReactMarkdown title={title}>
-            {markdownSample}
+          <CustomReactMarkdown preview={previewContent} title={title}>
+            {content}
           </CustomReactMarkdown>
         </div>
         <div className="mt-10 flex justify-end gap-6">

@@ -11,6 +11,9 @@ import remarkEmoji from "remark-emoji";
 import remarkGithubBlockQuote from "remark-github-beta-blockquote-admonitions";
 import { dateToString } from "../../utils/date";
 
+import Image from "next/image";
+import { readingTime } from "../../utils/readingTime";
+
 const CustomReactMarkdown = ({
   children,
   title,
@@ -20,14 +23,43 @@ const CustomReactMarkdown = ({
 }: any) => {
   const publishDate = dateToString(createdAt);
 
+  const timeToRead = readingTime(children);
+
   return (
-    // Padding bottom fixes a strange glitch
-    <div className="content prose mx-auto pb-1 prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert lg:min-w-[800px]">
-      <div className="inline-block">
-        <p className="inline-block">By {author?.name || "Unknown author"}</p>
-        <p className="inline-block">{publishDate}</p>
-        <h1>{title}</h1>
-        <p className="inline-block">{preview}</p>
+    <div className="prose mx-auto text-neutral-900 prose-h1:font-medium prose-h2:font-semibold prose-p:text-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
+      <div className="items-top flex pb-10">
+        <div className="mr-8 h-[70px] w-[70px] flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br  from-neutral-300  to-neutral-100  dark:from-neutral-700 dark:to-neutral-300/10">
+          <Image
+            alt="Portiat of Chris Warren"
+            width={70}
+            height={70}
+            src={"/images/headshot2.png"}
+          />
+        </div>
+        <div className="mt-0">
+          <span className="my-0 block dark:text-white">{author.name}</span>
+          <span className="my-1.5 text-sm dark:text-neutral-400">
+            Fullstack developer and UX enthusiast.
+          </span>
+        </div>
+      </div>
+      <h1 className="mb-5 text-5xl">{title}</h1>
+      <div className=" text-neutral-500 dark:text-neutral-400">
+        <span>
+          {publishDate} <span className="mx-1.5 text-xs">•</span> {timeToRead}{" "}
+          min read
+        </span>
+      </div>
+      <p className="">{preview}</p>
+
+      <div className="relative mb-5 h-64">
+        <Image
+          className=""
+          layout="fill"
+          objectFit="cover"
+          alt="placeholder"
+          src={"/150x250.png"}
+        />
       </div>
 
       <ReactMarkdown
