@@ -1,5 +1,8 @@
 export const markdownSample = `## Table
 
+[click on this link](#the-code)
+
+### My Multi Word Header
 | Beep |   No.  |   Boop |
 | :--- | :----: | -----: |
 | beep |  1024  |    xyz |
@@ -13,11 +16,14 @@ export const markdownSample = `## Table
 * [x] done
 
 
+
+
   
 Lists
   * [ ] todo 
   * [x] done
   
+  # The code
   ~~~js
   # fn hey man adasd asd 
   export default function isInViewport(el) {
@@ -47,7 +53,7 @@ Lists
   > **Warning**
   > This is a warning
 
-  ![AltTextHere](/images/headshot.png)
+  ![AltTextHere](/images/headshot.png#center)
 
 
 

@@ -9,6 +9,7 @@ import { PostProps } from "../../@types/Post";
 import { MainContainer } from "../../components/containers/MainContainer";
 import { serializeData } from "../../utils/serializeData";
 import CustomReactMarkdown from "../../components/markdown/CustomReactMarkdown";
+import { markdownSample } from "../../assets/markdownExample";
 
 interface ApiPostProps extends PostProps {
   error: string;
@@ -52,7 +53,7 @@ const Post: React.FC<ApiPostProps> = (props) => {
           preview={preview}
           title={title}
         >
-          {props.content}
+          {markdownSample}
         </CustomReactMarkdown>
       </div>
     </MainContainer>
