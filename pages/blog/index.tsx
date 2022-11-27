@@ -65,18 +65,25 @@ const Blog = (props: any) => {
               key={post.id}
             >
               {/* Left image */}
-              <div className="relative h-36 w-full border sm:h-full sm:w-2/5">
-                <Image
-                  alt="placeholder"
-                  layout="fill"
-                  objectFit="cover"
-                  src={"/150x250.png"}
-                />
-              </div>
+              <Link href={`/blog/${post.slug}`}>
+                <a className="relative h-36 w-full border sm:h-full sm:w-2/5">
+                  <Image
+                    alt="placeholder"
+                    layout="fill"
+                    objectFit="cover"
+                    src={"/150x250.png"}
+                  />
+                </a>
+              </Link>
 
               {/* right text */}
               <div className="flex w-full flex-col justify-between p-4">
-                <h1 className="mb-2 text-xl font-semibold">{post.title}</h1>
+                <Link href={`/blog/${post.slug}`}>
+                  <a>
+                    <h1 className="mb-2 text-xl font-semibold">{post.title}</h1>
+                  </a>
+                </Link>
+
                 <p className="mb-4 min-h-[80px] flex-1 text-sm text-neutral-500 dark:text-neutral-400">
                   {post.preview}
                 </p>
@@ -90,28 +97,6 @@ const Blog = (props: any) => {
                   </div>
                 </div>
               </div>
-              {/* <div className="flex w-full flex-wrap border  border-pink-500">
-                <h2 className="h-fit border">
-                  {post.title}
-                  {post.title}
-                </h2>
-                <p className="  border">
-                  {index % 3
-                    ? `Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Dicta deserunt a at adipisci iusto consectetur doloribus nisi
-                  minus numquam? Atque, error at. Hic impedit laboriosam
-                  architecto quod nobis est autem.`
-                    : "one line one lineone lineone lineone lineone line"}
-                </p>
-
-                <div className="border text-xs">
-                  <p className="text-sm">{post.author.name}</p>
-                  <p className="text-neutral-500 dark:text-neutral-400">
-                    {dateToString(post.createdAt)}{" "}
-                    <div className="mx-2 inline">•</div> {timeToRead} min read
-                  </p>
-                </div>
-              </div> */}
             </div>
           );
         })}
