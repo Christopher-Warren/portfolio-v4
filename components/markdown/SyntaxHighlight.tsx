@@ -92,7 +92,7 @@ const SyntaxHighlight = ({
           </button>
         </div>
         <SyntaxHighlighter
-          style={dark as any}
+          style={dark}
           language={match[1]}
           PreTag="div"
           codeTagProps={{ className: "" }}
