@@ -140,9 +140,10 @@ const CustomReactMarkdown = ({
           code(props) {
             return <SyntaxHighlight {...props} />;
           },
-          h2: headingWithAnchor,
-
           h1: headingWithAnchor,
+          h2: headingWithAnchor,
+          h3: headingWithAnchor,
+          h4: headingWithAnchor,
         }}
       >
         {children}
