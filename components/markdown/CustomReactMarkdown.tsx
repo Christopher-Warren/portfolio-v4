@@ -64,7 +64,7 @@ const CustomReactMarkdown = ({
   };
 
   return (
-    <div className="prose mx-auto text-neutral-900 prose-headings:font-semibold prose-h1:font-medium  prose-h2:text-3xl prose-h3:text-2xl prose-p:text-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
+    <div className="prose mx-auto text-neutral-900 prose-headings:font-semibold prose-h1:font-medium prose-h2:text-3xl  prose-h3:text-2xl prose-p:text-lg prose-pre:m-0 prose-pre:bg-transparent prose-pre:p-0 prose-pre:py-6 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
       <div className="items-top flex pb-10">
         <div className="mr-8 h-[70px] w-[70px] flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br  from-neutral-300  to-neutral-100  dark:from-neutral-700 dark:to-neutral-300/10">
           <Image

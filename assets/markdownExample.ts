@@ -30,8 +30,18 @@ Lists
   * [x] done
   
   ## The code
+
+  install the thing
+
+  ~~~js 
+  npm install react
+  ~~~
+
+
+
+
   ~~~js
-  # fn hey man adasd asd 
+  #  index.ts
   export default function isInViewport(el) {
     var rect = el.getBoundingClientRect();
   
