@@ -26,7 +26,7 @@ const CustomReactMarkdown = ({
   const timeToRead = readingTime(children);
 
   return (
-    <div className="prose mx-auto text-neutral-900 prose-h1:font-medium prose-h2:font-semibold prose-p:text-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
+    <div className="prose mx-auto text-neutral-900 prose-headings:font-semibold prose-h1:font-medium  prose-h2:text-3xl prose-h3:text-2xl prose-p:text-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
       <div className="items-top flex pb-10">
         <div className="mr-8 h-[70px] w-[70px] flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br  from-neutral-300  to-neutral-100  dark:from-neutral-700 dark:to-neutral-300/10">
           <Image
@@ -101,6 +101,27 @@ const CustomReactMarkdown = ({
         components={{
           code(props) {
             return <SyntaxHighlight {...props} />;
+          },
+          h1({ children }) {
+            const heading = children[0];
+
+            // If we have a heading, make it lower case
+            let anchor =
+              typeof heading === "string" ? heading.toLowerCase() : "";
+
+            // Clean anchor (replace special characters whitespaces).
+            // Alternatively, use encodeURIComponent() if you don't care about
+            // pretty anchor links
+            anchor = anchor.replace(/[^a-zA-Z0-9 ]/g, "");
+            anchor = anchor.replace(/ /g, "-");
+
+            // Utility
+            const container = (children: React.ReactNode): JSX.Element => (
+              <a id={anchor} href={`#${anchor}`}>
+                <span>{children}</span>
+              </a>
+            );
+            return <h1>{container(children)}</h1>;
           },
         }}
       >

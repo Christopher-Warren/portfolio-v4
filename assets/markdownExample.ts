@@ -10,10 +10,16 @@ export const markdownSample = `## Table
 | foo  |  10106 | qrstuv |
 | bar  |   45   |   lmno |
 
-## Tasklist
+## <h2>
 
-* [ ] to do
-* [x] done
+### <h3>
+
+#### <h4>
+
+##### <h5>
+
+* to do
+* done
 
 
 
