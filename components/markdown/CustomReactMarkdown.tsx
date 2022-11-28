@@ -25,6 +25,44 @@ const CustomReactMarkdown = ({
 
   const timeToRead = readingTime(children);
 
+  const headingWithAnchor = ({ children, level }: any) => {
+    const heading = children[0];
+
+    // If we have a heading, make it lower case
+    let anchor = typeof heading === "string" ? heading.toLowerCase() : "";
+
+    // Clean anchor (replace special characters whitespaces).
+    // Alternatively, use encodeURIComponent() if you don't care about
+    // pretty anchor links
+    anchor = anchor.replace(/[^a-zA-Z0-9 ]/g, "");
+    anchor = anchor.replace(/ /g, "-");
+
+    // Utility
+    const container = (children: React.ReactNode): JSX.Element => (
+      <div className="relative no-underline">
+        <a id={anchor} href={`#${anchor}`} className="absolute -top-20" />
+        <span>{children}</span>
+      </div>
+    );
+
+    switch (level) {
+      case 1:
+        return <h1>{container(children)}</h1>;
+
+      case 2:
+        return <h2>{container(children)}</h2>;
+
+      case 3:
+        return <h3>{container(children)}</h3>;
+
+      case 4:
+        return <h4>{container(children)}</h4>;
+
+      default:
+        return <h2>{container(children)}</h2>;
+    }
+  };
+
   return (
     <div className="prose mx-auto text-neutral-900 prose-headings:font-semibold prose-h1:font-medium  prose-h2:text-3xl prose-h3:text-2xl prose-p:text-lg prose-pre:bg-transparent prose-pre:p-0 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
       <div className="items-top flex pb-10">
@@ -102,27 +140,9 @@ const CustomReactMarkdown = ({
           code(props) {
             return <SyntaxHighlight {...props} />;
           },
-          h1({ children }) {
-            const heading = children[0];
+          h2: headingWithAnchor,
 
-            // If we have a heading, make it lower case
-            let anchor =
-              typeof heading === "string" ? heading.toLowerCase() : "";
-
-            // Clean anchor (replace special characters whitespaces).
-            // Alternatively, use encodeURIComponent() if you don't care about
-            // pretty anchor links
-            anchor = anchor.replace(/[^a-zA-Z0-9 ]/g, "");
-            anchor = anchor.replace(/ /g, "-");
-
-            // Utility
-            const container = (children: React.ReactNode): JSX.Element => (
-              <a id={anchor} href={`#${anchor}`}>
-                <span>{children}</span>
-              </a>
-            );
-            return <h1>{container(children)}</h1>;
-          },
+          h1: headingWithAnchor,
         }}
       >
         {children}
