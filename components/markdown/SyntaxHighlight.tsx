@@ -55,7 +55,7 @@ const SyntaxHighlight = ({
   return (
     <div className="relative">
       <div className="overflow-hidden rounded-xl">
-        {!singleLine && (
+        {!singleLine && codeTitle && (
           <div className="flex h-8 justify-between rounded-t-lg bg-neutral-800">
             <span className="mx-[14px] mt-1">{codeTitle}</span>
           </div>
