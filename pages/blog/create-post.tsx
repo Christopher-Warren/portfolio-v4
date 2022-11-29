@@ -116,7 +116,7 @@ const Draft: React.FC = () => {
             </ul>
           </div>
           <div
-            className={`flex flex-col overflow-hidden transition-all  ${
+            className={`flex flex-col gap-5 overflow-hidden transition-all  ${
               isPreviewing ? "h-0 p-0" : "h-auto p-4"
             }`}
           >
