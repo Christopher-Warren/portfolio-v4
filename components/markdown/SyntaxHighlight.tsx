@@ -62,7 +62,7 @@ const SyntaxHighlight = ({
     <div className="relative">
       <div className="overflow-hidden rounded-xl">
         {!singleLine && codeTitle && (
-          <div className="flex h-10 items-center justify-between rounded-t-lg bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white">
+          <div className="flex h-10 items-center justify-between rounded-t-lg bg-[#e7e4e2] text-black dark:bg-neutral-800 dark:text-white">
             <span className="mx-[14px] mt-1">{codeTitle}</span>
           </div>
         )}
@@ -94,7 +94,7 @@ const SyntaxHighlight = ({
             <Icon
               className={`${
                 hasCopied
-                  ? "text-green-400"
+                  ? "text-green-600"
                   : "text-neutral-600 dark:text-neutral-200"
               }`}
               icon={faCopy}
