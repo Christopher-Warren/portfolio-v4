@@ -125,11 +125,11 @@ const CustomReactMarkdown = ({
                     "flex items-center before:text-lg before:font-serif before:inline-flex mb-2 before:mr-5 before:items-center before:w-8 before:h-8 before:border-2 before:rounded-full before:justify-center";
 
                   if (title === "Warning") {
-                    return `${baseStyle} before:content-['!'] before:dark:border-yellow-600 before:border-yellow-700 dark:text-yellow-600 text-yellow-700`;
+                    return `${baseStyle} before:content-['!'] before:dark:border-yellow-400 before:border-yellow-700 dark:text-yellow-400 text-yellow-700`;
                   }
 
                   if (title === "Note") {
-                    return `${baseStyle} before:content-['i'] before:dark:border-blue-600 before:border-blue-700 dark:text-blue-600 text-blue-700`;
+                    return `${baseStyle} before:content-['i'] before:dark:border-blue-500 before:border-blue-700 dark:text-blue-500 text-blue-700`;
                   }
                 },
               },

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { a11yDark as dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {
+  a11yDark as dark,
+  prism as light,
+} from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 
@@ -55,18 +58,16 @@ const SyntaxHighlight = ({
 
   const singleLine = children[0].split("\n").length - 1 === 1;
 
-  console.log(theme);
-
   return (
     <div className="relative">
       <div className="overflow-hidden rounded-xl">
         {!singleLine && codeTitle && (
-          <div className="flex h-8 justify-between rounded-t-lg bg-neutral-800">
+          <div className="flex h-10 items-center justify-between rounded-t-lg bg-neutral-100 text-black dark:bg-neutral-800 dark:text-white">
             <span className="mx-[14px] mt-1">{codeTitle}</span>
           </div>
         )}
 
-        <div className="absolute right-0">
+        <div className="absolute right-0 px-2">
           {/* Copied alert */}
           <div
             className={`absolute -top-6 left-0 right-0 rounded-lg bg-green-600 text-center transition-all duration-300 ${
@@ -78,7 +79,7 @@ const SyntaxHighlight = ({
           </div>
 
           <button
-            className={` flex  items-center justify-center rounded-lg bg-neutral-800  p-3 transition-opacity hover:opacity-80  
+            className={` flex  items-center justify-center rounded-lg border bg-neutral-100 p-3 text-black transition-opacity hover:opacity-80 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white  
           ${hasCopied ? " " : ""}
           ${singleLine ? "m-2 h-8 w-8 " : "m-3 h-10 w-10"}
          
@@ -91,13 +92,17 @@ const SyntaxHighlight = ({
             }}
           >
             <Icon
-              className={`${hasCopied ? "text-green-400" : "text-neutral-300"}`}
+              className={`${
+                hasCopied
+                  ? "text-green-400"
+                  : "text-neutral-600 dark:text-neutral-200"
+              }`}
               icon={faCopy}
             />
           </button>
         </div>
         <SyntaxHighlighter
-          style={dark}
+          style={theme === "dark" ? dark : light}
           language={match[1]}
           PreTag="div"
           codeTagProps={{ className: "" }}
