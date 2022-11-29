@@ -75,7 +75,9 @@ const CustomReactMarkdown = ({
           />
         </div>
         <div className="mt-0">
-          <span className="my-0 block dark:text-white">{author.name}</span>
+          <span className="my-0 block dark:text-white">
+            {author && author.name}
+          </span>
           <span className="my-1.5 text-sm dark:text-neutral-400">
             Fullstack developer and UX enthusiast.
           </span>

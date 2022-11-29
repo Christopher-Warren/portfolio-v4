@@ -27,6 +27,8 @@ const SyntaxHighlight = ({
 
   const [theme] = useDarkMode();
 
+  console.log(inline);
+
   useEffect(() => {
     if (hasCopied) {
       const timeout = setTimeout(() => {
@@ -49,12 +51,24 @@ const SyntaxHighlight = ({
     codeContent = String(children).split(codeTitle)[1].trimStart();
   }
 
-  if (!match)
+  if (inline) {
     return (
-      <code className={className} {...props}>
+      <code
+        className={`${className} rounded bg-[#e7e4e2] px-2 py-0.5 font-normal text-black before:hidden after:hidden dark:bg-neutral-800 dark:text-white`}
+        {...props}
+      >
         {children}
       </code>
     );
+  }
+
+  if (!match) {
+    return (
+      <code className={`${className}`} {...props}>
+        {children}
+      </code>
+    );
+  }
 
   const singleLine = children[0].split("\n").length - 1 === 1;
 

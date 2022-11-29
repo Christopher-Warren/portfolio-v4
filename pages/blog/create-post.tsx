@@ -17,6 +17,7 @@ import {
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -24,6 +25,8 @@ const Draft: React.FC = () => {
   const [previewContent, setPreviewContent] = useState("");
 
   const [isPreviewing, setIsPreviewing] = useState(false);
+
+  const { data: session } = useSession();
 
   const submitPost = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -146,7 +149,11 @@ const Draft: React.FC = () => {
             isPreviewing ? "mt-16 block opacity-100" : "hidden opacity-0"
           }`}
         >
-          <CustomReactMarkdown preview={previewContent} title={title}>
+          <CustomReactMarkdown
+            author={session?.user}
+            preview={previewContent}
+            title={title}
+          >
             {content}
           </CustomReactMarkdown>
         </div>
