@@ -2,11 +2,11 @@
 
 import React from "react";
 
-import Post from "../../components/forms/Post";
+import BlogPost from "../../components/forms/BlogPost";
 import { ApiPostProps } from "../../@types/Post";
 
-const Draft: React.FC<ApiPostProps> = (props) => {
-  return <Post {...props} />;
+const CreatePost: React.FC<ApiPostProps> = (props) => {
+  return <BlogPost {...props} />;
 };
 
-export default Draft;
+export default CreatePost;

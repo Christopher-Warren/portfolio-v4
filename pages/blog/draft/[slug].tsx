@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import prisma from "../../../lib/prisma";
 import { ApiPostProps } from "../../../@types/Post";
 import { serializeData } from "../../../utils/serializeData";
+import BlogPost from "../../../components/forms/BlogPost";
 
 export const getServerSideProps: GetServerSideProps<any> = async ({
   params,
@@ -33,7 +34,7 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
 };
 
 const Post: React.FC<ApiPostProps> = (props) => {
-  return <Post {...props} />;
+  return <BlogPost {...props} />;
 };
 
 export default Post;

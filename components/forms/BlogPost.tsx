@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 import Router from "next/router";
-import { MainContainer } from "../../components/containers/MainContainer";
+import { MainContainer } from "../containers/MainContainer";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import TextInput from "../../components/inputs/TextInput";
-import CustomReactMarkdown from "../../components/markdown/CustomReactMarkdown";
+import TextInput from "../inputs/TextInput";
+import CustomReactMarkdown from "../markdown/CustomReactMarkdown";
 import { markdownSample } from "../../assets/markdownExample";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,11 +18,13 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { PostProps } from "../../@types/Post";
 
+import { useRouter } from "next/router";
+
 interface ApiPostProps extends PostProps {
   error: string;
 }
 
-const Post: React.FC<ApiPostProps> = ({
+const BlogPost: React.FC<ApiPostProps> = ({
   id,
   title: initialTitle,
   author,
@@ -41,15 +43,29 @@ const Post: React.FC<ApiPostProps> = ({
 
   const [isPreviewing, setIsPreviewing] = useState(false);
 
+  const router = useRouter();
+
+  const isNewPost = !!router.route.match("create-post");
+
   const submitPost = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
       const body = { title, content, preview, previewImage, published: true };
-      await fetch(`/api/post/update/${id}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+
+      if (isNewPost) {
+        await fetch("/api/post", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+      } else {
+        await fetch(`/api/post/update/${id}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+      }
+
       // await Router.push("/blog/drafts");
     } catch (error) {
       console.error(error);
@@ -60,11 +76,21 @@ const Post: React.FC<ApiPostProps> = ({
     e.preventDefault();
     try {
       const body = { title, content, preview, previewImage };
-      await fetch(`/api/post/update/${id}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+
+      if (isNewPost) {
+        await fetch("/api/post", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+      } else {
+        await fetch(`/api/post/update/${id}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+      }
+
       // await Router.push("/blog/drafts");
     } catch (error) {
       console.error(error);
@@ -194,4 +220,4 @@ const Post: React.FC<ApiPostProps> = ({
     </MainContainer>
   );
 };
-export default Post;
+export default BlogPost;
