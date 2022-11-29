@@ -30,6 +30,8 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+const tags = ["#react", "#nextjs"];
+
 const Blog = (props: any) => {
   const { data: session } = useSession();
 
@@ -55,19 +57,23 @@ const Blog = (props: any) => {
           </button> */}
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-10 gap-y-10 md:grid-cols-2">
         {props.feed.map((post: PostProps, index: number) => {
           const timeToRead = readingTime(post.content);
 
           return (
             <div
-              className="flex flex-col overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800 sm:flex-row"
+              className="flex flex-col  rounded-lg bg-neutral-100 dark:bg-neutral-800 sm:flex-row"
               key={post.id}
             >
               {/* Left image */}
-              <Link href={`/blog/draft/${post.slug}`}>
-                <a className="relative h-36 w-full border sm:h-full sm:w-2/5">
+              <Link
+                className="overflow-hidden"
+                href={`/blog/draft/${post.slug}`}
+              >
+                <a className="relative h-36 w-full overflow-hidden rounded-t-lg sm:h-full sm:w-2/5 sm:rounded-l-lg sm:rounded-tr-none">
                   <Image
+                    className="overflow-hidden"
                     alt="placeholder"
                     layout="fill"
                     objectFit="cover"
@@ -77,24 +83,36 @@ const Blog = (props: any) => {
               </Link>
 
               {/* right text */}
-              <div className="flex w-full flex-col justify-between p-4">
+              <div className="relative flex w-full flex-col justify-between p-4 py-6">
                 <Link href={`/blog/${post.slug}`}>
                   <a>
                     <h1 className="mb-2 text-xl font-semibold">{post.title}</h1>
                   </a>
                 </Link>
-
                 <p className="mb-4 min-h-[80px] flex-1 text-sm text-neutral-500 dark:text-neutral-400">
                   {post.preview}
                 </p>
-
                 <div className="">
-                  <p className="text-sm">{post.author.name}</p>
-                  <div className=" mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-                    {dateToString(post.createdAt)}
-                    <div className="mx-2 inline text-xs">•</div> {timeToRead}{" "}
-                    min read
+                  <div>
+                    <p className="text-sm">{post.author.name}</p>
+                    <div className=" mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+                      {dateToString(post.createdAt)}
+                      <div className="mx-2 inline text-xs">•</div> {timeToRead}{" "}
+                      min read
+                    </div>
                   </div>
+                </div>
+                <div className="absolute -bottom-2 right-0 z-10 mx-3 align-middle text-xs ">
+                  {tags.map((t: any) => {
+                    return (
+                      <span
+                        className="rounded bg-neutral-700 px-1.5 py-0.5 text-neutral-300 odd:mr-3"
+                        key={t}
+                      >
+                        {t}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
