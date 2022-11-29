@@ -9,6 +9,7 @@ import {
   faChevronRight,
   faCopy,
 } from "@fortawesome/free-solid-svg-icons";
+import useDarkMode from "../../hooks/useTheme";
 
 const SyntaxHighlight = ({
   node,
@@ -20,6 +21,8 @@ const SyntaxHighlight = ({
   const match = /language-(\w+)/.exec(className || "");
 
   const [hasCopied, setHasCopied] = useState(false);
+
+  const [theme] = useDarkMode();
 
   useEffect(() => {
     if (hasCopied) {
@@ -51,6 +54,8 @@ const SyntaxHighlight = ({
     );
 
   const singleLine = children[0].split("\n").length - 1 === 1;
+
+  console.log(theme);
 
   return (
     <div className="relative">
