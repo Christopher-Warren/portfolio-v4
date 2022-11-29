@@ -1,61 +1,26 @@
-// pages/p/[id].tsx
-
 import React, { useState } from "react";
-import { GetServerSideProps } from "next";
-import ReactMarkdown from "react-markdown";
+
 import Router from "next/router";
-
-import { useSession } from "next-auth/react";
-import prisma from "../../../lib/prisma";
-import { PostProps } from "../../../@types/Post";
-import { MainContainer } from "../../../components/containers/MainContainer";
-
+import { MainContainer } from "../../components/containers/MainContainer";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { serializeData } from "../../../utils/serializeData";
-
-import SyntaxHighlight from "../../../components/markdown/SyntaxHighlight";
-
-import remarkEmoji from "remark-emoji";
-import remarkGithubBlockQuote from "remark-github-beta-blockquote-admonitions";
-
-import { markdownSample } from "../../../assets/markdownExample";
-import CustomReactMarkdown from "../../../components/markdown/CustomReactMarkdown";
-import TextInput from "../../../components/inputs/TextInput";
+import TextInput from "../../components/inputs/TextInput";
+import CustomReactMarkdown from "../../components/markdown/CustomReactMarkdown";
+import { markdownSample } from "../../assets/markdownExample";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronCircleLeft,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 
 import Link from "next/link";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { useSession } from "next-auth/react";
+import { PostProps } from "../../@types/Post";
 
 interface ApiPostProps extends PostProps {
   error: string;
 }
-
-export const getServerSideProps: GetServerSideProps<any> = async ({
-  params,
-}) => {
-  const post = await prisma.post.findUnique({
-    where: {
-      slug: String(params?.slug),
-    },
-    include: {
-      author: {
-        select: { name: true, email: true },
-      },
-    },
-  });
-
-  if (!post)
-    return {
-      props: {
-        error: "Post not found",
-      },
-    };
-
-  return {
-    props: serializeData(post),
-  };
-};
 
 const Post: React.FC<ApiPostProps> = ({
   id,
@@ -229,5 +194,4 @@ const Post: React.FC<ApiPostProps> = ({
     </MainContainer>
   );
 };
-
 export default Post;

@@ -61,11 +61,11 @@ const Blog = (props: any) => {
 
           return (
             <div
-              className="flex flex-col overflow-hidden rounded-lg bg-neutral-800 sm:flex-row"
+              className="flex flex-col overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800 sm:flex-row"
               key={post.id}
             >
               {/* Left image */}
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={`/blog/draft/${post.slug}`}>
                 <a className="relative h-36 w-full border sm:h-full sm:w-2/5">
                   <Image
                     alt="placeholder"
