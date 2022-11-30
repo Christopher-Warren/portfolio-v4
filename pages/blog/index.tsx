@@ -13,6 +13,7 @@ import { readingTime } from "../../utils/readingTime";
 
 import Image from "next/image";
 import { dateToString } from "../../utils/date";
+import TextInput from "../../components/inputs/TextInput";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -39,16 +40,16 @@ const Blog = (props: any) => {
     <MainContainer>
       {session && <BlogNavigation />}
 
-      <div className="max-w-2xl ">
-        <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug ">
-          {`Things I've built to show the world my web dev chops.`}
+      <div className="w-fit max-w-2xl">
+        <h1 className="mt-6  text-4xl font-semibold md:leading-snug">
+          {`Recent Articles`}
         </h1>
-        <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
+        {/* <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
           {`I've worked on many projects throughout the past few years but these
             are the ones that I'm most proud of. Most of them are actively
             deployed and accompanied by public repos, so feel free to check them
             out.`}
-        </p>
+        </p> */}
 
         {/* connect icons */}
 
@@ -56,7 +57,7 @@ const Blog = (props: any) => {
             Download CV
           </button> */}
       </div>
-
+      <div className="my-3 h-px w-full bg-neutral-700" />
       <div className="mt-10 grid grid-cols-1 gap-10 gap-y-10 md:grid-cols-2">
         {props.feed.map((post: PostProps, index: number) => {
           const timeToRead = readingTime(post.content);
