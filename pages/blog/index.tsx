@@ -83,7 +83,7 @@ const Blog = (props: any) => {
               </Link>
 
               {/* right text */}
-              <div className="relative flex w-full flex-col justify-between p-4 py-6">
+              <div className="relative flex w-full flex-col justify-between p-4">
                 <Link href={`/blog/${post.slug}`}>
                   <a>
                     <h1 className="mb-2 text-xl font-semibold">{post.title}</h1>
@@ -102,7 +102,8 @@ const Blog = (props: any) => {
                     </div>
                   </div>
                 </div>
-                <div className="absolute -bottom-2 right-0 z-10 mx-3 align-middle text-xs ">
+                {/*  */}
+                {/* <div className="absolute -bottom-2 right-0 z-10 mx-3 align-middle text-xs ">
                   {tags.map((t: any) => {
                     return (
                       <span
@@ -113,7 +114,7 @@ const Blog = (props: any) => {
                       </span>
                     );
                   })}
-                </div>
+                </div> */}
               </div>
             </div>
           );
