@@ -3,6 +3,8 @@ import { GetServerSideProps } from "next";
 import ReactMarkdown from "react-markdown";
 import Router from "next/router";
 
+import Head from "next/head";
+
 import { useSession } from "next-auth/react";
 import prisma from "../../lib/prisma";
 import { PostProps } from "../../@types/Post";
@@ -45,18 +47,29 @@ const Post: React.FC<ApiPostProps> = (props) => {
   const { title, createdAt, author, preview } = props;
 
   return (
-    <MainContainer>
-      <div className="mx-auto min-h-screen max-w-[800px]">
-        <CustomReactMarkdown
-          author={author}
-          createdAt={createdAt}
-          preview={preview}
-          title={title}
-        >
-          {markdownSample}
-        </CustomReactMarkdown>
-      </div>
-    </MainContainer>
+    <>
+      <Head>
+        <title>{title}</title>
+
+        <meta property="og:image" content="" />
+        <meta property="og:description" content={preview} />
+        <meta property="og:title" content={title} />
+
+        <meta name="twitter:title" content={title} />
+      </Head>
+      <MainContainer>
+        <div className="mx-auto min-h-screen max-w-[800px]">
+          <CustomReactMarkdown
+            author={author}
+            createdAt={createdAt}
+            preview={preview}
+            title={title}
+          >
+            {markdownSample}
+          </CustomReactMarkdown>
+        </div>
+      </MainContainer>
+    </>
   );
 };
 export default Post;
