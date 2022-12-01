@@ -58,7 +58,7 @@ const Post: React.FC<ApiPostProps> = (props) => {
         <meta name="twitter:title" content={title} />
       </Head>
       <MainContainer>
-        <div className="mx-auto min-h-screen max-w-[800px]">
+        <article className="mx-auto min-h-screen max-w-[800px]">
           <CustomReactMarkdown
             author={author}
             createdAt={createdAt}
@@ -67,7 +67,7 @@ const Post: React.FC<ApiPostProps> = (props) => {
           >
             {markdownSample}
           </CustomReactMarkdown>
-        </div>
+        </article>
       </MainContainer>
     </>
   );

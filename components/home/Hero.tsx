@@ -24,7 +24,7 @@ export const Hero = () => {
       </div>
 
       <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug">
-        Unapologetically self-taught{" "}
+        Passionate, and solution focused{" "}
         <span className="bg-gradient-to-br from-teal-500 to-green-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-green-400">
           full stack
         </span>{" "}
