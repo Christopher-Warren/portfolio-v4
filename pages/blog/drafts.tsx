@@ -3,6 +3,7 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import { useSession, getSession } from "next-auth/react";
+import { unstable_getServerSession } from "next-auth/next";
 
 import Link from "next/link";
 
@@ -11,29 +12,30 @@ import prisma from "../../lib/prisma";
 import { MainContainer } from "../../components/containers/MainContainer";
 import { PostProps } from "../../@types/Post";
 import { serializeData } from "../../utils/serializeData";
+import { AuthOptions } from "../api/auth/[...nextauth]";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const session = await getSession({ req });
+  const session = await unstable_getServerSession(req, res, AuthOptions);
 
   if (!session) {
     return { props: { drafts: [] } };
-  } else {
-    const drafts = await prisma.post.findMany({
-      where: {
-        author: { email: session.user?.email },
-        published: false,
-      },
-      include: {
-        author: {
-          select: { name: true, email: true },
-        },
-      },
-    });
-
-    return {
-      props: { drafts: serializeData(drafts) },
-    };
   }
+
+  const drafts = await prisma.post.findMany({
+    where: {
+      author: { email: session.user?.email },
+      published: false,
+    },
+    include: {
+      author: {
+        select: { name: true, email: true },
+      },
+    },
+  });
+
+  return {
+    props: { drafts: serializeData(drafts) },
+  };
 };
 
 type Props = {
