@@ -18,7 +18,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   console.log(session);
 
   if (!session) {
-    res.statusCode = 403;
     return { props: { drafts: [] } };
   }
   console.log(session, session.user?.email);
