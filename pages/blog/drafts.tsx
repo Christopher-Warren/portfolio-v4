@@ -15,27 +15,25 @@ import { serializeData } from "../../utils/serializeData";
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
 
-  console.log(session);
-
   if (!session) {
     return { props: { drafts: [] } };
-  }
-  console.log(session, session.user?.email);
-  const drafts = await prisma.post.findMany({
-    where: {
-      author: { email: session.user?.email },
-      published: false,
-    },
-    include: {
-      author: {
-        select: { name: true, email: true },
+  } else {
+    const drafts = await prisma.post.findMany({
+      where: {
+        author: { email: session.user?.email },
+        published: false,
       },
-    },
-  });
+      include: {
+        author: {
+          select: { name: true, email: true },
+        },
+      },
+    });
 
-  return {
-    props: { drafts: serializeData(drafts) },
-  };
+    return {
+      props: { drafts: serializeData(drafts) },
+    };
+  }
 };
 
 type Props = {
