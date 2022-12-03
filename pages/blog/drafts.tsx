@@ -15,15 +15,16 @@ import { serializeData } from "../../utils/serializeData";
 import { AuthOptions } from "../api/auth/[...nextauth]";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  // const session = await unstable_getServerSession(req, res, AuthOptions);
+  console.log("dwdw");
+  const session = await unstable_getServerSession(req, res, AuthOptions);
 
-  // if (!session) {
-  //   return { props: { drafts: [] } };
-  // }
+  if (!session?.user?.email) {
+    return { props: { drafts: [] } };
+  }
 
   const drafts = await prisma.post.findMany({
     where: {
-      author: { email: "chrisalmith@gmail.com" },
+      author: { email: session.user.email },
       published: false,
     },
     include: {
@@ -44,6 +45,8 @@ type Props = {
 
 const Drafts: React.FC<Props> = (props) => {
   const { data: session } = useSession();
+
+  console.log(props);
 
   if (!session) {
     return (
