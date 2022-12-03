@@ -106,16 +106,17 @@ const BlogPost: React.FC<ApiPostProps> = ({
 
   if (error) return <div>{error}</div>;
 
+  console.log(router);
+
   return (
     <MainContainer>
       <div className="mx-auto min-h-screen max-w-[800px]">
-        <Link className="border" href={"/blog"}>
-          <a>
-            <button className="mt-2 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 text-neutral-300 transition-colors hover:border-neutral-500 hover:text-neutral-500 dark:border-neutral-700 dark:text-neutral-700 dark:hover:border-neutral-200 dark:hover:text-neutral-200">
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </button>
-          </a>
-        </Link>
+        <button
+          onClick={() => router.back()}
+          className="mt-2 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 text-neutral-300 transition-colors hover:border-neutral-500 hover:text-neutral-500 dark:border-neutral-700 dark:text-neutral-700 dark:hover:border-neutral-200 dark:hover:text-neutral-200"
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
 
         <h1 className="my-10 text-xl">New Post</h1>
         <form className="mx-auto rounded-lg border border-neutral-300 shadow-lg dark:border-neutral-700">
@@ -200,7 +201,14 @@ const BlogPost: React.FC<ApiPostProps> = ({
             isPreviewing ? "mt-16 block opacity-100" : "hidden opacity-0"
           }`}
         >
-          <CustomReactMarkdown title={title}>{content}</CustomReactMarkdown>
+          <CustomReactMarkdown
+            createdAt={createdAt}
+            author={author}
+            title={title}
+            published={published}
+          >
+            {content}
+          </CustomReactMarkdown>
         </div>
         <div className="mt-10 flex justify-end gap-6">
           <button

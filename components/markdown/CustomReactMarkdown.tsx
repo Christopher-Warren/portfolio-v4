@@ -20,8 +20,11 @@ const CustomReactMarkdown = ({
   author,
   createdAt,
   preview,
+  published,
 }: any) => {
   const publishDate = dateToString(createdAt);
+
+  console.log(createdAt);
 
   const timeToRead = readingTime(children);
 
@@ -82,6 +85,9 @@ const CustomReactMarkdown = ({
             Fullstack developer and UX enthusiast.
           </span>
         </div>
+      </div>
+      <div className="mb-5 w-fit rounded-full bg-neutral-200 px-2 dark:bg-neutral-700 ">
+        {published ? "Published" : "Unpublished"}
       </div>
       <h1 className="mb-5 text-5xl">{title}</h1>
       <div className=" text-neutral-500 dark:text-neutral-400">
