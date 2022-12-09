@@ -33,9 +33,10 @@ export default async function handle(
         where: { id: postId },
         data: req.body,
       });
+
+      console.log(post);
     }
   }
 
-  // console.log(post);
   res.json({ hey: "hjere" });
 }

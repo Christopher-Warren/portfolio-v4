@@ -44,18 +44,6 @@ const Blog = (props: any) => {
         <h1 className="mt-6  text-4xl font-semibold md:leading-snug">
           {`Recent Articles`}
         </h1>
-        {/* <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
-          {`I've worked on many projects throughout the past few years but these
-            are the ones that I'm most proud of. Most of them are actively
-            deployed and accompanied by public repos, so feel free to check them
-            out.`}
-        </p> */}
-
-        {/* connect icons */}
-
-        {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
-            Download CV
-          </button> */}
       </div>
       <div className="my-3 h-px w-full bg-neutral-700" />
       <div className="mt-10 grid grid-cols-1 gap-10 gap-y-10 md:grid-cols-2">
@@ -68,10 +56,7 @@ const Blog = (props: any) => {
               key={post.id}
             >
               {/* Left image */}
-              <Link
-                className="overflow-hidden"
-                href={`/blog/draft/${post.slug}`}
-              >
+              <Link className="overflow-hidden" href={`/blog/${post.slug}`}>
                 <a className="relative h-36 w-full overflow-hidden rounded-t-lg sm:h-full sm:w-2/5 sm:rounded-l-lg sm:rounded-tr-none">
                   <Image
                     className="overflow-hidden"

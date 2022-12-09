@@ -14,6 +14,9 @@ import { dateToString } from "../../utils/date";
 import Image from "next/image";
 import { readingTime } from "../../utils/readingTime";
 
+import Link from "next/link";
+import { useSession } from "next-auth/react";
+
 const CustomReactMarkdown = ({
   children,
   title,
@@ -21,10 +24,10 @@ const CustomReactMarkdown = ({
   createdAt,
   preview,
   published,
+  slug,
+  id,
 }: any) => {
   const publishDate = dateToString(createdAt);
-
-  console.log(createdAt);
 
   const timeToRead = readingTime(children);
 
@@ -66,8 +69,15 @@ const CustomReactMarkdown = ({
     }
   };
 
+  const { data: session } = useSession();
+
   return (
     <div className="prose mx-auto text-neutral-900 prose-headings:font-semibold prose-h1:font-medium prose-h2:text-3xl  prose-h3:text-2xl prose-p:text-lg prose-pre:m-0 prose-pre:bg-transparent prose-pre:p-0 prose-pre:py-6 dark:prose-invert dark:text-neutral-50 lg:min-w-[800px]">
+      {session && (
+        <Link href={`/blog/edit/${slug}`} key={id}>
+          <a>Edit Post</a>
+        </Link>
+      )}
       <div className="items-top flex pb-10">
         <div className="mr-8 h-[70px] w-[70px] flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br  from-neutral-300  to-neutral-100  dark:from-neutral-700 dark:to-neutral-300/10">
           <Image
@@ -97,7 +107,6 @@ const CustomReactMarkdown = ({
         </span>
       </div>
       <p className="">{preview}</p>
-
       <div className="relative mb-5 h-64">
         <Image
           className=""
@@ -107,7 +116,6 @@ const CustomReactMarkdown = ({
           src={"/150x250.png"}
         />
       </div>
-
       <ReactMarkdown
         remarkPlugins={[
           [remarkGfm],

@@ -106,8 +106,6 @@ const BlogPost: React.FC<ApiPostProps> = ({
 
   if (error) return <div>{error}</div>;
 
-  console.log(router);
-
   return (
     <MainContainer>
       <div className="mx-auto min-h-screen max-w-[800px]">

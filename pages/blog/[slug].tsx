@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
 };
 
 const Post: React.FC<ApiPostProps> = (props) => {
-  const { title, createdAt, author, preview } = props;
+  const { title, createdAt, author, preview, slug, id, published } = props;
 
   return (
     <>
@@ -62,8 +62,11 @@ const Post: React.FC<ApiPostProps> = (props) => {
           <CustomReactMarkdown
             author={author}
             createdAt={createdAt}
+            published={published}
             preview={preview}
             title={title}
+            slug={slug}
+            id={id}
           >
             {markdownSample}
           </CustomReactMarkdown>

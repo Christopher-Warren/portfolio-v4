@@ -63,7 +63,7 @@ const Drafts: React.FC<Props> = (props) => {
         <h1>My Drafts</h1>
         <main>
           {props.drafts.map((post) => (
-            <Link href={`/blog/draft/${post.slug}`} key={post.id}>
+            <Link href={`/blog/edit/${post.slug}`} key={post.id}>
               <a>
                 <div className="">
                   <div className="flex">

@@ -34,7 +34,6 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
 };
 
 const Post: React.FC<ApiPostProps> = (props) => {
-  console.log(props);
   return <BlogPost {...props} />;
 };
 
