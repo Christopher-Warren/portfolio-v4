@@ -15,7 +15,7 @@ export default async function handle(
   const session = await getSession({ req });
 
   // Get inputs
-  const { title, content, preview, published } = req.body;
+  const { title, content, preview, published, previewImage, tags } = req.body;
 
   if (session?.user?.email) {
     // Get user
@@ -28,15 +28,23 @@ export default async function handle(
 
     // Check that user is owner of post
     if (post?.authorId === user?.id) {
+      const now = new Date();
       // Update post
       const post = await prisma.post.update({
         where: { id: postId },
-        data: req.body,
+        data: {
+          title,
+          content,
+          preview,
+          previewImage,
+          published,
+          tags,
+          editedAt: now,
+        },
       });
-
-      console.log(post);
     }
   }
 
+  // @TODO
   res.json({ hey: "hjere" });
 }
