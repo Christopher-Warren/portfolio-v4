@@ -78,8 +78,14 @@ export const Navbar = () => {
           ?.classList.remove(...["overflow-hidden", "sm:overflow-auto"]);
   }, [showMobileNav]);
 
+  // @TODO: fix small mobile navbar bug that occurs when closing/opening modal
+
   return (
-    <div className="fixed left-0 right-0 z-30 mx-auto w-full border-b bg-white/80 shadow backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/80">
+    <div
+      className={`fixed left-0 right-0 z-30 mx-auto w-full border-b bg-white/80 shadow  dark:border-neutral-800 dark:bg-neutral-900/80 ${
+        !showMobileNav && "backdrop-blur"
+      }`}
+    >
       <div className="left-0 right-0 mx-auto flex h-14 max-w-7xl items-center justify-between px-4 lg:mx-16 xl:mx-auto">
         {/* Logo */}
         <div className="">
@@ -87,7 +93,7 @@ export const Navbar = () => {
             <Link href="/">
               <a
                 onClick={() => setShowMobileNav(false)}
-                className={`signature z-20 bg-clip-text p-2 text-xl ${
+                className={`signature z-50 bg-clip-text p-2 text-xl ${
                   router.pathname === "/"
                     ? " bg-gradient-to-br from-emerald-600 to-green-600 text-transparent dark:from-emerald-400 dark:to-green-400 "
                     : ""
@@ -193,15 +199,19 @@ export const Navbar = () => {
       {/* Modal */}
       <div className="relative flex justify-end sm:hidden">
         <div
-          className={` fixed  z-40 h-screen w-screen bg-neutral-200/40  backdrop-blur-md transition-all dark:bg-neutral-900/90 ${
+          className={` fixed top-0 z-40 h-screen w-screen bg-neutral-200/40  backdrop-blur transition-all  dark:bg-neutral-900/50 ${
             showMobileNav ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
-        />
+        >
+          {/* <a className="signature absolute bg-gradient-to-br from-emerald-600 to-green-600  bg-clip-text p-2 text-xl text-transparent dark:from-emerald-400 dark:to-green-400 ">
+            CW
+          </a> */}
+        </div>
 
         <div
           className={`fixed top-0 z-50 h-screen w-3/4 border border-neutral-200 bg-white shadow-md
-            transition-all duration-200 dark:border-none dark:bg-neutral-800 dark:text-neutral-200 sm:-mx-10
-            ${showMobileNav ? "right-0" : "-right-full"}`}
+            duration-300 dark:border-none dark:bg-neutral-800 dark:text-neutral-200 sm:-mx-10
+            ${showMobileNav ? "right-0" : "-right-full transition-all"}`}
         >
           <button
             onClick={() => setShowMobileNav(false)}
