@@ -72,10 +72,10 @@ export const Navbar = () => {
     showMobileNav
       ? document
           .querySelector("body")
-          ?.classList.add(...["overflow-hidden", "md:overflow-auto"])
+          ?.classList.add(...["overflow-hidden", "sm:overflow-auto"])
       : document
           .querySelector("body")
-          ?.classList.remove(...["overflow-hidden", "md:overflow-auto"]);
+          ?.classList.remove(...["overflow-hidden", "sm:overflow-auto"]);
   }, [showMobileNav]);
 
   return (
@@ -99,7 +99,7 @@ export const Navbar = () => {
           </div>
         </div>
         {/* Links */}
-        <nav className="ml-10 hidden md:block">
+        <nav className="ml-10 hidden sm:block">
           <ul className="flex">
             {navLinks.map((route: NavPath) => {
               const isCurrentPage = router.pathname.includes(route.href);
@@ -130,7 +130,7 @@ export const Navbar = () => {
 
         {/* Buttons */}
 
-        <div className="hidden items-center text-neutral-500  dark:text-neutral-300  md:flex">
+        <div className="hidden items-center text-neutral-500  dark:text-neutral-300  sm:flex">
           <button
             aria-label="Toggle dark mode"
             className="mr-1 flex items-center justify-center p-1 text-xl  transition-colors hover:text-yellow-500  hover:dark:text-indigo-500"
@@ -167,7 +167,7 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Nav */}
-        <div className="flex md:hidden">
+        <div className="flex sm:hidden">
           <button
             aria-label="Toggle dark mode"
             className="mr-2 flex items-center justify-center p-1 text-xl text-neutral-500 transition-colors hover:text-yellow-500 dark:text-neutral-300 hover:dark:text-indigo-500"
@@ -191,27 +191,27 @@ export const Navbar = () => {
       </div>
 
       {/* Modal */}
-      <div className="relative flex justify-end md:hidden">
+      <div className="relative flex justify-end sm:hidden">
         <div
-          className={` fixed  z-40 h-screen w-screen bg-neutral-200/90 backdrop-blur transition-all dark:bg-neutral-900/40 ${
+          className={` fixed  z-40 h-screen w-screen bg-neutral-200/40  backdrop-blur-md transition-all dark:bg-neutral-900/90 ${
             showMobileNav ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         />
 
         <div
-          className={`fixed top-0 z-50 h-screen w-3/4 border border-neutral-200 bg-neutral-100 shadow-md
+          className={`fixed top-0 z-50 h-screen w-3/4 border border-neutral-200 bg-white shadow-md
             transition-all duration-200 dark:border-none dark:bg-neutral-800 dark:text-neutral-200 sm:-mx-10
             ${showMobileNav ? "right-0" : "-right-full"}`}
         >
           <button
             onClick={() => setShowMobileNav(false)}
             aria-label="Close navigation menu"
-            className="absolute right-0 flex h-6 w-6 items-center justify-center p-7"
+            className="absolute right-2 flex  items-center justify-center p-5 text-xl"
           >
             <Icon icon={faX} />
           </button>
           <nav>
-            <ul className="ml-10 mt-10 mb-10 flex flex-col text-xl">
+            <ul className="ml-10 mt-10 mb-10 flex flex-col text-xl ">
               {navLinks.map((route: NavPath) => {
                 const isCurrentPage = router.pathname === route.href;
                 return (

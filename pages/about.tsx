@@ -173,7 +173,7 @@ const About = ({ image }: any) => {
               </div>
 
               {/* socials */}
-              <div className="pt-5">
+              <div className="pt-5 pl-5">
                 <ul className="text-sm text-neutral-500  dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
                   <li className="">
                     <Link href={socialLinks.linkedin}>
@@ -182,7 +182,7 @@ const About = ({ image }: any) => {
                           className="mr-3 h-6 w-6 text-2xl "
                           icon={faLinkedin}
                         />
-                        <span className="align-top">Follow on LinkedIn</span>
+                        <span className="align-top">LinkedIn</span>
                       </a>
                     </Link>
                   </li>
@@ -193,7 +193,7 @@ const About = ({ image }: any) => {
                           className="mr-3 h-6 w-6 text-2xl"
                           icon={faGithub}
                         />
-                        <span className="align-top">Follow on Github</span>
+                        <span className="align-top">Github</span>
                       </a>
                     </Link>
                   </li>
@@ -204,7 +204,7 @@ const About = ({ image }: any) => {
                           className="mr-3 h-6 w-6 text-2xl "
                           icon={faTwitter}
                         />
-                        <span className="align-top">Follow on Twitter</span>
+                        <span className="align-top">Twitter</span>
                       </a>
                     </Link>
                   </li>
