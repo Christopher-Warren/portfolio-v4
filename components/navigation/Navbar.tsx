@@ -111,10 +111,7 @@ export const Navbar = () => {
               const isCurrentPage = router.pathname.includes(route.href);
 
               return (
-                <li
-                  key={route.pathname}
-                  className="relative flex items-center "
-                >
+                <li key={route.pathname} className="relative flex items-center">
                   <Link href={route.href}>
                     <a
                       className={`pointer-events-auto relative px-3 py-2 transition-colors hover:text-green-500 dark:hover:text-green-400 ${
@@ -125,7 +122,7 @@ export const Navbar = () => {
                     </a>
                   </Link>
                   <span
-                    className={`absolute bottom-0 left-0 -mb-[5px] hidden h-px  w-full bg-gradient-to-r from-transparent via-green-500/70 to-transparent shadow
+                    className={`absolute bottom-0 left-0 -mb-[9px] hidden h-px w-full  bg-gradient-to-r from-transparent via-green-500/70 to-transparent shadow
                     ${isCurrentPage && "lg:block"}`}
                   />
                 </li>
