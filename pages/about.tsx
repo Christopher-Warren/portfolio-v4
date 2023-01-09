@@ -72,8 +72,8 @@ const About = ({ image }: any) => {
       <MainContainer className="pt-44">
         <div className="justify-between gap-6 md:flex">
           {/* Left */}
-          <div className="max-w-lg">
-            <div className="relative mb-10 flex justify-center md:hidden">
+          <div className="max-w-lg ">
+            <div className="relative mb-10 hidden justify-center">
               <Image
                 className="mx-auto rounded-xl"
                 alt="Me at horsepens 40"
@@ -137,9 +137,9 @@ const About = ({ image }: any) => {
             </div>
 
             {/* right bottom */}
-            <div className="mt-10 flex justify-between gap-6 pb-32">
+            <div className="mt-10 flex justify-between pb-32">
               {/* skills */}
-              <div className="w-full rounded-lg border border-neutral-200 p-5 shadow-xl  dark:border-neutral-700">
+              <div className="w-full max-w-min rounded-lg border border-neutral-200 p-6 shadow-xl  dark:border-neutral-700">
                 <div className="mb-5 flex">
                   <FontAwesomeIcon
                     className="mr-4 self-center  text-xl text-neutral-400 "
@@ -173,9 +173,9 @@ const About = ({ image }: any) => {
               </div>
 
               {/* socials */}
-              <div className="mt-[22px] whitespace-nowrap">
-                <ul className="text-sm text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
-                  <li className="max-w-fit">
+              <div className="pt-5">
+                <ul className="text-sm text-neutral-500  dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
+                  <li className="">
                     <Link href={socialLinks.linkedin}>
                       <a className="flex items-center">
                         <FontAwesomeIcon
@@ -215,7 +215,7 @@ const About = ({ image }: any) => {
                           className="mr-3 h-6 w-6 text-2xl "
                           icon={faStackOverflow}
                         />
-                        <span className="align-top">Follow on LinkedIn</span>
+                        <span className="align-top">StackOverflow</span>
                       </a>
                     </Link>
                   </li>

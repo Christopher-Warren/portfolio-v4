@@ -67,9 +67,20 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Disable scrolling when modal is shown
+    showMobileNav
+      ? document
+          .querySelector("body")
+          ?.classList.add(...["overflow-hidden", "md:overflow-auto"])
+      : document
+          .querySelector("body")
+          ?.classList.remove(...["overflow-hidden", "md:overflow-auto"]);
+  }, [showMobileNav]);
+
   return (
     <div className="fixed left-0 right-0 z-30 mx-auto w-full border-b bg-white/80 shadow backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-900/80">
-      <div className="left-0 right-0 mx-auto flex h-12 max-w-7xl items-center justify-between px-4  lg:mx-16 xl:mx-auto">
+      <div className="left-0 right-0 mx-auto flex h-14 max-w-7xl items-center justify-between px-4 lg:mx-16 xl:mx-auto">
         {/* Logo */}
         <div className="">
           <div className="flex items-center">
@@ -159,7 +170,7 @@ export const Navbar = () => {
         <div className="flex md:hidden">
           <button
             aria-label="Toggle dark mode"
-            className="mr-1 flex items-center justify-center p-1 text-xl text-neutral-500 transition-colors hover:text-yellow-500 dark:text-neutral-300 hover:dark:text-indigo-500"
+            className="mr-2 flex items-center justify-center p-1 text-xl text-neutral-500 transition-colors hover:text-yellow-500 dark:text-neutral-300 hover:dark:text-indigo-500"
             onClick={() =>
               setTheme((prev: any) => {
                 if (prev === "light") return "dark";
@@ -171,26 +182,26 @@ export const Navbar = () => {
           </button>
           <button
             aria-label="Toggle dark mode"
-            className="mr-1 flex items-center justify-center p-1 text-xl text-neutral-500 transition-colors hover:text-neutral-900 dark:hover:text-neutral-100"
+            className="mr-1 flex items-center justify-center  p-1 text-xl text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
             onClick={() => setShowMobileNav(true)}
           >
-            <Icon className="" icon={mobileIcon} />
+            <Icon className="p-2 text-2xl" icon={mobileIcon} />
           </button>
         </div>
       </div>
 
       {/* Modal */}
-      <div className="relative flex justify-center md:hidden">
+      <div className="relative flex justify-end md:hidden">
         <div
-          className={` fixed top-0 left-0 z-40 h-screen w-screen bg-neutral-900/40 backdrop-blur ${
+          className={` fixed  z-40 h-screen w-screen bg-neutral-200/90 backdrop-blur transition-all dark:bg-neutral-900/40 ${
             showMobileNav ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         />
 
         <div
-          className={`fixed top-24 z-50 w-3/4 max-w-sm rounded-xl border border-neutral-200 bg-neutral-100 shadow-md
-            transition-opacity duration-200 dark:border-none dark:bg-neutral-800 dark:bg-neutral-800/90 dark:text-neutral-200 sm:-mx-10
-            ${showMobileNav ? "opacity-100" : "opacity-0"}`}
+          className={`fixed top-0 z-50 h-screen w-3/4 border border-neutral-200 bg-neutral-100 shadow-md
+            transition-all duration-200 dark:border-none dark:bg-neutral-800 dark:text-neutral-200 sm:-mx-10
+            ${showMobileNav ? "right-0" : "-right-full"}`}
         >
           <button
             onClick={() => setShowMobileNav(false)}
@@ -207,14 +218,16 @@ export const Navbar = () => {
                   <li key={route.pathname} className="relative w-10/12 py-1">
                     <Link href={route.href}>
                       <a
-                        className="relative block py-2"
+                        className={`relative block py-2 ${
+                          isCurrentPage && "font-semibold text-green-500"
+                        }`}
                         onClick={() => setShowMobileNav(false)}
                       >
                         {route.pathname}
                       </a>
                     </Link>
 
-                    {isCurrentPage ? (
+                    {/* {isCurrentPage ? (
                       <span
                         className={`absolute bottom-1.5  left-0 -mb-px h-0.5  w-10/12 bg-gradient-to-r from-green-500 via-emerald-500 to-transparent shadow`}
                       />
@@ -222,7 +235,7 @@ export const Navbar = () => {
                       <span
                         className={`absolute bottom-1.5  left-0 -mb-px h-px  w-10/12 bg-gradient-to-r from-neutral-700 to-transparent shadow`}
                       />
-                    )}
+                    )} */}
                   </li>
                 );
               })}

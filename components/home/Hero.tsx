@@ -37,7 +37,7 @@ export const Hero = () => {
       </p>
 
       {/* connect icons */}
-      <div className="mt-6 flex gap-6 text-xl text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
+      <div className="mt-6 space-x-6 text-xl text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
         <Link href={socialLinks.linkedin}>
           <a aria-label="Visit Christopher Warren's LinkedIn profile">
             <FontAwesomeIcon icon={faLinkedin} />
