@@ -15,7 +15,6 @@ import { serializeData } from "../../utils/serializeData";
 import { AuthOptions } from "../api/auth/[...nextauth]";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  console.log("dwdw");
   const session = await unstable_getServerSession(req, res, AuthOptions);
 
   if (!session?.user?.email) {
