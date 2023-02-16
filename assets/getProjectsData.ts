@@ -7,8 +7,10 @@ export const getProjects = async () => {
       id: 6,
       name: "GeoChat",
       folderName: "geochat",
-      description: `GeoChat is an Android/iPhone app built using React native. Implemented public APIs to give each user a unique identifier and name. Utilized Firebase Auth to authenticate users by their phone number.
-          Developed an API which tracks the users location, allowing users to anonymously view other users that are nearby. This gives them the option to initiate an SMS conversation which is terminated once users are no longer in range.
+      description: `GeoChat is an Android/iPhone app built using React Native. <br> <br>
+      
+          Implemented public APIs to give each user a unique identifier and name. Utilized Firebase Auth to authenticate users by their phone number.
+          Developed an API which tracks the users location, allowing users to anonymously view other users that are nearby. This gives them the option to initiate an anonymous SMS conversation which is terminated once users are no longer in range.
        
            `,
       tech: [
@@ -31,17 +33,16 @@ export const getProjects = async () => {
       id: 5,
       name: "Easydash",
       folderName: "easydash",
-      description: `Easydash is a Fullstack, GraphQL powered inventory management system; 
-        Built using Typescript, Node, Express, AWS S3, MongoDB, GraphQL, React, Redux, React-router, and TailwindCSS.
+      description: ` * This project was recently migrated to NextJS.<br><br> Easydash is a Fullstack, GraphQL powered ecommerce application.<br><br> On the seller side, EasyDash offers a user-friendly interface for managing product listings, tracking inventory, and fulfilling orders.  
+      <br><br>
+      On the buyer side, EasyDash offers a streamlined checkout process. Customers can easily browse through products, and add items to their cart. 
         
-        Easy dash features a dashboard in which a store owner can create, modify, and delete products. The store owner
-        can also upload any number of photos for each product. They can then create orders, fulfill them, upload tracking information, all while
-         viewing incoming orders real-time via the homepage. Lastly, Easydash features a fast, and powerful filtering and searching tool, created with
-         efficient MongoDB aggregation stages.
         `,
       tech: [
+        "NextJS",
         "Typescript",
         "React",
+
         "Redux",
         "GraphQL",
         "Node",
@@ -52,8 +53,7 @@ export const getProjects = async () => {
       ],
       primaryImage: "/images/projects/easydash/dashboard.png",
       images: [""],
-
-      demoURL: "https://easydash-deploy-test.herokuapp.com/",
+      demoURL: "https://easydash.vercel.app/",
       sourceURL: "https://github.com/Christopher-Warren/easydash",
     },
     {
@@ -61,7 +61,7 @@ export const getProjects = async () => {
       name: "Fenrir",
       folderName: "fenrir",
       description:
-        "A turn-based, survival(ish) RPG game, built from scratch, using - NextJS and MongoDB (for statistic collection). While the art assets are not created by me, the small game engine, itself, is. I built this project to show my skills with bringing an idea to life.",
+        "A turn-based, survival(ish) RPG game, built from scratch, using - NextJS, MongoDB, and public art assets. The game engine features leveling up, talents, and a battle system similar to ATB (Active Time Battle). I built this project to show my skill in bringing an idea to life.",
       tech: ["Javascript", "HTML5 Canvas", "NextJS", "React", "MongoDB"],
       primaryImage: "/images/projects/fenrir/fenrir-preview.png",
       images: [],

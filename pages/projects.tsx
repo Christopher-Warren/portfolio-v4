@@ -45,7 +45,7 @@ const Projects = ({ projects }: Props) => {
         />
       )}
 
-      <MainContainer className="pt-40">
+      <MainContainer className="pt-32 pb-1">
         <div className="max-w-2xl ">
           <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug ">
             {`Things I've built to show the world my web dev chops.`}
@@ -70,7 +70,7 @@ const Projects = ({ projects }: Props) => {
             <div
               id={`${project.folderName}`}
               key={index}
-              className="group py-24"
+              className="group my-28"
             >
               <div className="md:flex">
                 <div
@@ -89,7 +89,7 @@ const Projects = ({ projects }: Props) => {
                           Featured
                         </span>
                         <h2 className="text-2xl font-bold tracking-tighter">
-                          {project.name}
+                          <Link href={project.demoURL}>{project.name}</Link>
                         </h2>
                       </div>
 
@@ -135,9 +135,12 @@ const Projects = ({ projects }: Props) => {
                       className=" relative z-10 mb-4 rounded border-2 border-neutral-100 bg-white/80  p-4 shadow-lg backdrop-blur
                     dark:border-neutral-800 dark:bg-neutral-900/80 md:p-6"
                     >
-                      <p className="text-base  text-neutral-600 dark:text-neutral-300">
-                        {project.description}
-                      </p>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: project.description,
+                        }}
+                        className="text-base  text-neutral-600 dark:text-neutral-300"
+                      ></p>
                     </div>
                     <div className="relative z-10 mb-4 flex flex-wrap gap-3">
                       {project.tech.map((tech, techIndex) => {
@@ -167,7 +170,10 @@ const Projects = ({ projects }: Props) => {
                   >
                     <Icon icon={faImages} />
                   </button>
-                  <div className="">
+                  <div
+                    className="cursor-pointer"
+                    onClick={(e) => setSelectedProject(project)}
+                  >
                     <Image
                       alt="proj"
                       className="rounded"
