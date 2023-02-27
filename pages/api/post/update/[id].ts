@@ -44,7 +44,4 @@ export default async function handle(
       });
     }
   }
-
-  // @TODO
-  res.json({ hey: "hjere" });
 }
