@@ -88,27 +88,12 @@ export const Navbar = () => {
     >
       <div className="left-0 right-0 mx-auto flex h-14 max-w-7xl items-center justify-between px-4 lg:mx-16 xl:mx-auto">
         {/* Logo */}
-        <div className="">
-          <div className="flex items-center">
-            <Link href="/">
-              <a
-                onClick={() => setShowMobileNav(false)}
-                className={`signature z-50 bg-clip-text p-2 text-xl ${
-                  router.pathname === "/"
-                    ? " bg-gradient-to-br from-emerald-600 to-green-600 text-transparent dark:from-emerald-400 dark:to-green-400 "
-                    : ""
-                }`}
-              >
-                CW
-              </a>
-            </Link>
-          </div>
-        </div>
+        <div className=""></div>
         {/* Links */}
         <nav className="ml-10 hidden sm:block">
           <ul className="flex">
             {navLinks.map((route: NavPath) => {
-              const isCurrentPage = router.pathname.includes(route.href);
+              const isCurrentPage = router.pathname === route.href;
 
               return (
                 <li key={route.pathname} className="relative flex items-center">

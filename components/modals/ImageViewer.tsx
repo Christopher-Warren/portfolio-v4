@@ -23,6 +23,7 @@ const ImageViewer: React.FC<Props> = ({
       document.body.style.overflow = "visible";
     };
   }, [selectedProject.images]);
+
   return (
     <div
       onMouseDown={(e: any) => {
@@ -39,7 +40,7 @@ const ImageViewer: React.FC<Props> = ({
       }}
       className={`${
         selectedProject.images ? "block" : "hidden"
-      } fixed z-50 h-screen w-screen overflow-hidden bg-neutral-900/50 backdrop-blur`}
+      } fixed top-0 left-0 z-50 h-screen w-screen overflow-hidden bg-neutral-900/50 backdrop-blur`}
     >
       <div className="relative mx-auto h-full w-full max-w-7xl ">
         <button

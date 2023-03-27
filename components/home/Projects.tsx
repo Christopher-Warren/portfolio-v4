@@ -35,10 +35,13 @@ const Projects = ({ projects }: Props) => {
         />
       )}
 
-      {/* <MainContainer className="pt-32 pb-1"> */}
       <div className="max-w-2xl ">
-        <h2 className="mt-6 text-3xl font-bold tracking-tight md:text-3xl md:leading-snug ">
-          {`Projects I've built to show the world my web dev chops.`}
+        <h2 className="mt-20 text-3xl font-bold tracking-tight md:text-3xl md:leading-snug ">
+          {`Below are `}
+          <span className="bg-gradient-to-br from-teal-500 to-green-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-green-400">
+            Projects
+          </span>
+          {` I've built to show the world my web dev chops.`}
         </h2>
         <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
           {`I've worked on many projects throughout the past few years but these
@@ -46,12 +49,6 @@ const Projects = ({ projects }: Props) => {
             deployed and accompanied by public repos, so feel free to check them
             out.`}
         </p>
-
-        {/* connect icons */}
-
-        {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
-            Download CV
-          </button> */}
       </div>
       <div className="pb-2">
         {projects.map((project, index) => {
@@ -61,7 +58,7 @@ const Projects = ({ projects }: Props) => {
             <div
               id={`${project.folderName}`}
               key={index}
-              className="group my-28"
+              className="group my-20"
             >
               <div className="md:flex">
                 <div
@@ -180,7 +177,6 @@ const Projects = ({ projects }: Props) => {
           );
         })}
       </div>
-      {/* </MainContainer> */}
     </>
   );
 };
