@@ -7,21 +7,15 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 
 import { faImages } from "@fortawesome/free-regular-svg-icons";
-import { MainContainer } from "../components/containers/MainContainer";
+import { MainContainer } from "../../components/containers/MainContainer";
 
 import Head from "next/head";
 
-import ImageViewer from "../components/modals/ImageViewer";
+import ImageViewer from "../../components/modals/ImageViewer";
 import { useState } from "react";
 
-import { getProjects } from "../assets/getProjectsData";
-import { ProjectType } from "../@types/Projects";
-
-export async function getStaticProps() {
-  const projects = await getProjects();
-
-  return { props: { projects: projects } };
-}
+import { getProjects } from "../../assets/getProjectsData";
+import { ProjectType } from "../../@types/Projects";
 
 interface Props {
   projects: ProjectType[];
@@ -34,10 +28,6 @@ const Projects = ({ projects }: Props) => {
 
   return (
     <>
-      <Head>
-        <title>Christopher Warren - Projects</title>
-      </Head>
-
       {selectedProject && (
         <ImageViewer
           selectedProject={selectedProject}
@@ -45,24 +35,25 @@ const Projects = ({ projects }: Props) => {
         />
       )}
 
-      <MainContainer className="pt-32 pb-1">
-        <div className="max-w-2xl ">
-          <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug ">
-            {`Things I've built to show the world my web dev chops.`}
-          </h1>
-          <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
-            {`I've worked on many projects throughout the past few years but these
+      {/* <MainContainer className="pt-32 pb-1"> */}
+      <div className="max-w-2xl ">
+        <h2 className="mt-6 text-3xl font-bold tracking-tight md:text-3xl md:leading-snug ">
+          {`Projects I've built to show the world my web dev chops.`}
+        </h2>
+        <p className="mt-6 text-base leading-7 text-neutral-500 dark:text-neutral-400 ">
+          {`I've worked on many projects throughout the past few years but these
             are the ones that I'm most proud of. Most of them are actively
             deployed and accompanied by public repos, so feel free to check them
             out.`}
-          </p>
+        </p>
 
-          {/* connect icons */}
+        {/* connect icons */}
 
-          {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
+        {/* <button className="mt-6 bg-gradient-to-tr text-white duration-200 from-emerald-500 via-teal-500 to-green-500 shadow-lg hover:shadow-none  shadow-teal-700 rounded-md px-4 py-2">
             Download CV
           </button> */}
-        </div>
+      </div>
+      <div className="pb-2">
         {projects.map((project, index) => {
           const isEven = index % 2 === 1;
 
@@ -188,7 +179,8 @@ const Projects = ({ projects }: Props) => {
             </div>
           );
         })}
-      </MainContainer>
+      </div>
+      {/* </MainContainer> */}
     </>
   );
 };

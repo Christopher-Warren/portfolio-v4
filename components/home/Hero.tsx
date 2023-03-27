@@ -10,6 +10,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import InlineLink from "../links/InlineLink";
 import { socialLinks } from "../../assets/socialLinks";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export const Hero = () => {
   return (
@@ -26,14 +28,12 @@ export const Hero = () => {
       <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug">
         Passionate, and solution focused{" "}
         <span className="bg-gradient-to-br from-teal-500 to-green-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-green-400">
-          full stack
+          Front End
         </span>{" "}
         developer.
       </h1>
       <p className="mt-6 text-base  leading-7 text-neutral-500 dark:text-neutral-400">
-        {`I'm Chris, a full stack web developer that specializes in the front end. I'm currently building a blog to add to my `}
-        <InlineLink href="/projects">{`list of projects `}</InlineLink>
-        {`so I can share, and perhaps teach, some of the things I've learned in my journey of becoming a software developer.`}
+        {`I'm Chris, a Front End developer that specializes in building fast and user friendly experiences using React and React Native.`}
       </p>
 
       {/* connect icons */}
@@ -59,9 +59,28 @@ export const Hero = () => {
           </a>
         </Link>
       </div>
-      {/* <button className="mt-6 rounded-md bg-gradient-to-tr from-emerald-500 via-teal-500 to-green-500 px-4 py-2 text-white  shadow-lg shadow-teal-700 duration-200 hover:shadow-none">
-        Download CV
-      </button> */}
+
+      <div className="mt-7">
+        <a
+          href="mailto:chrisalmith@gmail.com"
+          className="group mr-6 inline-block rounded-md bg-neutral-100 p-[1px]"
+        >
+          <div className="h-full w-full items-center justify-center rounded-md bg-white px-6 py-3 text-neutral-900 shadow-lg transition-colors hover:text-neutral-50 group-hover:bg-neutral-900 dark:bg-neutral-100">
+            <FontAwesomeIcon className="mr-3" icon={faEnvelope} />
+            Contact Me
+          </div>
+        </a>
+
+        <a
+          href="/documents/CHRISTOPHERWARREN2023.docx"
+          className="group inline-block rounded-md bg-gradient-to-tr  from-cyan-400 to-green-400 p-[1px]"
+        >
+          <div className="h-full w-full items-center justify-center rounded-md bg-white px-6 py-3 shadow-lg shadow-green-500/20 transition-all hover:text-neutral-900 group-hover:bg-transparent group-hover:shadow-none dark:bg-neutral-900">
+            <FontAwesomeIcon className="mr-3" icon={faDownload} />
+            Download Resume
+          </div>
+        </a>
+      </div>
     </div>
   );
 };

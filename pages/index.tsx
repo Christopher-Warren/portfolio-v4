@@ -5,6 +5,8 @@ import { Hero, ImagesBreak, Info, RecentArticles } from "../components/home";
 
 import { getPlaiceholder } from "plaiceholder";
 import { extractImgSrc } from "@plaiceholder/tailwindcss/utils";
+import { getProjects } from "../assets/getProjectsData";
+import Projects from "../components/home/Projects";
 
 const getImagesFromPlaiceholders = (...classNames: string[]) =>
   Promise.all(
@@ -24,18 +26,21 @@ export const getStaticProps = async () => {
     "plaiceholder-[/images/climbing/climbing5.jpg]"
   );
 
+  const projects = await getProjects();
+
   return {
     props: {
       images,
+      projects,
     },
   };
 };
 
-const Home: NextPage = ({ images }: any) => {
+const Home: NextPage = ({ images, projects }: any) => {
   return (
     <>
       <Head>
-        <title>Christopher Warren - Full stack developer</title>
+        <title>Christopher Warren - Front End Developer</title>
 
         <meta property="og:title" content="Christopher Warren - Portfolio" />
         <meta property="og:image" content="/images/seo/seo-linkedin.png" />
@@ -49,11 +54,11 @@ const Home: NextPage = ({ images }: any) => {
       <MainContainer className="">
         <Hero />
         <ImagesBreak images={images} />
-
-        <div className="mt-20 gap-6 pb-32 lg:flex xl:mt-32 ">
+        <Projects projects={projects} />
+        {/* <div className="mt-20 gap-6 pb-32 lg:flex xl:mt-32 ">
           <RecentArticles />
           <Info />
-        </div>
+        </div> */}
       </MainContainer>
     </>
   );
