@@ -83,12 +83,16 @@ const Projects = ({ projects }: Props) => {
 
                       <div className="text-2xl text-neutral-600 dark:text-neutral-400">
                         <Link href={project.sourceURL}>
-                          <a className="transition-colors hover:text-neutral-800 dark:hover:text-neutral-100">
+                          <a
+                            target="_blank"
+                            className="transition-colors hover:text-neutral-800 dark:hover:text-neutral-100"
+                          >
                             <Icon icon={faGithub} />
                           </a>
                         </Link>
                         <Link href={project.demoURL}>
                           <a
+                            target="_blank"
                             className={`${
                               project.demoURL.length === 0 && "hidden"
                             } ml-4 transition-colors hover:text-neutral-800 dark:hover:text-neutral-100`}

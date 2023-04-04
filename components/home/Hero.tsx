@@ -39,22 +39,34 @@ export const Hero = () => {
       {/* connect icons */}
       <div className="mt-6 space-x-6 text-xl text-neutral-500 dark:text-neutral-400 [&>*]:transition-colors hover:[&>*]:cursor-pointer hover:[&>*]:text-neutral-900 dark:hover:[&>*]:text-white">
         <Link href={socialLinks.linkedin}>
-          <a aria-label="Visit Christopher Warren's LinkedIn profile">
+          <a
+            target="_blank"
+            aria-label="Visit Christopher Warren's LinkedIn profile"
+          >
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </Link>
         <Link href={socialLinks.github}>
-          <a aria-label="Visit Christopher Warren's GitHub profile">
+          <a
+            target="_blank"
+            aria-label="Visit Christopher Warren's GitHub profile"
+          >
             <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
           </a>
         </Link>
-        <Link href={socialLinks.twitter}>
-          <a aria-label="Visit Christopher Warren's Twitter profile">
+        {/* <Link href={socialLinks.twitter}>
+          <a
+            target="_blank"
+            aria-label="Visit Christopher Warren's Twitter profile"
+          >
             <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
           </a>
-        </Link>
+        </Link> */}
         <Link href={socialLinks.stackoverflow}>
-          <a aria-label="Visit Christopher Warren's Stackoverflow profile">
+          <a
+            target="_blank"
+            aria-label="Visit Christopher Warren's Stackoverflow profile"
+          >
             <FontAwesomeIcon icon={faStackOverflow} />
           </a>
         </Link>
