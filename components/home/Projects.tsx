@@ -63,16 +63,16 @@ const Projects = ({ projects }: Props) => {
               <div className="md:flex">
                 <div
                   className={`relative md:max-w-md xl:max-w-lg ${
-                    isEven ? "order-2 md:-inset-x-9" : "md:inset-x-9"
+                    isEven ? "order-2 " : ""
                   }`}
                 >
                   <div className="rounded ">
                     <div
-                      className={`mb-6 flex items-end justify-between ${
-                        isEven ? "md:ml-24" : "md:mr-24"
+                      className={`mb-6 flex items-end ${
+                        isEven ? "md:ml-20" : "md:mr-20"
                       }`}
                     >
-                      <div className="inline-block">
+                      <div className="mr-5 inline-block">
                         <span className="text-green-700 dark:text-green-400">
                           Featured
                         </span>
@@ -80,8 +80,10 @@ const Projects = ({ projects }: Props) => {
                           <Link href={project.demoURL}>{project.name}</Link>
                         </h2>
                       </div>
-
-                      <div className="text-2xl text-neutral-600 dark:text-neutral-400">
+                      <div className="pointer-events-none -mb-1 text-4xl text-neutral-600 opacity-20 dark:text-neutral-400">
+                        /
+                      </div>
+                      <div className="ml-5 text-2xl text-neutral-600  dark:text-neutral-400">
                         <Link href={project.sourceURL}>
                           <a
                             target="_blank"
@@ -95,7 +97,7 @@ const Projects = ({ projects }: Props) => {
                             target="_blank"
                             className={`${
                               project.demoURL.length === 0 && "hidden"
-                            } ml-4 transition-colors hover:text-neutral-800 dark:hover:text-neutral-100`}
+                            } ml-5 transition-colors hover:text-neutral-800 dark:hover:text-neutral-100`}
                           >
                             <Icon icon={faExternalLink} />
                           </a>

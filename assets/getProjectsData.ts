@@ -80,30 +80,30 @@ export const getProjects = async () => {
       demoURL: "https://dev-apparel.vercel.app/",
       sourceURL: "https://github.com/Christopher-Warren/dev-apparel",
     },
-    {
-      id: 2,
-      name: "Refurn",
-      folderName: "refurn",
-      description:
-        "Refurn is a Fullstack E-commerce App, built using - React, NodeJS, Express, MongoDB, Bootstrap, and Firebase Storage as a solution to store images. Refurn was built to exemplify my abilities to work with CRUD operations. Refurn supports authentication, allowing users to login and upload furniture they wish to sell. This then enables the owner to see the listing and either approve or deny the offer.",
-      tech: ["React", "NodeJs", "Express", "MongoDB", "Bootstrap", "Firestore"],
-      images: [""],
-      primaryImage: "/images/projects/refurn/refurn.png",
-      demoURL: "https://refurn.herokuapp.com/",
-      sourceURL: "https://github.com/Christopher-Warren/Refurn",
-    },
-    {
-      id: 1,
-      name: "IP Tracker",
-      folderName: "iptracker",
-      description:
-        "IP Tracker is an IP location tool, built using - React, TailwindCSS, and leaflet as a mapping solution. IP Tracker gets the users IP address on load and shows the location and ISP information. This tool features a Generate IP button which generates a random IP address, then shows the IP location and ISP info.",
-      tech: ["React", "Leaflet", "TailwindCSS"],
-      images: [""],
-      primaryImage: "/images/projects/iptracker/iptracker.png",
-      demoURL: "https://iptracker-phi.vercel.app/",
-      sourceURL: "https://github.com/Christopher-Warren/iptracker",
-    },
+    // {
+    //   id: 2,
+    //   name: "Refurn",
+    //   folderName: "refurn",
+    //   description:
+    //     "Refurn is a Fullstack E-commerce App, built using - React, NodeJS, Express, MongoDB, Bootstrap, and Firebase Storage as a solution to store images. Refurn was built to exemplify my abilities to work with CRUD operations. Refurn supports authentication, allowing users to login and upload furniture they wish to sell. This then enables the owner to see the listing and either approve or deny the offer.",
+    //   tech: ["React", "NodeJs", "Express", "MongoDB", "Bootstrap", "Firestore"],
+    //   images: [""],
+    //   primaryImage: "/images/projects/refurn/refurn.png",
+    //   demoURL: "https://refurn.herokuapp.com/",
+    //   sourceURL: "https://github.com/Christopher-Warren/Refurn",
+    // },
+    // {
+    //   id: 1,
+    //   name: "IP Tracker",
+    //   folderName: "iptracker",
+    //   description:
+    //     "IP Tracker is an IP location tool, built using - React, TailwindCSS, and leaflet as a mapping solution. IP Tracker gets the users IP address on load and shows the location and ISP information. This tool features a Generate IP button which generates a random IP address, then shows the IP location and ISP info.",
+    //   tech: ["React", "Leaflet", "TailwindCSS"],
+    //   images: [""],
+    //   primaryImage: "/images/projects/iptracker/iptracker.png",
+    //   demoURL: "https://iptracker-phi.vercel.app/",
+    //   sourceURL: "https://github.com/Christopher-Warren/iptracker",
+    // },
   ];
 
   const projectsWithImgs = projects.map((project) => {

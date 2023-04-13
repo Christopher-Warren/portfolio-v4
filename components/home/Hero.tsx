@@ -85,7 +85,7 @@ export const Hero = () => {
 
         <a
           href="/documents/CHRISTOPHERWARREN2023.docx"
-          className="group inline-block rounded-md bg-gradient-to-tr  from-cyan-400 to-green-400 p-[1px]"
+          className="group mt-6 inline-block rounded-md bg-gradient-to-tr  from-cyan-400 to-green-400 p-[1px] sm:mt-0"
         >
           <div className="h-full w-full items-center justify-center rounded-md bg-white px-6 py-3 shadow-lg shadow-green-500/20 transition-all hover:text-neutral-900 group-hover:bg-transparent group-hover:shadow-none dark:bg-neutral-900">
             <FontAwesomeIcon className="mr-3" icon={faDownload} />
