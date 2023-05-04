@@ -96,7 +96,7 @@ export const Info = () => {
         })}
 
         <a
-          href="/documents/Christopher_Warren_Resume_10_22-1.pdf"
+          href="/documents/Christopher_Warren_Resume.pdf"
           target="_blank"
           className="mt-3 block w-full rounded-lg bg-gradient-to-br from-green-400 to-teal-400 py-1.5 text-center font-semibold text-neutral-50 shadow-md transition-shadow duration-300 hover:shadow-none"
         >
