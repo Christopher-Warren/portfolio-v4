@@ -1,17 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLinkedin,
   faGithub,
   faStackOverflow,
   faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import InlineLink from "../links/InlineLink";
-import { socialLinks } from "../../assets/socialLinks";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
+import InlineLink from '../links/InlineLink';
+import { socialLinks } from '../../assets/socialLinks';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 export const Hero = () => {
   return (
@@ -21,19 +21,19 @@ export const Hero = () => {
           alt="Portiat of Chris Warren"
           width={75}
           height={75}
-          src={"/images/headshot2.png"}
+          src={'/images/headshot2.png'}
         />
       </div>
 
       <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl md:leading-snug">
-        Passionate, and solution focused{" "}
+        Passionate, and solution focused{' '}
         <span className="bg-gradient-to-br from-teal-500 to-green-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-green-400">
-          Front End
-        </span>{" "}
+          Full Stack
+        </span>{' '}
         developer.
       </h1>
       <p className="mt-6 text-base  leading-7 text-neutral-500 dark:text-neutral-400">
-        {`I'm Chris, a Front End developer that specializes in building fast and user friendly experiences using React and React Native.`}
+        {`I'm Chris, a Full Stack developer that specializes in building fast and user friendly experiences using React and React Native.`}
       </p>
 
       {/* connect icons */}
